@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Hotels in Bangkok | Late Culture</title>
+    <meta name="description" content="The best hotels in Bangkok, curated by Late Culture. Design-forward stays, riverside retreats, and the city's finest rooms.">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Best Hotels in Bangkok | Late Culture">
+    <meta property="og:description" content="The best hotels in Bangkok, curated by Late Culture.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://lateculture.com/hotels">
+    <meta property="og:image" content="https://lateculture.com/assets/og-hotels.jpg">
+    <meta property="og:site_name" content="Late Culture">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Best Hotels in Bangkok | Late Culture">
+    <meta name="twitter:description" content="The best hotels in Bangkok, curated by Late Culture.">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://lateculture.com/hotels">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@1,300;1,400&family=Indie+Flower&family=Inter:wght@300;400;500;600;700&family=Permanent+Marker&display=swap" rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/glass.css">
+    <link rel="stylesheet" href="css/hero.css">
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/cards.css">
+    <link rel="stylesheet" href="css/sections.css">
+    <link rel="stylesheet" href="css/map.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/venue-detail.css">
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "Best Hotels in Bangkok",
+        "description": "The best hotels in Bangkok, curated by Late Culture.",
+        "url": "https://lateculture.com/hotels",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Late Culture",
+            "url": "https://lateculture.com"
+        }
+    }
+    </script>
+</head>
+<body>
+
+    <!-- ============================================
+         GLASS NAV BAR
+         ============================================ -->
+    <nav class="glass-nav">
+        <div class="glass-nav__inner">
+            <div class="nav__wordmark-wrap" style="position:relative;">
+              <a href="index.html" class="nav__wordmark" style="text-decoration:none;color:#fff;font-family:'Impact',sans-serif;text-transform:uppercase;letter-spacing:0.04em;">LATE CULTURE&nbsp;<span style="color:#d4788a;">BANGKOK</span>
+                <svg class="city-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none" style="margin-left:6px;transition:transform .3s;"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+              <div class="city-dropdown" id="cityDropdown">
+                <a href="index.html" class="city-dropdown__item city-dropdown__item--active">
+                  <span class="city-dropdown__dot" style="background:#d4788a;"></span>
+                  <span class="city-dropdown__name">Bangkok</span>
+                </a>
+                <div class="city-dropdown__item city-dropdown__item--soon" style="opacity:0.6;">
+                  <span class="city-dropdown__dot" style="background:#78B0D4;"></span>
+                  <span class="city-dropdown__name" style="color:#fff;">Phuket</span>
+                  <span class="city-dropdown__badge">SOON</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="glass-nav__links" style="position:absolute;left:50%;transform:translateX(-50%);">
+                <a href="stay.html" class="glass-nav__link glass-nav__link--active">Stay</a>
+                <a href="eat.html" class="glass-nav__link">Eat</a>
+                <a href="drink.html" class="glass-nav__link">Drink</a>
+                <a href="party.html" class="glass-nav__link">Party</a>
+            </div>
+
+            <a href="explore.html" class="glass-nav__cta" style="margin-left:auto;padding:6px 16px;border:1px solid rgba(255,255,255,0.25);border-radius:50px;font-family:'Inter',sans-serif;font-size:11px;font-weight:500;letter-spacing:0.05em;text-transform:uppercase;color:#fff;text-decoration:none;transition:all .3s;white-space:nowrap;">Explore Bangkok <span style="margin-left:4px;">&#8599;</span></a>
+
+            <button class="glass-nav__hamburger" aria-label="Open menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ============================================
+         HERO SECTION
+         ============================================ -->
+    <section class="listing-hero listing-hero--stay">
+        <div class="listing-hero__inner">
+            <p class="listing-hero__overline">
+                <span class="listing-hero__line"></span>
+                STAY &middot; BANGKOK
+            </p>
+            <h1 class="listing-hero__title">STAY.</h1>
+            <span class="listing-hero__rule"></span>
+            <div class="listing-hero__bottom">
+                <p class="listing-hero__subtitle">Every hotel on Late Culture is an editorial endorsement. No rankings. No scores. Inclusion is the recommendation.</p>
+                <p class="listing-hero__count">10 hotels selected</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         CATEGORY STRIP
+         ============================================ -->
+    <section class="section section--white">
+        <div class="section__container">
+
+            <div class="category-strip" id="hotels-page-categories">
+                <button class="category-strip__btn category-strip__btn--active" data-category="all">All</button>
+                <button class="category-strip__btn" data-category="grand-occasion">Grand Occasion</button>
+                <button class="category-strip__btn" data-category="design-forward">Design Forward</button>
+                <button class="category-strip__btn" data-category="river-water">River &amp; Water</button>
+                <button class="category-strip__btn" data-category="the-pool">The Pool</button>
+                <button class="category-strip__btn" data-category="slow-stay">Slow Stay</button>
+                <button class="category-strip__btn" data-category="new-opening">New Opening</button>
+                <button class="category-strip__btn" data-category="old-soul">Old Soul</button>
+                <button class="category-strip__btn" data-category="night-city">Night City</button>
+            </div>
+
+            <div class="card-grid" id="hotels-page-grid">
+                <!-- Cards loaded dynamically via JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         FOOTER
+         ============================================ -->
+    <footer class="footer">
+        <div class="footer__container">
+            <div class="footer__brand">
+                <h2 class="footer__wordmark">LATE CULTURE</h2>
+                <p class="footer__tagline">The city has a thousand doors. We opened the right ones.</p>
+                <div class="footer__social">
+                    <a href="#" class="footer__social-link" aria-label="Instagram">IG</a>
+                    <a href="#" class="footer__social-link" aria-label="X (Twitter)">X</a>
+                    <a href="#" class="footer__social-link" aria-label="LinkedIn">Li</a>
+                </div>
+            </div>
+
+            <div class="footer__nav">
+                <div class="footer__nav-group">
+                    <h3 class="footer__nav-title">Explore</h3>
+                    <ul class="footer__nav-list">
+                        <li><a href="stay.html">Stay</a></li>
+                        <li><a href="eat.html">Eat</a></li>
+                        <li><a href="drink.html">Drink</a></li>
+                        <li><a href="party.html">Party</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer__nav-group">
+                    <h3 class="footer__nav-title">Destinations</h3>
+                    <ul class="footer__nav-list">
+                        <li><a href="bangkok.html">Bangkok</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer__nav-group">
+                    <h3 class="footer__nav-title">Company</h3>
+                    <ul class="footer__nav-list">
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Editorial Policy</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Newsletter -->
+            <div class="footer__newsletter">
+              <p class="footer__newsletter-label">Get the late dispatch.</p>
+              <form class="footer__newsletter-form" onsubmit="event.preventDefault(); this.querySelector('input').value=''; this.querySelector('button').textContent='Joined!';">
+                <input type="email" placeholder="your@email.com" class="footer__newsletter-input" required>
+                <button type="submit" class="footer__newsletter-btn">Join</button>
+              </form>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-menu__inner">
+            <button class="mobile-menu__close" aria-label="Close menu">&times;</button>
+            <nav class="mobile-menu__nav">
+                <a href="stay.html" class="mobile-menu__link">Stay</a>
+                <a href="eat.html" class="mobile-menu__link">Eat</a>
+                <a href="drink.html" class="mobile-menu__link">Drink</a>
+                <a href="party.html" class="mobile-menu__link">Party</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- App Script -->
+    <script src="js/app.js?v=8"></script>
+</body>
+</html>

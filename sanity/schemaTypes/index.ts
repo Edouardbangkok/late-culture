@@ -3,5 +3,6 @@ import { restaurant } from './restaurant'
 import { bar } from './bar'
 import { party } from './party'
 import { article } from './article'
+import { tonightPick } from './tonightPick'
 
-export const schemaTypes = [hotel, restaurant, bar, party, article]
+export const schemaTypes = [hotel, restaurant, bar, party, article, tonightPick]
