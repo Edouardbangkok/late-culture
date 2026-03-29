@@ -2,17 +2,67 @@
    LATE CULTURE. App Controller
    ============================================ */
 
-/* ── Venue Data. Full Profiles ── */
-/* Venues managed via Sanity Studio */
-const HOTELS = [];
+/* ── Venue Data — fetched from Sanity ── */
+let HOTELS = [];
+let RESTAURANTS = [];
+let BARS = [];
+let PARTIES = [];
+let ALL_VENUES = [];
 
-const RESTAURANTS = [];
+const SANITY_PROJECT = 'sa9u2hue';
+const SANITY_DATASET = 'production';
+const SANITY_API = `https://${SANITY_PROJECT}.api.sanity.io/v2024-01-01/data/query/${SANITY_DATASET}`;
 
-const BARS = [];
+function sanityImageUrl(ref) {
+  if (!ref || !ref.asset || !ref.asset._ref) return 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&q=80';
+  const parts = ref.asset._ref.replace('image-', '').replace(/-([a-z]+)$/, '.$1');
+  return `https://cdn.sanity.io/images/${SANITY_PROJECT}/${SANITY_DATASET}/${parts}?w=600&q=80`;
+}
 
-const PARTIES = [];
+function mapSanityVenue(doc, type) {
+  return {
+    id: doc.slug?.current || doc._id,
+    name: doc.name || 'Unnamed',
+    type: type,
+    category: doc.category || '',
+    neighborhood: doc.neighborhood || '',
+    description: doc.excerpt || '',
+    image: sanityImageUrl(doc.heroImage),
+    tags: doc.category ? [doc.category] : [],
+    link: `/${type === 'hotel' ? 'stay' : type === 'restaurant' ? 'eat' : type === 'party' ? 'party' : 'drink'}/${doc.slug?.current || ''}`,
+    priceRange: doc.priceRange || '',
+    cuisine: doc.cuisine || '',
+  };
+}
 
-const ALL_VENUES = [...HOTELS, ...RESTAURANTS, ...BARS, ...PARTIES];
+async function fetchSanityVenues() {
+  try {
+    const query = encodeURIComponent(`{
+      "hotels": *[_type=="hotel"]{_id, name, slug, category, neighborhood, excerpt, priceRange, heroImage},
+      "restaurants": *[_type=="restaurant"]{_id, name, slug, category, neighborhood, cuisine, excerpt, priceRange, heroImage},
+      "bars": *[_type=="bar"]{_id, name, slug, category, neighborhood, excerpt, heroImage},
+      "parties": *[_type=="party"]{_id, name, slug, category, neighborhood, excerpt, heroImage}
+    }`);
+    const res = await fetch(`${SANITY_API}?query=${query}`);
+    const data = await res.json();
+    if (!data.result) return;
+
+    HOTELS = (data.result.hotels || []).map(d => mapSanityVenue(d, 'hotel'));
+    RESTAURANTS = (data.result.restaurants || []).map(d => mapSanityVenue(d, 'restaurant'));
+    BARS = (data.result.bars || []).map(d => mapSanityVenue(d, 'bar'));
+    PARTIES = (data.result.parties || []).map(d => mapSanityVenue(d, 'party'));
+    ALL_VENUES = [...HOTELS, ...RESTAURANTS, ...BARS, ...PARTIES];
+
+    // Re-render all grids
+    init();
+    console.log('[Late Culture] Loaded', ALL_VENUES.length, 'venues from Sanity');
+  } catch (err) {
+    console.warn('[Late Culture] Sanity fetch failed:', err);
+  }
+}
+
+// Fetch on page load
+fetchSanityVenues();
 
 /* ── Derive a simple time slot from venue data ── */
 function getVenueTimeSlot(venue) {
