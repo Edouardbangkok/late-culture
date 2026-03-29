@@ -14,59 +14,228 @@
     align-items: flex-start;
     gap: var(--space-md);
   }
+
+  .glass-nav {
+    width: 90%;
+  }
 }
 
 /* ── Mobile (max 768px) ── */
 @media (max-width: 768px) {
-  .section__container {
-    padding: 0 var(--space-md);
+  /* Nav — compact on mobile */
+  .glass-nav {
+    width: calc(100% - 24px);
+    top: 8px;
+    height: 52px;
   }
 
+  .glass-nav__inner {
+    padding: 0 12px;
+  }
+
+  .nav__wordmark {
+    font-size: 12px !important;
+    letter-spacing: 0.04em;
+  }
+
+  /* Hide nav links, show hamburger */
+  .glass-nav__links {
+    display: none !important;
+  }
+
+  .glass-nav__cta {
+    display: none !important;
+  }
+
+  .glass-nav__hamburger {
+    display: flex !important;
+  }
+
+  /* Hero */
+  .hero__title {
+    font-size: clamp(40px, 12vw, 80px) !important;
+  }
+
+  .hero__subtitle {
+    font-size: 15px !important;
+  }
+
+  .hero__content {
+    padding: 0 20px;
+  }
+
+  .hero__scroll {
+    bottom: 24px;
+  }
+
+  /* Sections */
   .section {
-    padding: 80px 0;
+    padding: 80px 0 !important;
+  }
+
+  .section__container {
+    padding: 0 16px;
   }
 
   .section__title {
     font-size: clamp(28px, 8vw, 56px);
-    margin-bottom: var(--space-md);
+    margin-bottom: 16px;
     padding-top: 40px;
   }
 
-  .section__header {
-    margin-bottom: var(--space-lg);
+  /* Section inline titles (those with style=) */
+  h2[style*="clamp(64px"] {
+    font-size: clamp(48px, 12vw, 80px) !important;
   }
 
-  .hero__title {
-    font-size: clamp(48px, 12vw, 100px);
+  /* Tonight */
+  .tonight__title,
+  h2.tonight__title {
+    font-size: 48px !important;
   }
 
-  .section--manifesto {
-    padding: var(--space-3xl) 0;
-  }
-
-  /* Tonight: 2 columns on mobile */
   .tonight__grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px;
+  }
+
+  .tonight__card-name {
+    font-size: 14px;
+  }
+
+  .tonight__card-desc {
+    font-size: 11px;
+    display: none;
+  }
+
+  .tonight__card-time {
+    font-size: 10px;
+    padding: 3px 8px;
+  }
+
+  /* Card grid — 1 column on mobile */
+  .card-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px;
   }
 
   /* Category strip horizontal scroll */
   .category-strip {
     overflow-x: auto;
     width: 100%;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .category-strip::-webkit-scrollbar {
+    display: none;
+  }
+
+  .category-strip__wrap {
+    flex-wrap: nowrap;
+    padding-bottom: 4px;
+  }
+
+  .category-strip__item {
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  /* Map */
+  .map-container {
+    height: 300px !important;
+  }
+
+  .map-filters {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  /* Manifesto */
+  blockquote[style*="clamp(32px"] {
+    font-size: clamp(24px, 6vw, 36px) !important;
+    padding: 0 16px;
+  }
+
+  /* Footer */
+  .footer__container {
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .footer__nav {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .footer__newsletter-form {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .footer__newsletter-input {
+    width: 100%;
+  }
+
+  /* Mobile tap targets */
+  .category-strip__btn {
+    min-height: 44px;
+    min-width: 44px;
+    padding: 12px 16px;
+  }
+
+  .arrow-btn {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .glass-nav__hamburger {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  /* Editors picks / hero carousel */
+  .hero__carousel-card {
+    max-width: 280px;
+  }
+
+  .hero__carousel-card__img img {
+    height: 180px;
   }
 }
 
 /* ── Small mobile (max 480px) ── */
 @media (max-width: 480px) {
   .hero__title {
-    font-size: 48px;
+    font-size: 40px !important;
   }
 
-  .hero__content {
-    padding: 0 var(--space-md);
+  h2[style*="clamp(64px"] {
+    font-size: 48px !important;
   }
 
-  /* Single column cards already handled in cards.css at 640px */
+  .tonight__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .tonight__card {
+    aspect-ratio: 2/3;
+  }
+
+  /* Nav even more compact */
+  .glass-nav {
+    width: calc(100% - 16px);
+    top: 6px;
+    height: 48px;
+  }
+
+  .nav__wordmark {
+    font-size: 11px !important;
+  }
+
+  .city-arrow {
+    display: none;
+  }
 }
 
 /* ── Large screens ── */
@@ -85,24 +254,5 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
-  }
-}
-
-/* ── Mobile tap targets ── */
-@media (max-width: 768px) {
-  .category-strip__btn {
-    min-height: 44px;
-    min-width: 44px;
-    padding: 12px 16px;
-  }
-
-  .arrow-btn {
-    min-width: 44px;
-    min-height: 44px;
-  }
-
-  .glass-nav__hamburger {
-    min-width: 44px;
-    min-height: 44px;
   }
 }
