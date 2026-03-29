@@ -8,6 +8,7 @@ export default defineConfig({
   title: 'Late Culture',
   projectId: 'sa9u2hue',
   dataset: 'production',
+  basePath: '/studio',
   plugins: [structureTool(), visionTool()],
   schema: { types: schemaTypes },
 })
