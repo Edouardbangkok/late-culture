@@ -1,0 +1,331 @@
+/* ============================================
+   LATE CULTURE — Section Components
+   Category strip, featured track, manifesto
+   ============================================ */
+
+/* ── Glass Category Strip (sliding filter) ── */
+.category-strip {
+  display: flex;
+  justify-content: center;
+  margin: 40px auto 48px;
+}
+
+.category-strip__wrap {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  padding: 4px;
+  background: rgba(245, 240, 235, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 50px;
+  gap: 2px;
+}
+
+/* Animated slider highlight behind active button */
+.category-strip__slider {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  height: calc(100% - 8px);
+  background: #ffffff;
+  border-radius: 50px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  z-index: 0;
+}
+
+/* Filter buttons */
+.category-strip__item {
+  position: relative;
+  z-index: 1;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #888;
+  background: none;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 50px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color 0.3s;
+}
+
+.category-strip__item.active {
+  color: #1a1a1a;
+}
+
+.category-strip__item:hover:not(.active) {
+  color: #555;
+}
+
+/* Legacy btn class support (home page inline strips) */
+.category-strip__btn {
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 50px;
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(60, 60, 60, 0.5);
+  background: transparent;
+  cursor: pointer;
+  transition: color 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              font-weight 0.2s,
+              transform 0.2s;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.category-strip__btn:hover {
+  color: rgba(60, 60, 60, 0.8);
+  transform: scale(1.02);
+}
+
+.category-strip__btn--active {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.category-strip__icon {
+  display: none;
+}
+
+/* ── Featured Track (horizontal scroll) ── */
+.featured-track {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  padding: var(--space-sm) 0 var(--space-lg);
+  -webkit-overflow-scrolling: touch;
+}
+
+.featured-track::-webkit-scrollbar {
+  display: none;
+}
+
+.featured-track .venue-card {
+  flex-shrink: 0;
+  width: 400px;
+  scroll-snap-align: start;
+}
+
+/* ── Arrow Buttons ── */
+.arrow-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--brd);
+  background: var(--white);
+  color: var(--ink);
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--duration-fast) var(--ease-out),
+              border-color var(--duration-fast) var(--ease-out),
+              color var(--duration-fast) var(--ease-out);
+}
+
+.arrow-btn:hover {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--white);
+}
+
+/* ── Manifesto Quote ── */
+.manifesto__quote {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  font-size: clamp(32px, 6vw, 80px);
+  line-height: 0.95;
+  color: var(--ink);
+  max-width: 900px;
+  margin: 0 auto;
+  border: none;
+  padding: 0;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .category-strip__wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    max-width: 100%;
+  }
+  .category-strip__wrap::-webkit-scrollbar {
+    display: none;
+  }
+
+  .category-strip {
+    display: flex;
+    overflow-x: auto;
+    border-radius: 16px;
+    width: 100%;
+  }
+
+  .category-strip__btn {
+    padding: 10px 16px;
+    font-size: 10px;
+  }
+
+  .featured-track .venue-card {
+    width: 300px;
+  }
+
+  .manifesto__quote {
+    font-size: clamp(28px, 8vw, 56px);
+  }
+}
+
+@media (max-width: 480px) {
+  .featured-track .venue-card {
+    width: 260px;
+  }
+}
+
+/* ── Listing Hero — editorial magazine style ── */
+.listing-hero {
+  background: #faf5f0;
+  padding: 140px 0 0;
+  position: relative;
+}
+
+.listing-hero__inner {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 64px;
+}
+
+.listing-hero__overline {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--rose3);
+  margin-bottom: 24px;
+}
+
+.listing-hero__line {
+  display: block;
+  width: 32px;
+  height: 1.5px;
+  background: var(--rose3);
+  flex-shrink: 0;
+}
+
+.listing-hero__title {
+  font-family: Impact, 'Arial Narrow', sans-serif;
+  font-size: clamp(88px, 11vw, 136px);
+  color: #1a1a1a;
+  line-height: 0.88;
+  text-transform: uppercase;
+  margin: 0;
+  letter-spacing: -3px;
+}
+
+.listing-hero__rule {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: rgba(0,0,0,0.1);
+  margin: 32px 0;
+}
+
+.listing-hero__bottom {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding-bottom: 48px;
+  gap: 48px;
+}
+
+.listing-hero__subtitle {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 19px;
+  color: #666;
+  margin: 0;
+  font-weight: 300;
+  line-height: 1.5;
+  max-width: 520px;
+}
+
+.listing-hero__count {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  color: #aaa;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* ── Editorial intro (remove block feel) ── */
+.listing-editorial {
+  background: transparent;
+  padding: 0;
+  border-bottom: none;
+  display: none; /* merged into hero bottom row */
+}
+
+.listing-editorial__text {
+  max-width: 720px;
+  margin: 0 auto;
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 17px;
+  line-height: 1.7;
+  color: #666;
+  text-align: center;
+}
+
+/* ── Card reveal animation ── */
+.venue-card {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.venue-card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .listing-hero {
+    padding-top: 100px;
+  }
+  .listing-hero__inner {
+    padding: 0 24px;
+  }
+  .listing-hero__title {
+    font-size: clamp(64px, 16vw, 96px);
+    letter-spacing: -2px;
+  }
+  .listing-hero__bottom {
+    flex-direction: column;
+    gap: 12px;
+    padding-bottom: 36px;
+  }
+  .listing-hero__subtitle {
+    font-size: 16px;
+  }
+}

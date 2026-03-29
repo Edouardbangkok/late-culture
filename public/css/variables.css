@@ -1,0 +1,88 @@
+/* ============================================
+   LATE CULTURE — Design Tokens
+   Premium editorial design system
+   ============================================ */
+
+:root {
+  /* ── Colour Palette ── */
+  --white: #ffffff;
+  --cloud: #faf5f0;
+  --rose: #e8c4c8;
+  --rose2: #d4a0a0;
+  --rose3: #d4788a;
+  --ink: #1a1a1a;
+  --mid: #6b6b6b;
+  --lite: #999999;
+
+  /* ── Background tokens ── */
+  --bg-main: #ffffff;
+  --bg-section: #ffffff;
+  --separator: #e8e8e8;
+
+  /* ── Border tokens ── */
+  --brd: rgba(0, 0, 0, 0.08);
+  --brd-rose: rgba(212, 120, 138, 0.25);
+
+  /* ── Glass tokens ── */
+  --glass-bg-dark: rgba(12, 12, 12, 0.28);
+  --glass-bg-light: rgba(255, 255, 255, 0.18);
+  --glass-bg-card: rgba(255, 255, 255, 0.88);
+  --glass-border-light: rgba(255, 255, 255, 0.18);
+  --glass-border-dark: rgba(255, 255, 255, 0.5);
+  --glass-blur: 28px;
+  --glass-saturate: 2.0;
+
+  /* ── Surface tokens ── */
+  --surface-dark: #141414;
+  --surface-elevated: #1e1e1e;
+
+  /* ── Typography ── */
+  --font-display: Impact, 'Arial Black', sans-serif;
+  --font-editorial: 'Fraunces', Georgia, serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-handwrite: 'Indie Flower', cursive;
+  --font-marker: 'Permanent Marker', cursive;
+
+  /* ── Spacing ── */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 40px;
+  --space-2xl: 64px;
+  --space-3xl: 96px;
+  --space-4xl: 128px;
+
+  /* ── Radius ── */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 28px;
+  --radius-pill: 999px;
+
+  /* ── Shadows ── */
+  --shadow-card: 0 2px 12px rgba(0, 0, 0, 0.06);
+  --shadow-card-hover: 0 20px 60px rgba(0, 0, 0, 0.1), 0 4px 12px rgba(0, 0, 0, 0.04);
+  --shadow-glass: 0 4px 24px rgba(0, 0, 0, 0.15);
+  --shadow-glass-sm: 0 2px 12px rgba(0, 0, 0, 0.08);
+
+  /* ── Transitions ── */
+  --ease-out: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --duration-fast: 200ms;
+  --duration-normal: 400ms;
+  --duration-slow: 600ms;
+
+  /* ── Layout ── */
+  --max-width: 1320px;
+  --nav-height: 52px;
+  --section-padding: 120px;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --section-padding: 80px;
+    --space-3xl: 56px;
+    --space-4xl: 80px;
+  }
+}

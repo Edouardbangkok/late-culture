@@ -1,0 +1,230 @@
+/* ============================================
+   LATE CULTURE — Tonight Section
+   Dark section with time slots and live clock
+   ============================================ */
+
+/* ── Tonight section (dark bg) ── */
+.tonight,
+.section--tonight {
+  background: #1a1a1a;
+  padding: 120px 0;
+  color: var(--white);
+}
+
+/* ── Header with title and live clock ── */
+.tonight__header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.tonight__title {
+  font-family: var(--font-display);
+  font-size: clamp(48px, 8vw, 80px);
+  text-transform: uppercase;
+  color: var(--white);
+  line-height: 0.9;
+}
+
+/* ── Live clock ── */
+.tonight__clock,
+.tonight__time {
+  font-family: var(--font-mono), 'Inter', monospace;
+  font-size: 14px;
+  color: var(--rose3);
+  letter-spacing: 0.05em;
+}
+
+/* ── 4-column grid ── */
+.tonight__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+/* ── Tonight card ── */
+.tonight__card {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  aspect-ratio: 3/4;
+  text-decoration: none;
+  color: var(--white);
+  display: block;
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              box-shadow 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.tonight__card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+}
+
+/* ── Card time (absolute top-left) ── */
+.tonight__card-time {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 3;
+  font-family: var(--font-display);
+  font-size: 32px;
+  color: var(--rose3);
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+/* ── Card image (full cover) ── */
+.tonight__card-img {
+  position: absolute;
+  inset: 0;
+}
+
+.tonight__card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.tonight__card:hover .tonight__card-img img {
+  transform: scale(1.06);
+}
+
+/* ── Card overlay (dark gradient at bottom) ── */
+.tonight__card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 40%, transparent 70%);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+/* ── Card info (absolute bottom) ── */
+.tonight__card-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 24px;
+  background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 100%);
+  z-index: 2;
+}
+
+.tonight__card-label {
+  font-family: var(--font-mono), 'Inter', monospace;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--rose3);
+  margin-bottom: 8px;
+}
+
+.tonight__card-name {
+  font-family: var(--font-display);
+  font-size: 20px;
+  text-transform: uppercase;
+  line-height: 0.95;
+  margin-bottom: 6px;
+  color: var(--white);
+}
+
+.tonight__card-desc,
+.tonight__card-meta {
+  font-family: var(--font-editorial);
+  font-style: italic;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.4;
+}
+
+/* ── Spotlight: Inactive cards dimmed ── */
+.tonight__card--inactive .tonight__card-img img {
+  filter: saturate(0.4) brightness(0.5);
+}
+
+.tonight__card--inactive .tonight__card-time {
+  color: #555;
+}
+
+.tonight__card--inactive .tonight__card-name {
+  opacity: 0.5;
+}
+
+.tonight__card--inactive .tonight__card-desc,
+.tonight__card--inactive .tonight__card-meta {
+  opacity: 0.3;
+}
+
+/* ── Spotlight: Active card ── */
+.tonight__card--active {
+  border-top: 3px solid var(--rose3, #d4788a);
+}
+
+.tonight__card--active .tonight__card-img img {
+  filter: contrast(1.1) saturate(1.1);
+}
+
+.tonight__card--active .tonight__card-time {
+  color: #fff;
+  font-size: 36px;
+}
+
+.tonight__card--active .tonight__card-time::after {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--rose3, #d4788a);
+  margin-top: 4px;
+}
+
+.tonight__card--active .tonight__card-info {
+  background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(212,120,138,0.15) 60%, transparent 100%);
+}
+
+.tonight__card--active .tonight__card-name {
+  opacity: 1;
+  font-size: 22px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .tonight__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .tonight,
+  .section--tonight {
+    padding: 80px 0;
+  }
+
+  .tonight__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .tonight__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .tonight__card-name {
+    font-size: 18px;
+  }
+
+  .tonight__card-time {
+    font-size: 24px;
+  }
+
+  .tonight,
+  .section--tonight {
+    padding: 48px 0;
+  }
+}

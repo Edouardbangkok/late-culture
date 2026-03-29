@@ -1,0 +1,105 @@
+/* ============================================
+   LATE CULTURE — Hero Section
+   Full-viewport immersive hero
+   ============================================ */
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Background photo ── */
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: brightness(0.7);
+}
+
+/* ── Dark gradient overlay ── */
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.3) 0%,
+    rgba(0, 0, 0, 0.15) 40%,
+    rgba(0, 0, 0, 0.4) 70%,
+    rgba(0, 0, 0, 0.6) 100%
+  );
+}
+
+/* ── Hero content (centered) ── */
+.hero__content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 900px;
+  padding: 0 var(--space-lg);
+}
+
+/* ── Overline label ── */
+.hero__overline {
+  display: block;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: var(--space-lg);
+}
+
+/* ── Hero title (massive Impact, centered) ── */
+.hero__title {
+  font-family: var(--font-display);
+  font-size: clamp(64px, 12vw, 160px);
+  font-weight: 900;
+  text-transform: uppercase;
+  color: var(--white);
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  margin: 0;
+  text-align: center;
+}
+
+.hero__title--rose {
+  color: var(--rose3);
+}
+
+/* ── Subtitle (Fraunces italic) ── */
+.hero__subtitle {
+  font-family: var(--font-editorial);
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(18px, 2.5vw, 24px);
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: var(--space-md);
+  line-height: 1.4;
+}
+
+/* ── Mobile adjustments ── */
+@media (max-width: 768px) {
+  .hero__title {
+    font-size: clamp(48px, 14vw, 100px);
+  }
+
+  .hero__content {
+    padding: 0 var(--space-md);
+  }
+}
+
+@media (max-width: 480px) {
+  .hero__title {
+    font-size: 48px;
+  }
+}
