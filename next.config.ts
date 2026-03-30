@@ -9,11 +9,17 @@ const nextConfig: NextConfig = {
   },
   async rewrites() {
     return [
-      // Venue detail pages (must come BEFORE listing pages)
+      // Venue detail pages
       { source: '/stay/:slug', destination: '/venue-detail.html' },
       { source: '/eat/:slug', destination: '/venue-detail.html' },
       { source: '/drink/:slug', destination: '/venue-detail.html' },
       { source: '/party/:slug', destination: '/venue-detail.html' },
+      // Listing pages
+      { source: '/stay', destination: '/stay-page.html' },
+      { source: '/eat', destination: '/eat-page.html' },
+      { source: '/drink', destination: '/drink-page.html' },
+      { source: '/party', destination: '/party-page.html' },
+      { source: '/explore', destination: '/explore-page.html' },
     ]
   },
 }
