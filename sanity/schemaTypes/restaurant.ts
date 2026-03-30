@@ -7,31 +7,37 @@ export const restaurant = defineType({
   type: 'document',
   groups: venueGroups,
   fields: [
-    // ── Basics ──
-    defineField({ name: 'name', title: 'Name', type: 'string', validation: r => r.required(), group: 'basics' }),
-    defineField({ name: 'slug', title: 'Slug', type: 'slug', options: { source: 'name' }, validation: r => r.required(), group: 'basics' }),
+    defineField({ name: 'name', title: 'Name', type: 'string', validation: r => r.required(), group: 'basics',
+      description: 'The restaurant name — appears as the big title on the hero image.' }),
+    defineField({ name: 'slug', title: 'Slug', type: 'slug', options: { source: 'name' }, validation: r => r.required(), group: 'basics',
+      description: 'URL-friendly name. Click "Generate" to auto-create.' }),
     defineField({
       name: 'category', title: 'Category', type: 'string', group: 'basics',
+      description: 'Badge on the hero + filter on the Eat page.',
       options: { list: ['Grand Occasion', 'Romantic', 'Festive', 'Late Night', 'Quiet Escape', 'By the Water', 'The Counter', 'Sunday Ritual', 'Solo Dining', 'Local Legend', 'Street to Star'] }
     }),
-    defineField({ name: 'neighborhood', title: 'Neighborhood', type: 'string', group: 'basics' }),
-    defineField({ name: 'cuisine', title: 'Cuisine', type: 'string', group: 'basics' }),
+    defineField({ name: 'neighborhood', title: 'Neighborhood', type: 'string', group: 'basics',
+      description: 'Hero meta + card overline. Example: Silom' }),
+    defineField({ name: 'cuisine', title: 'Cuisine', type: 'string', group: 'basics',
+      description: 'Sidebar Quick Facts. Example: Thai Contemporary' }),
     defineField({
       name: 'priceRange', title: 'Price Range', type: 'string', group: 'basics',
+      description: 'Hero meta + sidebar.',
       options: { list: ['$', '$$', '$$$', '$$$$'] }
     }),
-    defineField({ name: 'chef', title: 'Chef', type: 'string', group: 'basics' }),
-    defineField({ name: 'excerpt', title: 'Short Description (card)', type: 'text', rows: 3, group: 'basics' }),
-    defineField({ name: 'heroImage', title: 'Hero Image', type: 'image', options: { hotspot: true }, group: 'basics' }),
-    // ── Editorial ──
+    defineField({ name: 'chef', title: 'Chef', type: 'string', group: 'basics',
+      description: 'Sidebar Quick Facts. Example: Chef Bee Satongun' }),
+    defineField({ name: 'excerpt', title: 'Short Description', type: 'text', rows: 3, group: 'basics',
+      description: 'Card text on listing page + hero subtitle. 1-2 sentences.' }),
+    defineField({ name: 'heroImage', title: 'Hero Image', type: 'image', options: { hotspot: true }, group: 'basics',
+      description: 'Full-width hero background. High-quality landscape (min 1600px).' }),
     ...editorialFields,
-    // ── Details ──
-    defineField({ name: 'openingHours', title: 'Opening Hours', type: 'string', group: 'details' }),
-    defineField({ name: 'dressCode', title: 'Dress Code', type: 'string', group: 'details' }),
+    defineField({ name: 'openingHours', title: 'Opening Hours', type: 'string', group: 'details',
+      description: 'Sidebar Quick Facts. Example: Tue-Sun 18:00-23:00' }),
+    defineField({ name: 'dressCode', title: 'Dress Code', type: 'string', group: 'details',
+      description: 'Sidebar Quick Facts. Example: Smart Casual' }),
     ...detailFields,
-    // ── Media ──
     ...mediaFields,
-    // ── Location ──
     ...locationFields,
   ],
   preview: { select: { title: 'name', subtitle: 'neighborhood', media: 'heroImage' } },
