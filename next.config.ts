@@ -22,6 +22,7 @@ const nextConfig: NextConfig = {
       { source: '/explore', destination: '/explore-page.html' },
       { source: '/about', destination: '/about-page.html' },
       { source: '/contact', destination: '/contact-page.html' },
+      { source: '/editorial-policy', destination: '/editorial-policy-page.html' },
     ]
   },
 }
