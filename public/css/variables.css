@@ -37,12 +37,12 @@
   --surface-elevated: #1e1e1e;
 
   /* ── Typography ── */
-  --font-display: Impact, 'Arial Black', sans-serif;
-  --font-editorial: 'Fraunces', Georgia, serif;
-  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
-  --font-handwrite: 'Indie Flower', cursive;
-  --font-marker: 'Permanent Marker', cursive;
+  --font-display: Impact, 'Haettenschweiler', 'Arial Narrow Bold', 'Arial Black', sans-serif;
+  --font-editorial: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'JetBrains Mono', 'SF Mono', 'Fira Code', Consolas, monospace;
+  --font-handwrite: 'Indie Flower', 'Bradley Hand', 'Segoe Script', cursive;
+  --font-marker: 'Permanent Marker', 'Marker Felt', cursive;
 
   /* ── Spacing ── */
   --space-xs: 4px;

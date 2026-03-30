@@ -3,6 +3,12 @@
    Reset, sections, utilities
    ============================================ */
 
+/* ── Ensure text renders consistently on iOS/Android ── */
+@supports (-webkit-touch-callout: none) {
+  /* iOS-specific: force web fonts to load before rendering */
+  body { -webkit-text-size-adjust: 100%; }
+}
+
 *, *::before, *::after {
   margin: 0;
   padding: 0;
