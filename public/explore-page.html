@@ -212,7 +212,7 @@
             <!-- Newsletter -->
             <div class="footer__newsletter">
               <p class="footer__newsletter-label">Get the late dispatch.</p>
-              <form class="footer__newsletter-form" onsubmit="event.preventDefault(); this.querySelector('input').value=''; this.querySelector('button').textContent='Joined!';">
+              <form class="footer__newsletter-form" onsubmit="event.preventDefault(); var e=this.querySelector('input').value; var b=this.querySelector('button'); if(!e||!e.includes('@'))return; b.textContent='...'; fetch('/api/subscribe',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:e,source:location.pathname})}).then(function(){b.textContent='Joined!';b.style.background='#27ae60';}).catch(function(){b.textContent='Error';});">
                 <input type="email" placeholder="your@email.com" class="footer__newsletter-input" required>
                 <button type="submit" class="footer__newsletter-btn">Join</button>
               </form>
