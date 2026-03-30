@@ -1,27 +1,27 @@
 /* ============================================
-   LATE CULTURE — Design Tokens
-   Premium editorial design system
+   LATE CULTURE — Design Tokens v4 LOCKED
+   White and pale rose. Nothing else.
    ============================================ */
 
 :root {
-  /* ── Colour Palette ── */
-  --white: #ffffff;
-  --cloud: #faf5f0;
-  --rose: #e8c4c8;
-  --rose2: #d4a0a0;
-  --rose3: #d4788a;
-  --ink: #1a1a1a;
-  --mid: #6b6b6b;
-  --lite: #999999;
-
-  /* ── Background tokens ── */
-  --bg-main: #ffffff;
-  --bg-section: #ffffff;
-  --separator: #e8e8e8;
+  /* ── Colour Palette v4 ── */
+  --white:  #FFFFFF;
+  --cloud:  #F5F0EB;
+  --rose:   #F2C4CE;
+  --rose2:  #E8A0B0;
+  --rose3:  #D4788A;
+  --ink:    #1A1010;
+  --mid:    #6A3A44;
+  --lite:   #C09098;
 
   /* ── Border tokens ── */
-  --brd: rgba(0, 0, 0, 0.08);
-  --brd-rose: rgba(212, 120, 138, 0.25);
+  --brd:  rgba(242,196,206,.30);
+  --brd2: rgba(212,120,138,.18);
+
+  /* ── Background tokens ── */
+  --bg-main: var(--cloud);
+  --bg-section: var(--white);
+  --separator: var(--brd);
 
   /* ── Glass tokens ── */
   --glass-bg-dark: rgba(12, 12, 12, 0.28);
@@ -33,7 +33,7 @@
   --glass-saturate: 2.0;
 
   /* ── Surface tokens ── */
-  --surface-dark: #141414;
+  --surface-dark: var(--ink);
   --surface-elevated: #1e1e1e;
 
   /* ── Typography ── */
