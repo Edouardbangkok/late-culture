@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Late Culture Bangkok</title>
+    <meta name="description" content="Get in touch with Late Culture Bangkok — partnerships, editorial inquiries, and more.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Fraunces:ital,wght@1,300;1,400&family=Indie+Flower&family=Inter:wght@300;400;500;600;700&family=Permanent+Marker&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/variables.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/glass.css">
+    <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+
+    <style>
+        .contact-hero {
+            background: #1a1a1a;
+            padding: 160px 0 80px;
+            text-align: center;
+        }
+        .contact-hero__overline {
+            font-family: var(--font-body);
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--rose3);
+            margin-bottom: 16px;
+        }
+        .contact-hero__title {
+            font-family: var(--font-display);
+            font-size: clamp(56px, 10vw, 100px);
+            text-transform: uppercase;
+            color: #fff;
+            line-height: 0.9;
+            margin: 0;
+        }
+        .contact-hero__sub {
+            font-family: var(--font-editorial);
+            font-style: italic;
+            color: rgba(255,255,255,0.5);
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        .contact-body {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 80px 24px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+        }
+
+        .contact-section__label {
+            font-family: var(--font-body);
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--rose3);
+            margin-bottom: 16px;
+        }
+
+        .contact-section__title {
+            font-family: var(--font-display);
+            font-size: 24px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            color: var(--ink);
+        }
+
+        .contact-section__text {
+            font-family: var(--font-body);
+            font-size: 15px;
+            line-height: 1.7;
+            color: #666;
+            margin-bottom: 24px;
+        }
+
+        .contact-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-body);
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--ink);
+            text-decoration: none;
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+            width: 100%;
+            transition: color 0.2s, border-color 0.2s;
+        }
+
+        .contact-link:hover {
+            color: var(--rose3);
+            border-color: var(--rose3);
+        }
+
+        .contact-link__icon {
+            width: 20px;
+            opacity: 0.4;
+        }
+
+        .contact-divider {
+            width: 100%;
+            height: 1px;
+            background: #eee;
+            margin: 64px 0;
+        }
+
+        .contact-tagline {
+            text-align: center;
+            font-family: var(--font-editorial);
+            font-style: italic;
+            color: #999;
+            font-size: 18px;
+            padding: 40px 0 80px;
+        }
+
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+            .contact-hero {
+                padding: 120px 24px 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ── GLASS NAV ── -->
+    <nav class="glass-nav">
+        <div class="glass-nav__inner">
+            <div class="nav__wordmark-wrap" style="position:relative;">
+                <a href="/" class="nav__wordmark" style="text-decoration:none;color:#fff;font-family:'Impact',sans-serif;text-transform:uppercase;letter-spacing:0.04em;font-size:15px;">LATE CULTURE&nbsp;<span style="color:#d4788a;">BANGKOK</span>
+                    <svg class="city-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none" style="margin-left:6px;transition:transform .3s;"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+                <div class="city-dropdown" id="cityDropdown">
+                    <a href="/" class="city-dropdown__item city-dropdown__item--active">
+                        <span class="city-dropdown__dot" style="background:#d4788a;"></span>
+                        <span class="city-dropdown__name">Bangkok</span>
+                    </a>
+                    <div class="city-dropdown__item city-dropdown__item--soon" style="opacity:0.6;">
+                        <span class="city-dropdown__dot" style="background:#78B0D4;"></span>
+                        <span class="city-dropdown__name" style="color:#fff;">Phuket</span>
+                        <span class="city-dropdown__badge">SOON</span>
+                    </div>
+                </div>
+            </div>
+            <div class="glass-nav__links" style="position:absolute;left:50%;transform:translateX(-50%);">
+                <a href="/stay" class="glass-nav__link">Stay</a>
+                <a href="/eat" class="glass-nav__link">Eat</a>
+                <a href="/drink" class="glass-nav__link">Drink</a>
+                <a href="/party" class="glass-nav__link">Party</a>
+            </div>
+            <a href="/explore" class="glass-nav__cta" style="margin-left:auto;padding:8px 20px;background:#d4788a;border:none;border-radius:50px;font-family:'Inter',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#fff;text-decoration:none;transition:all .3s;white-space:nowrap;">Explore Bangkok <span style="margin-left:4px;">&#8599;</span></a>
+            <button class="glass-nav__hamburger" aria-label="Open menu" onclick="document.getElementById('mobile-menu').classList.toggle('open')">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ── HERO ── -->
+    <section class="contact-hero">
+        <p class="contact-hero__overline">Late Culture Bangkok</p>
+        <h1 class="contact-hero__title">CONTACT.</h1>
+        <p class="contact-hero__sub">We'd love to hear from you.</p>
+    </section>
+
+    <!-- ── BODY ── -->
+    <div class="contact-body">
+        <div class="contact-grid">
+
+            <!-- Left column -->
+            <div>
+                <div class="contact-section__label">General Inquiries</div>
+                <div class="contact-section__title">Say Hello</div>
+                <p class="contact-section__text">For partnerships, editorial inquiries, venue submissions, or anything else — reach out below.</p>
+
+                <a href="mailto:hi@lateculture.com" class="contact-link">
+                    <span class="contact-link__icon">&#9993;</span>
+                    hi@lateculture.com
+                </a>
+
+                <a href="tel:+66839060774" class="contact-link">
+                    <span class="contact-link__icon">&#9742;</span>
+                    +66 83 906 0774
+                </a>
+            </div>
+
+            <!-- Right column -->
+            <div>
+                <div class="contact-section__label">Follow Us</div>
+                <div class="contact-section__title">Stay Connected</div>
+                <p class="contact-section__text">Follow Late Culture on social media for the latest picks, behind-the-scenes, and city updates.</p>
+
+                <a href="#" class="contact-link">Instagram → @lateculture</a>
+                <a href="#" class="contact-link">X (Twitter) → @lateculture</a>
+                <a href="#" class="contact-link">LinkedIn → Late Culture</a>
+            </div>
+
+        </div>
+
+        <div class="contact-divider"></div>
+
+        <p class="contact-tagline">The city has a thousand doors. We opened the right ones.</p>
+    </div>
+
+    <!-- ── FOOTER ── -->
+    <footer class="footer">
+        <div class="footer__container">
+            <div class="footer__brand">
+                <h2 class="footer__wordmark">LATE CULTURE</h2>
+                <p class="footer__tagline">The city has a thousand doors. We opened the right ones.</p>
+            </div>
+            <div style="border-top:1px solid rgba(255,255,255,0.1);margin-top:48px;padding-top:24px;text-align:center;color:rgba(255,255,255,0.3);font-size:13px;">
+                &copy; 2025 Late Culture. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- ── MOBILE MENU ── -->
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-menu__inner">
+            <button class="mobile-menu__close" aria-label="Close menu" onclick="document.getElementById('mobile-menu').classList.remove('open')">&times;</button>
+            <nav class="mobile-menu__nav">
+                <a href="/stay" class="mobile-menu__link">Stay</a>
+                <a href="/eat" class="mobile-menu__link">Eat</a>
+                <a href="/drink" class="mobile-menu__link">Drink</a>
+                <a href="/party" class="mobile-menu__link">Party</a>
+            </nav>
+        </div>
+    </div>
+
+</body>
+</html>

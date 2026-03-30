@@ -20,6 +20,8 @@ const nextConfig: NextConfig = {
       { source: '/drink', destination: '/drink-page.html' },
       { source: '/party', destination: '/party-page.html' },
       { source: '/explore', destination: '/explore-page.html' },
+      { source: '/about', destination: '/about-page.html' },
+      { source: '/contact', destination: '/contact-page.html' },
     ]
   },
 }
