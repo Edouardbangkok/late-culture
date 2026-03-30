@@ -237,7 +237,7 @@
 }
 
 .vd-tabs__link.active {
-  color: #1a1a1a;
+  color: #1A1010;
   border-bottom-color: var(--rose3);
 }
 
@@ -411,7 +411,7 @@
   font-family: var(--font-body);
   font-size: 15px;
   font-weight: 500;
-  color: #1a1a1a;
+  color: #1A1010;
 }
 
 .vd-sidebar__value a {
@@ -534,7 +534,7 @@
   font-family: var(--font-display);
   font-size: clamp(28px, 4vw, 48px);
   text-transform: uppercase;
-  color: #1a1a1a;
+  color: #1A1010;
   line-height: 0.95;
   margin-bottom: 40px;
 }
@@ -602,7 +602,7 @@
   font-family: var(--font-body);
   font-size: 20px;
   font-weight: 700;
-  color: #1a1a1a;
+  color: #1A1010;
   margin-bottom: 8px;
 }
 
@@ -658,7 +658,7 @@
   font-size: 32px;
   font-weight: 900;
   text-transform: uppercase;
-  color: #1a1a1a;
+  color: #1A1010;
   margin-bottom: 16px;
   line-height: 1.1;
 }
@@ -773,7 +773,7 @@
 .vd-factsheet__value {
   font-family: var(--font-body);
   font-size: 15px;
-  color: #1a1a1a;
+  color: #1A1010;
   line-height: 1.5;
   margin-top: 6px;
 }
@@ -937,7 +937,7 @@
   font-size: 18px;
   font-weight: 900;
   text-transform: uppercase;
-  color: #1a1a1a;
+  color: #1A1010;
   transition: color 0.3s var(--vd-ease);
 }
 
@@ -1115,7 +1115,7 @@
 
   .vd-cta-mobile__btn--secondary {
     background: transparent;
-    color: #1a1a1a;
+    color: #1A1010;
     border: 1px solid #eee;
   }
 

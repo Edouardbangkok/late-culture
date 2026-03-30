@@ -6,7 +6,7 @@
 /* ── Tonight section (dark bg) ── */
 .tonight,
 .section--tonight {
-  background: #1a1a1a;
+  background: #1A1010;
   padding: 120px 0;
   color: var(--white);
 }

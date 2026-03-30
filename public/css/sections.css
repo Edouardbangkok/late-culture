@@ -56,7 +56,7 @@
 }
 
 .category-strip__item.active {
-  color: #1a1a1a;
+  color: #1A1010;
 }
 
 .category-strip__item:hover:not(.active) {
@@ -235,7 +235,7 @@
 .listing-hero__title {
   font-family: Impact, 'Arial Narrow', sans-serif;
   font-size: clamp(88px, 11vw, 136px);
-  color: #1a1a1a;
+  color: #1A1010;
   line-height: 0.88;
   text-transform: uppercase;
   margin: 0;
