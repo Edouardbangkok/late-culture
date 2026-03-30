@@ -29,7 +29,7 @@ function mapSanityVenue(doc, type) {
     description: doc.excerpt || '',
     image: sanityImageUrl(doc.heroImage),
     tags: doc.category ? [doc.category] : [],
-    link: '#',
+    link: `/${type === 'hotel' ? 'stay' : type === 'restaurant' ? 'eat' : type === 'party' ? 'party' : 'drink'}/${doc.slug?.current || ''}`,
     priceRange: doc.priceRange || '',
     cuisine: doc.cuisine || '',
   };
