@@ -6,12 +6,6 @@
 (function() {
   'use strict';
 
-  const SUPABASE_URL = 'https://gwwqzmepcppmqzlyywjq.supabase.co';
-  const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imd3d3F6bWVwY3BwbXF6bHl5d2pxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ5MzM0OTIsImV4cCI6MjA5MDUwOTQ5Mn0.TkNNPalkhwvnKnybgONzF_l9QnQTjgEQNIN81sJcHLA';
-
-  let supabase = null;
-  let currentUser = null;
-
   // Wait for venue data to be available
   function waitForVenue() {
     return new Promise(resolve => {
@@ -25,15 +19,6 @@
         tries++;
       }, 200);
     });
-  }
-
-  // Initialize Supabase client
-  async function initSupabase() {
-    if (!window.supabase) return null;
-    supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-    const { data: { session } } = await supabase.auth.getSession();
-    currentUser = session?.user || null;
-    return supabase;
   }
 
   // Show XP toast
@@ -57,7 +42,7 @@
     const bar = document.createElement('div');
     bar.className = 'lc-engagement';
 
-    if (!currentUser) {
+    if (!state.authenticated) {
       bar.innerHTML = '<div class="lc-engagement__signin">Sign in to save places and track your Bangkok journey. <a href="/login">Sign In</a></div>';
       document.body.appendChild(bar);
       return;
@@ -71,7 +56,10 @@
       ? '<svg viewBox="0 0 24 24" fill="none" stroke="#D4788A" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>'
       : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="9 12 12 15 16 10"/></svg>';
 
-    const progress = state.profile ? Math.min(100, (state.profile.xp_total % (50 * (state.profile.level || 1))) / (50 * (state.profile.level || 1)) * 100) : 0;
+    const level = state.profile?.level || 1;
+    const xpTotal = state.profile?.xp_total || 0;
+    const levelXp = 50 * level;
+    const progress = levelXp > 0 ? Math.min(100, ((xpTotal % levelXp) / levelXp) * 100) : 0;
 
     bar.innerHTML = `
       <button class="lc-engagement__btn ${state.saved ? 'lc-engagement__btn--active' : ''}" id="lc-save-btn">
@@ -83,11 +71,11 @@
         ${state.visited ? 'Been Here' : "I've Been Here"}
       </button>
       <div class="lc-engagement__xp">
-        <span class="lc-engagement__level">Lv ${state.profile?.level || 1}</span>
+        <span class="lc-engagement__level">Lv ${level}</span>
         <div class="lc-engagement__bar">
           <div class="lc-engagement__bar-fill" style="width:${progress}%"></div>
         </div>
-        <span>${state.profile?.xp_total || 0} XP</span>
+        <span>${xpTotal} XP</span>
       </div>
     `;
 
@@ -98,11 +86,12 @@
     document.getElementById('lc-visit-btn').addEventListener('click', handleVisit);
   }
 
-  let engagementState = { saved: false, visited: false, saveCount: 0, profile: null };
+  let engagementState = { authenticated: false, saved: false, visited: false, saveCount: 0, profile: null };
 
   async function handleSave() {
+    if (!engagementState.authenticated) return;
     const venue = window.__lcVenue;
-    if (!venue || !currentUser) return;
+    if (!venue) return;
 
     const res = await fetch('/api/engagement/save', {
       method: 'POST',
@@ -110,6 +99,7 @@
       body: JSON.stringify({ venue_id: venue.slug, venue_type: venue.type, venue_slug: venue.slug }),
     });
     const data = await res.json();
+    if (data.error) return;
 
     engagementState.saved = data.saved;
     engagementState.saveCount += data.saved ? 1 : -1;
@@ -122,8 +112,9 @@
   }
 
   async function handleVisit() {
+    if (!engagementState.authenticated || engagementState.visited) return;
     const venue = window.__lcVenue;
-    if (!venue || !currentUser || engagementState.visited) return;
+    if (!venue) return;
 
     const res = await fetch('/api/engagement/visit', {
       method: 'POST',
@@ -138,6 +129,7 @@
       }),
     });
     const data = await res.json();
+    if (data.error) return;
 
     engagementState.visited = true;
     if (data.xp_gained > 0) {
@@ -146,34 +138,31 @@
       showToast(`+${data.xp_gained} XP`);
     }
     if (data.new_badges && data.new_badges.length > 0) {
-      setTimeout(() => showToast(`Badge unlocked: ${data.new_badges[0]}`), 3000);
+      setTimeout(() => showToast(`Badge: ${data.new_badges[0]}`), 3000);
     }
     renderBar(engagementState);
   }
 
-  // Main init
+  // Main init — uses API to check auth (server-side cookies)
   async function init() {
-    await initSupabase();
     const venue = await waitForVenue();
     if (!venue) return;
 
-    if (!currentUser) {
-      renderBar({ saved: false, visited: false, saveCount: 0, profile: null });
-      return;
-    }
-
-    // Fetch engagement status
     try {
-      const res = await fetch(`/api/engagement/status?venue_id=${venue.slug}`);
+      const res = await fetch(`/api/engagement/status?venue_id=${venue.slug}`, {
+        credentials: 'same-origin',
+      });
       const data = await res.json();
+
       engagementState = {
-        saved: data.saved,
-        visited: data.visited,
+        authenticated: data.authenticated !== false,
+        saved: data.saved || false,
+        visited: data.visited || false,
         saveCount: data.saveCount || 0,
         profile: data.profile || { xp_total: 0, level: 1 },
       };
     } catch {
-      engagementState = { saved: false, visited: false, saveCount: 0, profile: { xp_total: 0, level: 1 } };
+      engagementState = { authenticated: false, saved: false, visited: false, saveCount: 0, profile: null };
     }
 
     renderBar(engagementState);
