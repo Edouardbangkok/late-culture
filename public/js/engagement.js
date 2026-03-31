@@ -66,6 +66,7 @@
         ${heartSvg}
         Save <span class="lc-engagement__count">${state.saveCount || 0}</span>
       </button>
+      <div class="lc-engagement__divider"></div>
       <button class="lc-engagement__btn ${state.visited ? 'lc-engagement__btn--active' : ''}" id="lc-visit-btn">
         ${checkSvg}
         ${state.visited ? 'Been Here' : "I've Been Here"}
@@ -75,7 +76,7 @@
         <div class="lc-engagement__bar">
           <div class="lc-engagement__bar-fill" style="width:${progress}%"></div>
         </div>
-        <span>${xpTotal} XP</span>
+        <span class="lc-engagement__xp-num">${xpTotal} XP</span>
       </div>
     `;
 
