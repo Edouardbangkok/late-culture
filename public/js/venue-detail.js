@@ -80,6 +80,15 @@ async function loadVenue() {
 }
 
 function render(v, info) {
+  // Expose venue data for engagement.js
+  window.__lcVenue = {
+    slug: info.slug,
+    type: info.sanityType,
+    name: v.name,
+    neighborhood: v.neighborhood || '',
+    category: v.category || '',
+  };
+
   const sectionLabel = info.section.charAt(0).toUpperCase() + info.section.slice(1);
   const typeLabel = { hotel: 'Hotel', restaurant: 'Restaurant', bar: 'Bar', party: 'Party' }[info.sanityType];
 

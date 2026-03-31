@@ -1,0 +1,155 @@
+/* ── Late Culture Engagement Bar ── */
+
+.lc-engagement {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  background: rgba(255, 255, 255, 0.92);
+  -webkit-backdrop-filter: blur(28px) saturate(1.8);
+  backdrop-filter: blur(28px) saturate(1.8);
+  border-top: 1px solid rgba(242, 196, 206, 0.3);
+  box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.06);
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  font-family: 'Inter', -apple-system, sans-serif;
+}
+
+.lc-engagement__btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border: 1px solid rgba(242, 196, 206, 0.4);
+  border-radius: 999px;
+  background: transparent;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: #1A1010;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-height: 44px;
+}
+
+.lc-engagement__btn:hover {
+  border-color: #D4788A;
+  background: rgba(212, 120, 138, 0.06);
+}
+
+.lc-engagement__btn--active {
+  background: rgba(212, 120, 138, 0.1);
+  border-color: #D4788A;
+  color: #D4788A;
+}
+
+.lc-engagement__btn svg {
+  width: 18px;
+  height: 18px;
+  transition: all 0.2s ease;
+}
+
+.lc-engagement__btn--active svg {
+  fill: #D4788A;
+}
+
+.lc-engagement__count {
+  font-size: 12px;
+  color: #C09098;
+}
+
+.lc-engagement__xp {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: #6A3A44;
+}
+
+.lc-engagement__level {
+  font-weight: 600;
+  font-size: 13px;
+  color: #D4788A;
+}
+
+.lc-engagement__bar {
+  width: 80px;
+  height: 4px;
+  background: rgba(212, 120, 138, 0.15);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.lc-engagement__bar-fill {
+  height: 100%;
+  background: #D4788A;
+  border-radius: 2px;
+  transition: width 0.4s ease;
+}
+
+/* XP Toast */
+.lc-toast {
+  position: fixed;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: #D4788A;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 8px 20px;
+  border-radius: 999px;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  z-index: 1000;
+  white-space: nowrap;
+}
+
+.lc-toast--visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Sign-in prompt */
+.lc-engagement__signin {
+  font-size: 13px;
+  color: #C09098;
+}
+
+.lc-engagement__signin a {
+  color: #D4788A;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.lc-engagement__signin a:hover {
+  text-decoration: underline;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .lc-engagement {
+    padding: 10px 16px;
+    gap: 12px;
+  }
+
+  .lc-engagement__btn {
+    padding: 8px 14px;
+    font-size: 12px;
+    gap: 6px;
+  }
+
+  .lc-engagement__bar {
+    width: 50px;
+  }
+
+  .lc-engagement__xp span:not(.lc-engagement__level) {
+    display: none;
+  }
+}
