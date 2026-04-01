@@ -21,11 +21,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background:
-    /* Rose tint */
-    linear-gradient(to bottom, rgba(212, 120, 138, 0.08), rgba(212, 120, 138, 0.06)),
-    /* Vignette */
-    radial-gradient(ellipse at center, transparent 45%, rgba(26, 16, 16, 0.35) 100%);
+  background: rgba(212, 120, 138, 0.07);
   z-index: 1;
   pointer-events: none;
 }

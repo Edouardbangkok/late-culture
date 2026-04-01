@@ -61,28 +61,38 @@
     const levelXp = 50 * level;
     const progress = levelXp > 0 ? Math.min(100, ((xpTotal % levelXp) / levelXp) * 100) : 0;
 
-    bar.innerHTML = `
-      <button class="lc-engagement__btn ${state.saved ? 'lc-engagement__btn--active' : ''}" id="lc-save-btn">
-        ${heartSvg}
-        Save <span class="lc-engagement__count">${state.saveCount || 0}</span>
-      </button>
-      <div class="lc-engagement__divider"></div>
-      <button class="lc-engagement__btn ${state.visited ? 'lc-engagement__btn--active' : ''}" id="lc-visit-btn">
-        ${checkSvg}
-        ${state.visited ? 'Been Here' : "I've Been Here"}
-      </button>
-      <div class="lc-engagement__xp">
-        <span class="lc-engagement__level">Lv ${level}</span>
-        <div class="lc-engagement__bar">
-          <div class="lc-engagement__bar-fill" style="width:${progress}%"></div>
-        </div>
-        <span class="lc-engagement__xp-num">${xpTotal} XP</span>
-      </div>
-    `;
+    var visitLabel = state.visitedToday ? 'Checked In' : (state.visitCount > 0 ? 'Back Again (' + state.visitCount + ')' : "I've Been Here");
+    var visitDisabled = state.visitedToday ? ' lc-engagement__btn--disabled' : '';
+
+    var ambassadorHtml = '';
+    if (state.ambassador) {
+      var ambAvatar = state.ambassador.avatar_url
+        ? '<img src="' + state.ambassador.avatar_url + '" style="width:18px;height:18px;border-radius:50%;object-fit:cover;">'
+        : '';
+      ambassadorHtml = '<div class="lc-engagement__ambassador">'
+        + ambAvatar
+        + '<span>Ambassador: <a href="/u/' + state.ambassador.username + '">' + (state.ambassador.display_name || state.ambassador.username) + '</a> (' + state.ambassador.visit_count + ' visits)</span>'
+        + '</div>';
+    }
+
+    bar.innerHTML = ambassadorHtml
+      + '<div class="lc-engagement__actions">'
+      + '<button class="lc-engagement__btn ' + (state.saved ? 'lc-engagement__btn--active' : '') + '" id="lc-save-btn">'
+      + heartSvg + ' Save <span class="lc-engagement__count">' + (state.saveCount || 0) + '</span>'
+      + '</button>'
+      + '<div class="lc-engagement__divider"></div>'
+      + '<button class="lc-engagement__btn ' + (state.visitCount > 0 ? 'lc-engagement__btn--active' : '') + visitDisabled + '" id="lc-visit-btn">'
+      + checkSvg + ' ' + visitLabel
+      + '</button>'
+      + '<div class="lc-engagement__xp">'
+      + '<span class="lc-engagement__level">Lv ' + level + '</span>'
+      + '<div class="lc-engagement__bar"><div class="lc-engagement__bar-fill" style="width:' + progress + '%"></div></div>'
+      + '<span class="lc-engagement__xp-num">' + xpTotal + ' XP</span>'
+      + '</div>'
+      + '</div>';
 
     document.body.appendChild(bar);
 
-    // Attach events
     document.getElementById('lc-save-btn').addEventListener('click', handleSave);
     document.getElementById('lc-visit-btn').addEventListener('click', handleVisit);
   }

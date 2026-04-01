@@ -50,15 +50,13 @@
   transform: scale(1.03);
 }
 
-/* ── Late Culture Photo Identity (Full Combo) ── */
-/* Rose tint + vignette */
+/* ── Late Culture Photo Identity ── */
+/* Rose tint */
 .venue-card__img::before {
   content: '';
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(to bottom, rgba(212, 120, 138, 0.08), rgba(212, 120, 138, 0.06)),
-    radial-gradient(ellipse at center, transparent 45%, rgba(26, 16, 16, 0.35) 100%);
+  background: rgba(212, 120, 138, 0.07);
   z-index: 1;
   pointer-events: none;
 }

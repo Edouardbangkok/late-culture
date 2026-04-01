@@ -13,16 +13,27 @@ export async function POST(request: Request) {
 
   const admin = createServiceRoleClient()
 
-  // Check if already visited
-  const { data: existing } = await admin.from('checkins')
+  // Check if already visited TODAY (allow multiple visits on different days)
+  const today = new Date().toISOString().split('T')[0]
+  const { data: todayVisit } = await admin.from('checkins')
     .select('id')
     .eq('user_id', user.id)
     .eq('venue_sanity_id', venue_id)
+    .gte('checked_in_at', today + 'T00:00:00Z')
+    .lte('checked_in_at', today + 'T23:59:59Z')
     .limit(1)
 
-  if (existing && existing.length > 0) {
-    return NextResponse.json({ visited: true, xp_gained: 0, already: true })
+  if (todayVisit && todayVisit.length > 0) {
+    return NextResponse.json({ visited: true, xp_gained: 0, already_today: true })
   }
+
+  // Check total visits for first-time XP vs return XP
+  const { count: totalVisits } = await admin.from('checkins')
+    .select('id', { count: 'exact', head: true })
+    .eq('user_id', user.id)
+    .eq('venue_sanity_id', venue_id)
+
+  const isFirstVisit = (totalVisits || 0) === 0
 
   // Create checkin
   await admin.from('checkins').insert({
@@ -37,12 +48,14 @@ export async function POST(request: Request) {
     venue_lng: venue_lng || null,
   })
 
-  // Award XP
+  // Award XP — first visit: 15 XP, return visit: 5 XP
+  const xpAmount = isFirstVisit ? XP_VALUES.VISIT : 5
+  const actionType = isFirstVisit ? 'visit' : 'return_visit'
   const { data: xpResult } = await admin.rpc('award_xp', {
     p_user_id: user.id,
-    p_action: 'visit',
-    p_xp_amount: XP_VALUES.VISIT,
-    p_source_id: venue_id,
+    p_action: actionType,
+    p_xp_amount: xpAmount,
+    p_source_id: venue_id + '_' + today,
     p_source_type: 'venue',
   })
 
