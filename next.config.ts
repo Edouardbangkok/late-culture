@@ -27,6 +27,7 @@ const nextConfig: NextConfig = {
       { source: '/plan-my-night', destination: '/plan-my-night-page.html' },
       { source: '/collections', destination: '/collections-page.html' },
       { source: '/u/:username', destination: '/user-profile-page.html' },
+      { source: '/community', destination: '/community-page.html' },
     ]
   },
 }

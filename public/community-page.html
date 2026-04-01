@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community | Late Culture Bangkok</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Fraunces:ital,wght@1,300;1,400&family=Indie+Flower&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/variables.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/glass.css">
+    <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+
+    <style>
+        .cm-hero { background: var(--cloud, #F5F0EB); padding: 140px 0 40px; }
+        .cm-hero__inner { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+        .cm-overline { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--rose3, #D4788A); margin-bottom: 8px; }
+        .cm-title { font-family: 'Anton', Impact, sans-serif; font-size: clamp(36px, 6vw, 56px); text-transform: uppercase; color: var(--ink, #1A1010); margin: 0 0 12px; line-height: 0.95; }
+        .cm-sub { font-family: 'Fraunces', serif; font-style: italic; font-size: 16px; color: var(--lite, #C09098); margin-bottom: 32px; }
+
+        .cm-search {
+            max-width: 500px;
+            position: relative;
+        }
+        .cm-search__input {
+            width: 100%;
+            padding: 16px 20px 16px 48px;
+            border: 1px solid rgba(212, 120, 138, 0.2);
+            border-radius: 12px;
+            background: #fff;
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            color: var(--ink, #1A1010);
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .cm-search__input:focus { border-color: var(--rose3, #D4788A); }
+        .cm-search__input::placeholder { color: var(--lite, #C09098); }
+        .cm-search__icon {
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 18px;
+            color: var(--lite, #C09098);
+        }
+
+        .cm-container { max-width: 1200px; margin: 0 auto; padding: 40px 40px 80px; }
+
+        .cm-label {
+            font-family: 'Anton', Impact, sans-serif;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--mid, #6A3A44);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .cm-label::after { content: ''; flex: 1; height: 1px; background: rgba(212,120,138,0.15); }
+
+        .cm-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .cm-card {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 20px 24px;
+            background: #fff;
+            border: 1px solid rgba(212, 120, 138, 0.1);
+            border-radius: 16px;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        .cm-card:hover { border-color: var(--rose3); box-shadow: 0 4px 20px rgba(212,120,138,0.1); transform: translateY(-1px); }
+
+        .cm-card__avatar {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid rgba(212,120,138,0.3);
+            flex-shrink: 0;
+        }
+        .cm-card__avatar-ph {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: var(--rose3);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Anton', sans-serif;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+        .cm-card__info { flex: 1; min-width: 0; }
+        .cm-card__name {
+            font-family: 'Anton', Impact, sans-serif;
+            font-size: 16px;
+            text-transform: uppercase;
+            color: var(--ink, #1A1010);
+            line-height: 1.1;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .cm-card__meta {
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            color: var(--lite, #C09098);
+            margin-top: 2px;
+        }
+        .cm-card__taste {
+            font-family: 'Fraunces', serif;
+            font-style: italic;
+            font-size: 12px;
+            color: var(--rose3, #D4788A);
+            margin-top: 2px;
+        }
+
+        .cm-card__right { flex-shrink: 0; text-align: right; }
+        .cm-card__level {
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--rose3, #D4788A);
+        }
+        .cm-card__visited {
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            color: var(--lite, #C09098);
+            margin-top: 2px;
+        }
+        .cm-card__og {
+            display: inline-block;
+            font-size: 9px;
+            font-weight: 600;
+            color: #FFD700;
+            background: rgba(255,215,0,0.1);
+            padding: 2px 6px;
+            border-radius: 999px;
+            margin-top: 4px;
+        }
+
+        .cm-follow-btn {
+            padding: 6px 14px;
+            border: 1px solid rgba(212,120,138,0.3);
+            border-radius: 999px;
+            background: transparent;
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--rose3, #D4788A);
+            cursor: pointer;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+        .cm-follow-btn:hover { background: rgba(212,120,138,0.08); }
+        .cm-follow-btn--active {
+            background: var(--rose3, #D4788A);
+            color: #fff;
+            border-color: var(--rose3, #D4788A);
+        }
+
+        .cm-empty {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 60px 0;
+            font-family: 'Fraunces', serif;
+            font-style: italic;
+            color: var(--lite, #C09098);
+        }
+
+        .cm-rank {
+            font-family: 'Anton', sans-serif;
+            font-size: 18px;
+            color: var(--rose, #F2C4CE);
+            width: 28px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 1024px) { .cm-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 768px) {
+            .cm-hero { padding: 120px 0 32px; }
+            .cm-hero__inner { padding: 0 24px; }
+            .cm-container { padding: 32px 24px 60px; }
+            .cm-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="glass-nav">
+        <div class="glass-nav__inner">
+            <div class="nav__wordmark-wrap" style="position:relative;">
+                <a href="/" class="nav__wordmark" style="text-decoration:none;color:#fff;font-family:'Impact',sans-serif;text-transform:uppercase;letter-spacing:0.04em;font-size:15px;">LATE CULTURE&nbsp;<span style="color:#d4788a;">BANGKOK</span></a>
+            </div>
+            <div class="glass-nav__links" style="position:absolute;left:50%;transform:translateX(-50%);">
+                <a href="/stay" class="glass-nav__link">Stay</a>
+                <a href="/eat" class="glass-nav__link">Eat</a>
+                <a href="/drink" class="glass-nav__link">Drink</a>
+                <a href="/party" class="glass-nav__link">Party</a>
+            </div>
+            <a href="/explore" class="glass-nav__cta" style="margin-left:auto;padding:8px 20px;background:#d4788a;border:none;border-radius:50px;font-family:'Inter',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#fff;text-decoration:none;">Explore Bangkok &#8599;</a>
+            <button class="glass-nav__hamburger" onclick="document.getElementById('mobile-menu').classList.toggle('open')"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+
+    <section class="cm-hero">
+        <div class="cm-hero__inner">
+            <p class="cm-overline">Community</p>
+            <h1 class="cm-title">FIND PEOPLE.</h1>
+            <p class="cm-sub">Discover fellow explorers. See their badges. Follow their journey.</p>
+            <div class="cm-search">
+                <span class="cm-search__icon">&#128269;</span>
+                <input type="text" class="cm-search__input" id="search-input" placeholder="Search by name..." autocomplete="off">
+            </div>
+        </div>
+    </section>
+
+    <div class="cm-container">
+        <div class="cm-label" id="cm-label">Most Active</div>
+        <div class="cm-grid" id="cm-grid">
+            <div class="cm-empty">Loading...</div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer__container">
+            <div class="footer__brand"><h2 class="footer__wordmark">LATE CULTURE</h2><p class="footer__tagline">The city has a thousand doors. We opened the right ones.</p></div>
+            <div style="border-top:1px solid rgba(255,255,255,0.1);margin-top:48px;padding-top:24px;text-align:center;color:rgba(255,255,255,0.3);font-size:13px;">&copy; 2025 Late Culture.</div>
+        </div>
+    </footer>
+
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-menu__inner">
+            <button class="mobile-menu__close" onclick="document.getElementById('mobile-menu').classList.remove('open')">&times;</button>
+            <nav class="mobile-menu__nav">
+                <a href="/stay" class="mobile-menu__link">Stay</a><a href="/eat" class="mobile-menu__link">Eat</a><a href="/drink" class="mobile-menu__link">Drink</a><a href="/party" class="mobile-menu__link">Party</a>
+            </nav>
+        </div>
+    </div>
+
+    <script>
+    var searchTimer = null;
+
+    document.getElementById('search-input').addEventListener('input', function(e) {
+        clearTimeout(searchTimer);
+        var q = e.target.value.trim();
+        searchTimer = setTimeout(function() { loadUsers(q); }, 300);
+    });
+
+    async function loadUsers(q) {
+        var url = '/api/community' + (q ? '?q=' + encodeURIComponent(q) : '');
+        var res = await fetch(url);
+        var data = await res.json();
+        var users = data.users || [];
+
+        document.getElementById('cm-label').textContent = q ? 'Search Results' : 'Most Active';
+
+        if (users.length === 0) {
+            document.getElementById('cm-grid').innerHTML = '<div class="cm-empty">' + (q ? 'No users found.' : 'No members yet.') + '</div>';
+            return;
+        }
+
+        var html = users.map(function(u, i) {
+            var avatar = u.avatar_url
+                ? '<img src="' + u.avatar_url + '" class="cm-card__avatar">'
+                : '<div class="cm-card__avatar-ph">' + (u.display_name || 'U').charAt(0).toUpperCase() + '</div>';
+            var rank = !q ? '<span class="cm-rank">' + (i + 1) + '</span>' : '';
+            var og = u.is_og ? '<span class="cm-card__og">OG</span>' : '';
+
+            return '<a href="/u/' + u.username + '" class="cm-card">'
+                + rank
+                + avatar
+                + '<div class="cm-card__info">'
+                + '<div class="cm-card__name">' + (u.display_name || u.username) + '</div>'
+                + '<div class="cm-card__taste">' + (u.taste_label || 'New Explorer') + '</div>'
+                + '</div>'
+                + '<div class="cm-card__right">'
+                + '<div class="cm-card__level">Lv ' + (u.level || 1) + '</div>'
+                + '<div class="cm-card__visited">' + (u.venues_visited || 0) + ' visited</div>'
+                + og
+                + '</div>'
+                + '</a>';
+        }).join('');
+
+        document.getElementById('cm-grid').innerHTML = html;
+    }
+
+    // Load leaderboard on page load
+    loadUsers('');
+    </script>
+    <script src="/js/auth-nav.js"></script>
+</body>
+</html>
