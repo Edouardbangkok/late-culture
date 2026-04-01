@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Feed | Late Culture Bangkok</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Fraunces:ital,wght@1,300;1,400&family=Indie+Flower&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/variables.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/glass.css">
+    <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+    <link rel="stylesheet" href="/css/photo-identity.css">
+
+    <style>
+        .feed-hero { background: var(--cloud, #F5F0EB); padding: 140px 0 40px; }
+        .feed-hero__inner { max-width: 800px; margin: 0 auto; padding: 0 40px; }
+        .feed-overline { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--rose3, #D4788A); margin-bottom: 8px; }
+        .feed-title { font-family: 'Anton', Impact, sans-serif; font-size: clamp(36px, 6vw, 56px); text-transform: uppercase; color: var(--ink, #1A1010); margin: 0 0 8px; line-height: 0.95; }
+        .feed-sub { font-family: 'Fraunces', serif; font-style: italic; font-size: 16px; color: var(--lite, #C09098); }
+
+        .feed-container { max-width: 800px; margin: 0 auto; padding: 32px 40px 80px; }
+
+        /* Feed items */
+        .feed-item {
+            display: flex;
+            gap: 16px;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(212, 120, 138, 0.08);
+        }
+        .feed-item__avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
+            border: 1.5px solid rgba(212, 120, 138, 0.3);
+        }
+        .feed-item__avatar-ph {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--rose3, #D4788A);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Anton', sans-serif;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+        .feed-item__content { flex: 1; }
+        .feed-item__text {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: var(--ink, #1A1010);
+            line-height: 1.5;
+        }
+        .feed-item__text a {
+            color: var(--rose3, #D4788A);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .feed-item__text a:hover { text-decoration: underline; }
+        .feed-item__highlight {
+            font-family: 'Fraunces', serif;
+            font-style: italic;
+            font-size: 13px;
+            color: var(--mid, #6A3A44);
+            margin-top: 6px;
+            padding-left: 12px;
+            border-left: 2px solid var(--rose, #F2C4CE);
+        }
+        .feed-item__time {
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            color: var(--lite, #C09098);
+            margin-top: 4px;
+        }
+        .feed-item__type {
+            display: inline-block;
+            font-family: 'Inter', sans-serif;
+            font-size: 9px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--lite, #C09098);
+            background: rgba(212, 120, 138, 0.08);
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-right: 6px;
+        }
+
+        /* Empty state */
+        .feed-empty {
+            text-align: center;
+            padding: 80px 0;
+        }
+        .feed-empty__icon { font-size: 48px; margin-bottom: 16px; }
+        .feed-empty__title {
+            font-family: 'Anton', Impact, sans-serif;
+            font-size: 24px;
+            text-transform: uppercase;
+            color: var(--ink, #1A1010);
+            margin-bottom: 8px;
+        }
+        .feed-empty__sub {
+            font-family: 'Fraunces', serif;
+            font-style: italic;
+            font-size: 15px;
+            color: var(--lite, #C09098);
+            margin-bottom: 24px;
+        }
+        .feed-empty__cta {
+            display: inline-block;
+            padding: 12px 28px;
+            background: var(--rose3, #D4788A);
+            color: #fff;
+            border-radius: 999px;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        /* Sign in state */
+        .feed-signin {
+            text-align: center;
+            padding: 200px 40px;
+        }
+        .feed-signin__title { font-family: 'Anton', sans-serif; font-size: 32px; text-transform: uppercase; color: var(--ink); margin-bottom: 12px; }
+        .feed-signin__sub { font-family: 'Fraunces', serif; font-style: italic; color: var(--lite); margin-bottom: 24px; }
+        .feed-signin__btn { display: inline-block; padding: 14px 36px; background: var(--rose3); color: #fff; border-radius: 999px; font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600; text-decoration: none; }
+
+        .feed-loading { text-align: center; padding: 200px 0; font-family: 'Inter', sans-serif; color: var(--lite); }
+
+        @media (max-width: 768px) {
+            .feed-hero { padding: 120px 0 32px; }
+            .feed-hero__inner { padding: 0 24px; }
+            .feed-container { padding: 24px 24px 60px; }
+            .feed-item__avatar, .feed-item__avatar-ph { width: 36px; height: 36px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="glass-nav">
+        <div class="glass-nav__inner">
+            <div class="nav__wordmark-wrap" style="position:relative;">
+                <a href="/" class="nav__wordmark" style="text-decoration:none;color:#fff;font-family:'Impact',sans-serif;text-transform:uppercase;letter-spacing:0.04em;font-size:15px;">LATE CULTURE&nbsp;<span style="color:#d4788a;">BANGKOK</span></a>
+            </div>
+            <div class="glass-nav__links" style="position:absolute;left:50%;transform:translateX(-50%);">
+                <a href="/stay" class="glass-nav__link">Stay</a>
+                <a href="/eat" class="glass-nav__link">Eat</a>
+                <a href="/drink" class="glass-nav__link">Drink</a>
+                <a href="/party" class="glass-nav__link">Party</a>
+            </div>
+            <a href="/feed" class="glass-nav__cta" style="margin-left:auto;padding:8px 20px;background:#d4788a;border:none;border-radius:50px;font-family:'Inter',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#fff;text-decoration:none;">My Feed</a>
+            <button class="glass-nav__hamburger" onclick="document.getElementById('mobile-menu').classList.toggle('open')"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+
+    <div id="feed-loading" class="feed-loading">Loading...</div>
+    <div id="feed-signin" class="feed-signin" style="display:none;">
+        <h1 class="feed-signin__title">Sign In</h1>
+        <p class="feed-signin__sub">Sign in to see what your friends are up to.</p>
+        <a href="/login" class="feed-signin__btn">Sign In</a>
+    </div>
+
+    <div id="feed-content" style="display:none;">
+        <section class="feed-hero">
+            <div class="feed-hero__inner">
+                <p class="feed-overline">My Feed</p>
+                <h1 class="feed-title">WHAT YOUR FRIENDS ARE UP TO.</h1>
+                <p class="feed-sub">Check-ins, saves, and highlights from people you follow.</p>
+            </div>
+        </section>
+
+        <div class="feed-container" id="feed-list"></div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer__container">
+            <div class="footer__brand"><h2 class="footer__wordmark">LATE CULTURE</h2><p class="footer__tagline">The city has a thousand doors. We opened the right ones.</p></div>
+            <div style="border-top:1px solid rgba(255,255,255,0.1);margin-top:48px;padding-top:24px;text-align:center;color:rgba(255,255,255,0.3);font-size:13px;">&copy; 2025 Late Culture.</div>
+        </div>
+    </footer>
+
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-menu__inner">
+            <button class="mobile-menu__close" onclick="document.getElementById('mobile-menu').classList.remove('open')">&times;</button>
+            <nav class="mobile-menu__nav">
+                <a href="/stay" class="mobile-menu__link">Stay</a>
+                <a href="/eat" class="mobile-menu__link">Eat</a>
+                <a href="/drink" class="mobile-menu__link">Drink</a>
+                <a href="/party" class="mobile-menu__link">Party</a>
+            </nav>
+        </div>
+    </div>
+
+    <script>
+    (async function() {
+        try {
+            var res = await fetch('/api/feed', { credentials: 'same-origin' });
+            var data = await res.json();
+
+            document.getElementById('feed-loading').style.display = 'none';
+
+            if (data.error) {
+                document.getElementById('feed-signin').style.display = '';
+                return;
+            }
+
+            document.getElementById('feed-content').style.display = '';
+
+            if (data.empty || data.items.length === 0) {
+                document.getElementById('feed-list').innerHTML =
+                    '<div class="feed-empty">'
+                    + '<div class="feed-empty__icon">👥</div>'
+                    + '<h2 class="feed-empty__title">No Activity Yet</h2>'
+                    + '<p class="feed-empty__sub">Follow people to see their check-ins and saves here.</p>'
+                    + '<a href="/community" class="feed-empty__cta">Find People</a>'
+                    + '</div>';
+                return;
+            }
+
+            var html = data.items.map(function(item) {
+                var avatar = item.user.avatar_url
+                    ? '<img src="' + item.user.avatar_url + '" class="feed-item__avatar">'
+                    : '<div class="feed-item__avatar-ph">' + (item.user.display_name || 'U').charAt(0).toUpperCase() + '</div>';
+
+                var section = item.venue_type === 'hotel' ? 'stay' : item.venue_type === 'restaurant' ? 'eat' : item.venue_type === 'party' ? 'party' : 'drink';
+                var venueLink = '<a href="/' + section + '/' + item.venue_slug + '">' + item.venue_name + '</a>';
+                var userLink = '<a href="/u/' + item.user.username + '">' + (item.user.display_name || item.user.username) + '</a>';
+
+                var action = item.type === 'visit' ? ' checked in at ' : ' saved ';
+                var typeLabel = item.type === 'visit' ? 'Check-in' : 'Saved';
+
+                var highlight = item.highlight ? '<div class="feed-item__highlight">"' + item.highlight + '"</div>' : '';
+
+                var timeAgo = getTimeAgo(item.date);
+
+                return '<div class="feed-item">'
+                    + avatar
+                    + '<div class="feed-item__content">'
+                    + '<div class="feed-item__text"><span class="feed-item__type">' + typeLabel + '</span>' + userLink + action + venueLink + '</div>'
+                    + highlight
+                    + '<div class="feed-item__time">' + timeAgo + '</div>'
+                    + '</div>'
+                    + '</div>';
+            }).join('');
+
+            document.getElementById('feed-list').innerHTML = html;
+
+        } catch (err) {
+            document.getElementById('feed-loading').style.display = 'none';
+            document.getElementById('feed-signin').style.display = '';
+        }
+    })();
+
+    function getTimeAgo(dateStr) {
+        var now = new Date();
+        var date = new Date(dateStr);
+        var diff = Math.floor((now - date) / 1000);
+        if (diff < 60) return 'just now';
+        if (diff < 3600) return Math.floor(diff / 60) + 'm ago';
+        if (diff < 86400) return Math.floor(diff / 3600) + 'h ago';
+        if (diff < 604800) return Math.floor(diff / 86400) + 'd ago';
+        return date.toLocaleDateString();
+    }
+    </script>
+    <script src="/js/auth-nav.js"></script>
+</body>
+</html>
