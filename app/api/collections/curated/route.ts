@@ -30,7 +30,7 @@ export async function GET() {
     }
   }
 
-  const result = collections.map(c => {
+  const result = collections.map((c: any) => {
     const items = c.curated_collection_items || []
     const visited = progressMap[c.id] ? progressMap[c.id].size : 0
     return {
