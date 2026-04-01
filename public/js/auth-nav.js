@@ -92,18 +92,18 @@
 
     var cached = getCache();
 
-    var extraLinks = '<div style="margin-top:24px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.1);">'
-      + '<a href="/plan-my-night" class="mobile-menu__link" style="font-size:clamp(20px,5vw,32px);">Plan My Night</a>'
-      + '<a href="/collections" class="mobile-menu__link" style="font-size:clamp(20px,5vw,32px);">Collections</a>'
-      + '<a href="/community" class="mobile-menu__link" style="font-size:clamp(20px,5vw,32px);">Find People</a>'
+    var extraLinks = '<div style="margin-top:32px;padding-top:32px;border-top:1px solid rgba(255,255,255,0.1);display:flex;flex-direction:column;align-items:center;gap:24px;">'
+      + '<a href="/plan-my-night" class="mobile-menu__link" style="display:block;font-size:clamp(20px,5vw,32px);">Plan My Night</a>'
+      + '<a href="/collections" class="mobile-menu__link" style="display:block;font-size:clamp(20px,5vw,32px);">Collections</a>'
+      + '<a href="/community" class="mobile-menu__link" style="display:block;font-size:clamp(20px,5vw,32px);">Find People</a>'
       + '</div>';
 
     if (cached && cached.authenticated) {
-      extraLinks += '<div style="margin-top:24px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.1);">'
-        + '<a href="/profile" class="mobile-menu__link" style="font-size:clamp(18px,4vw,24px);color:#D4788A;">My Profile</a>'
+      extraLinks += '<div style="margin-top:32px;padding-top:32px;border-top:1px solid rgba(255,255,255,0.1);display:flex;flex-direction:column;align-items:center;gap:16px;">'
+        + '<a href="/profile" class="mobile-menu__link" style="display:block;font-size:clamp(18px,4vw,24px);color:#D4788A;">My Profile</a>'
         + '</div>';
     } else {
-      extraLinks += '<div style="margin-top:24px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.1);">'
+      extraLinks += '<div style="margin-top:32px;padding-top:32px;border-top:1px solid rgba(255,255,255,0.1);display:flex;flex-direction:column;align-items:center;gap:16px;">'
         + '<a href="/login" class="mobile-menu__link" style="font-size:clamp(18px,4vw,24px);color:#D4788A;">Sign In</a>'
         + '</div>';
     }

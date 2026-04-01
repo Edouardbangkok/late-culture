@@ -428,7 +428,7 @@
   top: calc(100% + 10px);
   right: 0;
   min-width: 200px;
-  background: rgba(26, 16, 16, 0.92);
+  background: rgba(26, 16, 16, 0.95);
   -webkit-backdrop-filter: blur(24px) saturate(1.8);
   backdrop-filter: blur(24px) saturate(1.8);
   border: 1px solid rgba(212, 120, 138, 0.15);
@@ -436,6 +436,22 @@
   padding: 8px;
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
   z-index: 100;
+}
+
+@media (max-width: 768px) {
+  .lc-auth-nav__dropdown {
+    position: fixed;
+    top: 60px;
+    right: 12px;
+    left: 12px;
+    min-width: auto;
+    border-radius: 16px;
+    padding: 12px;
+  }
+  .lc-auth-nav__dropdown-item {
+    padding: 14px 16px;
+    font-size: 15px;
+  }
 }
 
 .lc-auth-nav__dropdown--open {
