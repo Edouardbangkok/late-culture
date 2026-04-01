@@ -1,9 +1,9 @@
 .page {
   min-height: 100vh;
   background: var(--cloud, #F5F0EB);
-  max-width: 960px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 100px 40px 120px;
+  padding: 100px 60px 120px;
 }
 
 .loading {
@@ -52,8 +52,8 @@
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
 }
 
 .card {

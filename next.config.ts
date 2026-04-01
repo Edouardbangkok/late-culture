@@ -23,6 +23,7 @@ const nextConfig: NextConfig = {
       { source: '/about', destination: '/about-page.html' },
       { source: '/contact', destination: '/contact-page.html' },
       { source: '/editorial-policy', destination: '/editorial-policy-page.html' },
+      { source: '/profile', destination: '/profile-page.html' },
     ]
   },
 }

@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile | Late Culture Bangkok</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Fraunces:ital,wght@1,300;1,400&family=Indie+Flower&family=Inter:wght@300;400;500;600;700&family=Permanent+Marker&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/variables.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/glass.css">
+    <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+
+    <style>
+        /* ── Profile Hero ── */
+        .profile-hero {
+            background: var(--ink, #1A1010);
+            padding: 140px 0 60px;
+        }
+        .profile-hero__inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+        .profile-hero__avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid rgba(212, 120, 138, 0.5);
+            flex-shrink: 0;
+        }
+        .profile-hero__avatar-placeholder {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: var(--rose3, #D4788A);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Anton', Impact, sans-serif;
+            font-size: 40px;
+            flex-shrink: 0;
+        }
+        .profile-hero__info { flex: 1; }
+        .profile-hero__name {
+            font-family: 'Anton', Impact, sans-serif;
+            font-size: clamp(32px, 5vw, 48px);
+            text-transform: uppercase;
+            color: #fff;
+            margin: 0;
+            line-height: 1;
+        }
+        .profile-hero__taste {
+            font-family: 'Fraunces', serif;
+            font-style: italic;
+            font-size: 16px;
+            color: var(--rose3, #D4788A);
+            margin-top: 6px;
+        }
+        .profile-hero__level {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 12px;
+            padding: 6px 16px;
+            background: rgba(212, 120, 138, 0.12);
+            border: 1px solid rgba(212, 120, 138, 0.25);
+            border-radius: 999px;
+        }
+        .profile-hero__level-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            color: #D4788A;
+            letter-spacing: 0.04em;
+        }
+        .profile-hero__xpbar {
+            width: 80px;
+            height: 4px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+        .profile-hero__xpbar-fill {
+            height: 100%;
+            background: #D4788A;
+            border-radius: 2px;
+        }
+        .profile-hero__xp {
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            color: rgba(255,255,255,0.4);
+        }
+
+        /* ── Stats Bar ── */
+        .profile-stats {
+            max-width: 1200px;
+            margin: -30px auto 0;
+            padding: 0 40px;
+            display: flex;
+            gap: 0;
+        }
+        .profile-stats__item {
+            flex: 1;
+            text-align: center;
+            padding: 28px 0;
+            background: #fff;
+            border: 1px solid rgba(212, 120, 138, 0.1);
+        }
+        .profile-stats__item:first-child { border-radius: 16px 0 0 16px; }
+        .profile-stats__item:last-child { border-radius: 0 16px 16px 0; }
+        .profile-stats__item:not(:last-child) { border-right: none; }
+        .profile-stats__num {
+            display: block;
+            font-family: 'Anton', Impact, sans-serif;
+            font-size: 36px;
+            color: var(--ink, #1A1010);
+        }
+        .profile-stats__label {
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            color: var(--lite, #C09098);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-top: 4px;
+        }
+
+        /* ── Content Grid ── */
+        .profile-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 48px 40px 80px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .profile-section__title {
+            font-family: 'Anton', Impact, sans-serif;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--mid, #6A3A44);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .profile-section__title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: rgba(212, 120, 138, 0.15);
+        }
+
+        /* Badges */
+        .profile-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .profile-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 16px;
+            background: #fff;
+            border: 1px solid rgba(212, 120, 138, 0.12);
+            border-radius: 999px;
+        }
+        .profile-badge__icon { font-size: 18px; }
+        .profile-badge__name {
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--ink, #1A1010);
+        }
+
+        /* Progression */
+        .profile-progress {
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            color: var(--mid, #6A3A44);
+            padding: 14px 18px;
+            background: #fff;
+            border: 1px solid rgba(212, 120, 138, 0.1);
+            border-radius: 12px;
+            margin-bottom: 8px;
+            border-left: 3px solid var(--rose3, #D4788A);
+        }
+
+        /* Activity */
+        .profile-activity {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(212, 120, 138, 0.08);
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+        }
+        .profile-activity__action { color: var(--ink, #1A1010); text-transform: capitalize; }
+        .profile-activity__xp { color: var(--rose3, #D4788A); font-weight: 600; }
+
+        /* Avatar Picker */
+        .profile-avatars {
+            margin-top: 24px;
+        }
+        .profile-avatars__grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 12px;
+        }
+        .profile-avatars__option {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: all 0.2s;
+            overflow: hidden;
+        }
+        .profile-avatars__option:hover {
+            border-color: var(--rose3, #D4788A);
+            transform: scale(1.1);
+        }
+        .profile-avatars__option--active {
+            border-color: var(--rose3, #D4788A);
+            box-shadow: 0 0 0 3px rgba(212, 120, 138, 0.3);
+        }
+        .profile-avatars__option img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Empty state */
+        .profile-empty {
+            font-family: 'Fraunces', serif;
+            font-style: italic;
+            font-size: 14px;
+            color: var(--lite, #C09098);
+        }
+
+        /* Loading */
+        .profile-loading {
+            text-align: center;
+            padding: 200px 0;
+            font-family: 'Inter', sans-serif;
+            color: var(--lite, #C09098);
+        }
+
+        /* Not logged in */
+        .profile-signin {
+            text-align: center;
+            padding: 200px 40px;
+        }
+        .profile-signin__title {
+            font-family: 'Anton', Impact, sans-serif;
+            font-size: 32px;
+            text-transform: uppercase;
+            color: var(--ink, #1A1010);
+            margin-bottom: 12px;
+        }
+        .profile-signin__sub {
+            font-family: 'Fraunces', serif;
+            font-style: italic;
+            color: var(--lite, #C09098);
+            margin-bottom: 24px;
+        }
+        .profile-signin__btn {
+            display: inline-block;
+            padding: 14px 36px;
+            background: var(--rose3, #D4788A);
+            color: #fff;
+            border-radius: 999px;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .profile-hero { padding: 120px 0 40px; }
+            .profile-hero__inner { padding: 0 24px; gap: 20px; }
+            .profile-hero__avatar, .profile-hero__avatar-placeholder { width: 72px; height: 72px; }
+            .profile-hero__avatar-placeholder { font-size: 28px; }
+            .profile-stats { padding: 0 24px; margin-top: -20px; }
+            .profile-stats__num { font-size: 24px; }
+            .profile-stats__item { padding: 20px 0; }
+            .profile-content { grid-template-columns: 1fr; padding: 32px 24px 60px; gap: 24px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ── GLASS NAV ── -->
+    <nav class="glass-nav">
+        <div class="glass-nav__inner">
+            <div class="nav__wordmark-wrap" style="position:relative;">
+                <a href="/" class="nav__wordmark" style="text-decoration:none;color:#fff;font-family:'Impact',sans-serif;text-transform:uppercase;letter-spacing:0.04em;font-size:15px;">LATE CULTURE&nbsp;<span style="color:#d4788a;">BANGKOK</span>
+                    <svg class="city-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none" style="margin-left:6px;transition:transform .3s;"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+                <div class="city-dropdown" id="cityDropdown">
+                    <a href="/" class="city-dropdown__item city-dropdown__item--active">
+                        <span class="city-dropdown__dot" style="background:#d4788a;"></span>
+                        <span class="city-dropdown__name">Bangkok</span>
+                    </a>
+                    <div class="city-dropdown__item city-dropdown__item--soon" style="opacity:0.6;">
+                        <span class="city-dropdown__dot" style="background:#78B0D4;"></span>
+                        <span class="city-dropdown__name" style="color:#fff;">Phuket</span>
+                        <span class="city-dropdown__badge">SOON</span>
+                    </div>
+                </div>
+            </div>
+            <div class="glass-nav__links" style="position:absolute;left:50%;transform:translateX(-50%);">
+                <a href="/stay" class="glass-nav__link">Stay</a>
+                <a href="/eat" class="glass-nav__link">Eat</a>
+                <a href="/drink" class="glass-nav__link">Drink</a>
+                <a href="/party" class="glass-nav__link">Party</a>
+            </div>
+            <a href="/explore" class="glass-nav__cta" style="margin-left:auto;padding:8px 20px;background:#d4788a;border:none;border-radius:50px;font-family:'Inter',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#fff;text-decoration:none;transition:all .3s;white-space:nowrap;">Explore Bangkok <span style="margin-left:4px;">&#8599;</span></a>
+            <button class="glass-nav__hamburger" aria-label="Open menu" onclick="document.getElementById('mobile-menu').classList.toggle('open')">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ── Loading state ── -->
+    <div id="profile-loading" class="profile-loading">Loading...</div>
+
+    <!-- ── Not logged in state ── -->
+    <div id="profile-signin" class="profile-signin" style="display:none;">
+        <h1 class="profile-signin__title">Sign In Required</h1>
+        <p class="profile-signin__sub">Sign in to view your profile, badges, and progress.</p>
+        <a href="/login" class="profile-signin__btn">Sign In</a>
+    </div>
+
+    <!-- ── Profile content (hidden until loaded) ── -->
+    <div id="profile-content-wrap" style="display:none;">
+        <section class="profile-hero">
+            <div class="profile-hero__inner">
+                <div id="profile-avatar"></div>
+                <div class="profile-hero__info">
+                    <h1 class="profile-hero__name" id="profile-name"></h1>
+                    <p class="profile-hero__taste" id="profile-taste"></p>
+                    <div class="profile-hero__level">
+                        <span class="profile-hero__level-label" id="profile-level-label"></span>
+                        <div class="profile-hero__xpbar">
+                            <div class="profile-hero__xpbar-fill" id="profile-xp-fill"></div>
+                        </div>
+                        <span class="profile-hero__xp" id="profile-xp-text"></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="profile-stats">
+            <div class="profile-stats__item">
+                <span class="profile-stats__num" id="stat-saved">0</span>
+                <span class="profile-stats__label">Saved</span>
+            </div>
+            <div class="profile-stats__item">
+                <span class="profile-stats__num" id="stat-visited">0</span>
+                <span class="profile-stats__label">Visited</span>
+            </div>
+            <div class="profile-stats__item">
+                <span class="profile-stats__num" id="stat-badges">0</span>
+                <span class="profile-stats__label">Badges</span>
+            </div>
+        </div>
+
+        <div class="profile-content">
+            <div>
+                <div class="profile-section__title">Badges</div>
+                <div class="profile-badges" id="badges-grid"></div>
+
+                <div style="margin-top:32px;">
+                    <div class="profile-section__title">Next Up</div>
+                    <div id="progression-list"></div>
+                </div>
+            </div>
+
+            <div>
+                <div class="profile-section__title">Recent Activity</div>
+                <div id="activity-list"></div>
+
+                <div class="profile-avatars">
+                    <div class="profile-section__title">Change Avatar</div>
+                    <div class="profile-avatars__grid" id="avatar-grid"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── FOOTER ── -->
+    <footer class="footer">
+        <div class="footer__container">
+            <div class="footer__brand">
+                <h2 class="footer__wordmark">LATE CULTURE</h2>
+                <p class="footer__tagline">The city has a thousand doors. We opened the right ones.</p>
+            </div>
+            <div style="border-top:1px solid rgba(255,255,255,0.1);margin-top:48px;padding-top:24px;text-align:center;color:rgba(255,255,255,0.3);font-size:13px;">
+                &copy; 2025 Late Culture. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- ── MOBILE MENU ── -->
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-menu__inner">
+            <button class="mobile-menu__close" aria-label="Close menu" onclick="document.getElementById('mobile-menu').classList.remove('open')">&times;</button>
+            <nav class="mobile-menu__nav">
+                <a href="/stay" class="mobile-menu__link">Stay</a>
+                <a href="/eat" class="mobile-menu__link">Eat</a>
+                <a href="/drink" class="mobile-menu__link">Drink</a>
+                <a href="/party" class="mobile-menu__link">Party</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- ── Profile JS ── -->
+    <script>
+    (async function() {
+      var PRESET_AVATARS = [
+        '/assets/avatars/av1.svg', '/assets/avatars/av2.svg', '/assets/avatars/av3.svg',
+        '/assets/avatars/av4.svg', '/assets/avatars/av5.svg', '/assets/avatars/av6.svg',
+        '/assets/avatars/av7.svg', '/assets/avatars/av8.svg', '/assets/avatars/av9.svg',
+        '/assets/avatars/av10.svg'
+      ];
+
+      try {
+        var res = await fetch('/api/profile/me', { credentials: 'same-origin' });
+        var data = await res.json();
+
+        document.getElementById('profile-loading').style.display = 'none';
+
+        if (data.error) {
+          document.getElementById('profile-signin').style.display = '';
+          return;
+        }
+
+        document.getElementById('profile-content-wrap').style.display = '';
+        var p = data.profile;
+        var badges = data.badges || [];
+        var progression = data.progression || [];
+        var recentXp = data.recentXp || [];
+
+        // Avatar
+        var avatarEl = document.getElementById('profile-avatar');
+        if (p.avatar_url) {
+          avatarEl.innerHTML = '<img src="' + p.avatar_url + '" alt="" class="profile-hero__avatar">';
+        } else {
+          avatarEl.innerHTML = '<div class="profile-hero__avatar-placeholder">' + (p.display_name || 'U').charAt(0).toUpperCase() + '</div>';
+        }
+
+        // Info
+        document.getElementById('profile-name').textContent = p.display_name || 'Late Culture User';
+        document.getElementById('profile-taste').textContent = p.taste_label || 'New Explorer';
+        document.getElementById('profile-level-label').textContent = 'Level ' + (p.level || 1) + ' \u00B7 ' + (p.label || 'New Explorer');
+        document.getElementById('profile-xp-fill').style.width = ((p.progress || 0) * 100) + '%';
+        document.getElementById('profile-xp-text').textContent = (p.xp_total || 0) + ' XP';
+
+        // Stats
+        document.getElementById('stat-saved').textContent = p.venues_saved || 0;
+        document.getElementById('stat-visited').textContent = p.venues_visited || 0;
+        document.getElementById('stat-badges').textContent = badges.length;
+
+        // Badges
+        var badgesHtml = badges.length === 0
+          ? '<p class="profile-empty">Visit venues and save places to earn badges.</p>'
+          : badges.map(function(b) {
+              return '<div class="profile-badge"><span class="profile-badge__icon">' + (b.icon || '\uD83C\uDFC6') + '</span><span class="profile-badge__name">' + b.name + '</span></div>';
+            }).join('');
+        document.getElementById('badges-grid').innerHTML = badgesHtml;
+
+        // Progression
+        var progHtml = progression.length === 0
+          ? '<p class="profile-empty">Keep exploring to unlock next goals.</p>'
+          : progression.map(function(pr) { return '<div class="profile-progress">' + pr.text + '</div>'; }).join('');
+        document.getElementById('progression-list').innerHTML = progHtml;
+
+        // Activity
+        var actHtml = recentXp.length === 0
+          ? '<p class="profile-empty">No recent activity yet.</p>'
+          : recentXp.slice(0, 8).map(function(xp) {
+              return '<div class="profile-activity"><span class="profile-activity__action">' + xp.action + '</span><span class="profile-activity__xp">+' + xp.xp_amount + ' XP</span></div>';
+            }).join('');
+        document.getElementById('activity-list').innerHTML = actHtml;
+
+        // Avatar picker
+        var currentAvatar = p.avatar_url || '';
+        var googleAvatar = p.avatar_url && p.avatar_url.includes('google') ? p.avatar_url : null;
+        var avatarOptions = [];
+        if (googleAvatar) {
+          avatarOptions.push({ url: googleAvatar, label: 'Google Photo' });
+        }
+        PRESET_AVATARS.forEach(function(url, i) {
+          avatarOptions.push({ url: url, label: 'Avatar ' + (i + 1) });
+        });
+
+        var avHtml = avatarOptions.map(function(av) {
+          var active = currentAvatar === av.url ? ' profile-avatars__option--active' : '';
+          return '<div class="profile-avatars__option' + active + '" data-url="' + av.url + '" title="' + av.label + '">'
+            + '<img src="' + av.url + '" alt="' + av.label + '">'
+            + '</div>';
+        }).join('');
+        document.getElementById('avatar-grid').innerHTML = avHtml;
+
+        // Avatar click handler
+        document.getElementById('avatar-grid').addEventListener('click', function(e) {
+          var opt = e.target.closest('.profile-avatars__option');
+          if (!opt) return;
+          var url = opt.getAttribute('data-url');
+          // Optimistic update
+          document.querySelectorAll('.profile-avatars__option').forEach(function(el) { el.classList.remove('profile-avatars__option--active'); });
+          opt.classList.add('profile-avatars__option--active');
+          avatarEl.innerHTML = '<img src="' + url + '" alt="" class="profile-hero__avatar">';
+          // Save to server
+          fetch('/api/profile/avatar', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ avatar_url: url }),
+          });
+          // Update cache
+          try {
+            var cache = JSON.parse(localStorage.getItem('lc_auth_nav') || '{}');
+            cache.avatar_url = url;
+            localStorage.setItem('lc_auth_nav', JSON.stringify(cache));
+          } catch(e) {}
+        });
+
+      } catch (err) {
+        document.getElementById('profile-loading').style.display = 'none';
+        document.getElementById('profile-signin').style.display = '';
+      }
+    })();
+    </script>
+    <script src="/js/auth-nav.js"></script>
+</body>
+</html>
