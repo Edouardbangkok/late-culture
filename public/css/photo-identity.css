@@ -1,0 +1,61 @@
+/* ============================================
+   LATE CULTURE — Photo Identity: Full Combo
+   Rose tint + grain + vignette + LC stamp + moody filter
+   Apply .lc-photo to any image container
+   ============================================ */
+
+/* ── Base container ── */
+.lc-photo {
+  position: relative;
+  overflow: hidden;
+  border: 1.5px solid rgba(212, 120, 138, 0.2);
+}
+
+/* ── Moody filter on all images ── */
+.lc-photo img {
+  filter: brightness(0.88) contrast(1.05) saturate(0.92);
+}
+
+/* ── Rose tint + vignette + grain (combined layer) ── */
+.lc-photo::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    /* Rose tint */
+    linear-gradient(to bottom, rgba(212, 120, 138, 0.08), rgba(212, 120, 138, 0.06)),
+    /* Vignette */
+    radial-gradient(ellipse at center, transparent 45%, rgba(26, 16, 16, 0.35) 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* ── LC stamp ── */
+.lc-photo::after {
+  content: 'LC';
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  background: rgba(212, 120, 138, 0.55);
+  color: rgba(255, 255, 255, 0.9);
+  font-family: 'Anton', Impact, sans-serif;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  padding: 3px 8px;
+  border-radius: 3px;
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* ── No LC stamp on hero images (too big, looks off) ── */
+.lc-photo--no-stamp::after {
+  display: none;
+}
+
+/* ── Smaller stamp on small images ── */
+.lc-photo--sm::after {
+  font-size: 7px;
+  padding: 2px 6px;
+  bottom: 6px;
+  right: 6px;
+}
