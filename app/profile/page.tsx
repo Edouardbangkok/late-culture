@@ -79,45 +79,51 @@ export default function ProfilePage() {
         </div>
       </div>
 
-      {/* Badges */}
-      <div className={styles.section}>
-        <h2 className={styles.sectionTitle}>Badges</h2>
-        <div className={styles.badgeGrid}>
-          {badges.length === 0 ? (
-            <p className={styles.empty}>Visit venues and save places to earn badges.</p>
-          ) : (
-            badges.map((b: any) => (
-              <div key={b.id} className={styles.badge}>
-                <span className={styles.badgeIcon}>{b.icon || '🏆'}</span>
-                <span className={styles.badgeName}>{b.name}</span>
-              </div>
-            ))
+      {/* Two-column grid on desktop */}
+      <div className={styles.grid}>
+        <div>
+          {/* Badges */}
+          <div className={styles.section}>
+            <h2 className={styles.sectionTitle}>Badges</h2>
+            <div className={styles.badgeGrid}>
+              {badges.length === 0 ? (
+                <p className={styles.empty}>Visit venues and save places to earn badges.</p>
+              ) : (
+                badges.map((b: any) => (
+                  <div key={b.id} className={styles.badge}>
+                    <span className={styles.badgeIcon}>{b.icon || '🏆'}</span>
+                    <span className={styles.badgeName}>{b.name}</span>
+                  </div>
+                ))
+              )}
+            </div>
+          </div>
+
+          {/* Progression */}
+          {progression && progression.length > 0 && (
+            <div className={styles.section}>
+              <h2 className={styles.sectionTitle}>Next Up</h2>
+              {progression.map((p: any, i: number) => (
+                <div key={i} className={styles.progressItem}>{p.text}</div>
+          ))}
+        </div>
+      )}
+        </div>
+
+        <div>
+          {/* Recent Activity */}
+          {data.recentXp && data.recentXp.length > 0 && (
+            <div className={styles.section}>
+              <h2 className={styles.sectionTitle}>Recent Activity</h2>
+              {data.recentXp.slice(0, 5).map((xp: any, i: number) => (
+                <div key={i} className={styles.activityItem}>
+                  <span className={styles.activityAction}>{xp.action}</span>
+                  <span className={styles.activityXp}>+{xp.xp_amount} XP</span>
+                </div>
+              ))}
+            </div>
           )}
         </div>
-      </div>
-
-      {/* Progression */}
-      {progression && progression.length > 0 && (
-        <div className={styles.section}>
-          <h2 className={styles.sectionTitle}>Next Up</h2>
-          {progression.map((p: any, i: number) => (
-            <div key={i} className={styles.progressItem}>{p.text}</div>
-          ))}
-        </div>
-      )}
-
-      {/* Recent Activity */}
-      {data.recentXp && data.recentXp.length > 0 && (
-        <div className={styles.section}>
-          <h2 className={styles.sectionTitle}>Recent Activity</h2>
-          {data.recentXp.slice(0, 5).map((xp: any, i: number) => (
-            <div key={i} className={styles.activityItem}>
-              <span className={styles.activityAction}>{xp.action}</span>
-              <span className={styles.activityXp}>+{xp.xp_amount} XP</span>
-            </div>
-          ))}
-        </div>
-      )}
-    </div>
+      </div> {/* end grid */}
   )
 }

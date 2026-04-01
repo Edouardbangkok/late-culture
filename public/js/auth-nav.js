@@ -51,7 +51,16 @@
         nav.appendChild(el);
       }
     } catch (err) {
-      // Silently fail — nav works without auth state
+      // Fallback: show Sign In link even if API fails
+      const nav = document.querySelector('.glass-nav__inner');
+      if (nav && !document.querySelector('.lc-auth-nav')) {
+        const el = document.createElement('div');
+        el.className = 'lc-auth-nav';
+        el.innerHTML = '<a href="/login" class="lc-auth-nav__signin">Sign In</a>';
+        const hamburger = nav.querySelector('.glass-nav__hamburger');
+        if (hamburger) nav.insertBefore(el, hamburger);
+        else nav.appendChild(el);
+      }
     }
   }
 

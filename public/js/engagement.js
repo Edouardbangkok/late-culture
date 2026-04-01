@@ -94,22 +94,26 @@
     const venue = window.__lcVenue;
     if (!venue) return;
 
-    const res = await fetch('/api/engagement/save', {
+    // Optimistic update — instant feedback
+    const wasSaved = engagementState.saved;
+    engagementState.saved = !wasSaved;
+    engagementState.saveCount += wasSaved ? -1 : 1;
+    if (!wasSaved) {
+      engagementState.profile.xp_total = (engagementState.profile.xp_total || 0) + 5;
+      showToast('+5 XP');
+    }
+    renderBar(engagementState);
+
+    // Background API call
+    fetch('/api/engagement/save', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ venue_id: venue.slug, venue_type: venue.type, venue_slug: venue.slug }),
-    });
-    const data = await res.json();
-    if (data.error) return;
-
-    engagementState.saved = data.saved;
-    engagementState.saveCount += data.saved ? 1 : -1;
-    if (data.xp_gained > 0) {
-      engagementState.profile.xp_total = data.total_xp;
-      engagementState.profile.level = data.level;
-      showToast(`+${data.xp_gained} XP`);
-    }
-    renderBar(engagementState);
+    }).then(r => r.json()).then(data => {
+      if (data.error) { engagementState.saved = wasSaved; renderBar(engagementState); }
+      if (data.level) engagementState.profile.level = data.level;
+      if (data.total_xp) engagementState.profile.xp_total = data.total_xp;
+    }).catch(() => { engagementState.saved = wasSaved; renderBar(engagementState); });
   }
 
   async function handleVisit() {
@@ -117,7 +121,14 @@
     const venue = window.__lcVenue;
     if (!venue) return;
 
-    const res = await fetch('/api/engagement/visit', {
+    // Optimistic update — instant feedback
+    engagementState.visited = true;
+    engagementState.profile.xp_total = (engagementState.profile.xp_total || 0) + 15;
+    showToast('+15 XP');
+    renderBar(engagementState);
+
+    // Background API call
+    fetch('/api/engagement/visit', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -128,20 +139,14 @@
         venue_neighborhood: venue.neighborhood,
         venue_category: venue.category,
       }),
-    });
-    const data = await res.json();
-    if (data.error) return;
-
-    engagementState.visited = true;
-    if (data.xp_gained > 0) {
-      engagementState.profile.xp_total = data.total_xp;
-      engagementState.profile.level = data.level;
-      showToast(`+${data.xp_gained} XP`);
-    }
-    if (data.new_badges && data.new_badges.length > 0) {
-      setTimeout(() => showToast(`Badge: ${data.new_badges[0]}`), 3000);
-    }
-    renderBar(engagementState);
+    }).then(r => r.json()).then(data => {
+      if (data.level) engagementState.profile.level = data.level;
+      if (data.total_xp) engagementState.profile.xp_total = data.total_xp;
+      if (data.new_badges && data.new_badges.length > 0) {
+        showToast('Badge: ' + data.new_badges[0]);
+      }
+      renderBar(engagementState);
+    }).catch(() => {});
   }
 
   // Main init — uses API to check auth (server-side cookies)
