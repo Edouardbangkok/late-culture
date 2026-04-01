@@ -179,12 +179,73 @@
             border: 1px solid rgba(212, 120, 138, 0.12);
             border-radius: 999px;
         }
+        .profile-badge { cursor: default; position: relative; transition: all 0.2s; }
+        .profile-badge:hover { border-color: var(--rose3, #D4788A); }
         .profile-badge__icon { font-size: 18px; }
         .profile-badge__name {
             font-family: 'Inter', sans-serif;
             font-size: 13px;
             font-weight: 500;
             color: var(--ink, #1A1010);
+        }
+        .profile-badge__check {
+            font-size: 11px;
+            color: #27ae60;
+            font-weight: 700;
+        }
+        .profile-badge__lock {
+            font-size: 11px;
+            color: var(--lite, #C09098);
+            font-weight: 600;
+        }
+        .profile-badge--locked {
+            opacity: 0.4;
+            filter: grayscale(0.8);
+            border-style: dashed;
+        }
+        .profile-badge--locked:hover {
+            opacity: 0.7;
+            filter: grayscale(0);
+        }
+        .profile-badge[title]:hover::after {
+            content: attr(title);
+            position: absolute;
+            bottom: calc(100% + 8px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--ink, #1A1010);
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            font-weight: 400;
+            padding: 6px 12px;
+            border-radius: 8px;
+            white-space: nowrap;
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        /* Venue Visits */
+        .profile-venue-visit {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(212, 120, 138, 0.08);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .profile-venue-visit:hover .profile-venue-visit__name { color: var(--rose3, #D4788A); }
+        .profile-venue-visit__name {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--ink, #1A1010);
+        }
+        .profile-venue-visit__count {
+            font-family: 'Anton', Impact, sans-serif;
+            font-size: 16px;
+            color: var(--rose3, #D4788A);
         }
 
         /* Progression */
@@ -416,8 +477,12 @@
             </div>
 
             <div>
-                <div class="profile-section__title">Recent Activity</div>
-                <div id="activity-list"></div>
+                <div id="venue-visits-section"></div>
+
+                <div style="margin-top:32px;">
+                    <div class="profile-section__title">Recent Activity</div>
+                    <div id="activity-list"></div>
+                </div>
 
                 <div class="profile-avatars">
                     <div class="profile-section__title">Change Avatar</div>
@@ -496,17 +561,37 @@
         document.getElementById('profile-xp-text').textContent = (p.xp_total || 0) + ' XP';
 
         // Stats
+        var earnedCount = badges.filter(function(b) { return b.earned; }).length;
         document.getElementById('stat-saved').textContent = p.venues_saved || 0;
         document.getElementById('stat-visited').textContent = p.venues_visited || 0;
-        document.getElementById('stat-badges').textContent = badges.length;
+        document.getElementById('stat-badges').textContent = earnedCount + '/' + badges.length;
 
-        // Badges
-        var badgesHtml = badges.length === 0
-          ? '<p class="profile-empty">Visit venues and save places to earn badges.</p>'
-          : badges.map(function(b) {
-              return '<div class="profile-badge"><span class="profile-badge__icon">' + (b.icon || '\uD83C\uDFC6') + '</span><span class="profile-badge__name">' + b.name + '</span></div>';
-            }).join('');
+        // Badges — show ALL (earned + locked with tooltip)
+        var badgesHtml = badges.map(function(b) {
+          var locked = !b.earned;
+          var cls = locked ? ' profile-badge--locked' : '';
+          var tooltip = locked ? b.description : ('Earned' + (b.earned_at ? ' ' + new Date(b.earned_at).toLocaleDateString() : ''));
+          return '<div class="profile-badge' + cls + '" title="' + tooltip + '">'
+            + '<span class="profile-badge__icon">' + (b.icon || '\uD83C\uDFC6') + '</span>'
+            + '<span class="profile-badge__name">' + b.name + '</span>'
+            + (locked ? '<span class="profile-badge__lock">?</span>' : '<span class="profile-badge__check">\u2713</span>')
+            + '</div>';
+        }).join('');
         document.getElementById('badges-grid').innerHTML = badgesHtml;
+
+        // Venue visits (most visited places)
+        var venueVisits = data.venueVisits || [];
+        if (venueVisits.length > 0) {
+          var visitsHtml = '<div class="profile-section__title">Most Visited</div>';
+          visitsHtml += venueVisits.slice(0, 10).map(function(v) {
+            var section = v.venue_type === 'hotel' ? 'stay' : v.venue_type === 'restaurant' ? 'eat' : v.venue_type === 'party' ? 'party' : 'drink';
+            return '<a href="/' + section + '/' + v.venue_slug + '" class="profile-venue-visit">'
+              + '<span class="profile-venue-visit__name">' + v.venue_name + '</span>'
+              + '<span class="profile-venue-visit__count">' + v.visit_count + 'x</span>'
+              + '</a>';
+          }).join('');
+          document.getElementById('venue-visits-section').innerHTML = visitsHtml;
+        }
 
         // Progression
         var progHtml = progression.length === 0
