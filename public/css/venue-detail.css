@@ -573,8 +573,7 @@
   overflow: hidden;
   border-radius: 12px 12px 0 0;
   position: relative;
-  border: 1.5px solid rgba(212, 120, 138, 0.15);
-  border-bottom: none;
+  border: none;
 }
 
 .vd-features__card-imgwrap::before {
