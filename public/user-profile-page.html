@@ -229,11 +229,6 @@
                 var followRes = await fetch('/api/community/follow?username=' + username, { credentials: 'same-origin' });
                 var followData = await followRes.json();
 
-                document.getElementById('up-followers').textContent = followData.followers || 0;
-                document.getElementById('up-follow-counts').innerHTML =
-                    '<span><strong>' + (followData.followers || 0) + '</strong> followers</span>'
-                    + '<span><strong>' + (followData.following || 0) + '</strong> following</span>';
-
                 // Show follow button (only if logged in and not own profile)
                 if (!followData.error) {
                     var followBtn = document.getElementById('up-follow-btn');
