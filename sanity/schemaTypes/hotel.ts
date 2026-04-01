@@ -21,7 +21,7 @@ export const hotel = defineType({
     defineField({
       name: 'priceRange', title: 'Price Range', type: 'string', group: 'basics',
       description: 'Shown in the hero meta + sidebar. $ to $$$$.',
-      options: { list: ['$', '$$', '$$$', '$$$$'] }
+      options: { list: ['Under 500 THB', '500-1500 THB', '1500-3000 THB', '3000+ THB'] }
     }),
     defineField({ name: 'rooms', title: 'Rooms / Suites', type: 'string', group: 'basics',
       description: 'Appears in the hero meta + sidebar. Example: 101 Suites & Villas' }),

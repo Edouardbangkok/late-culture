@@ -23,7 +23,7 @@ export const restaurant = defineType({
     defineField({
       name: 'priceRange', title: 'Price Range', type: 'string', group: 'basics',
       description: 'Hero meta + sidebar.',
-      options: { list: ['$', '$$', '$$$', '$$$$'] }
+      options: { list: ['Under 500 THB', '500-1500 THB', '1500-3000 THB', '3000+ THB'] }
     }),
     defineField({ name: 'chef', title: 'Chef', type: 'string', group: 'basics',
       description: 'Sidebar Quick Facts. Example: Chef Bee Satongun' }),
