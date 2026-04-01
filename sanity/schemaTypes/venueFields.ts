@@ -35,18 +35,6 @@ export const detailFields = [
     description: 'Used for the big "Reserve" button on the page.',
   }),
   defineField({
-    name: 'bestTimeDay', title: 'Best Time — Day', type: 'string', group: 'details',
-    description: 'Appears in the sidebar under "Best Time to Go". Example: Thursday',
-  }),
-  defineField({
-    name: 'bestTimeHours', title: 'Best Time — Hours', type: 'string', group: 'details',
-    description: 'Example: 16:00-19:00',
-  }),
-  defineField({
-    name: 'bestTimeNote', title: 'Best Time — Note', type: 'string', group: 'details',
-    description: 'Example: Sunset by the river',
-  }),
-  defineField({
     name: 'amenities', title: 'Amenities / Tags', type: 'array', group: 'details',
     of: [{ type: 'string' }], options: { layout: 'tags' },
     description: 'Tags like "Pool", "Spa", "WiFi" — shown as pills on the page.',

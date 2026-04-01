@@ -152,12 +152,7 @@ function render(v, info) {
     `).join('')}
   `;
 
-  // ── Best Time ──
-  if (v.bestTimeDay || v.bestTimeHours) {
-    const bt = [v.bestTimeDay, v.bestTimeHours, v.bestTimeNote].filter(Boolean).join('. ');
-    document.getElementById('besttime').style.display = '';
-    document.getElementById('besttime-value').textContent = bt;
-  }
+  // ── Best Time removed ──
 
   // ── Highlights ──
   if (v.highlights && v.highlights.length > 0) {
