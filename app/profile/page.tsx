@@ -124,6 +124,7 @@ export default function ProfilePage() {
             </div>
           )}
         </div>
-      </div> {/* end grid */}
+      </div>
+    </div>
   )
 }
