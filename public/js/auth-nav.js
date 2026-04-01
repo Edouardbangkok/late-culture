@@ -47,7 +47,7 @@
         + '<a href="/profile" class="lc-auth-nav__dropdown-item">My Profile</a>'
         + '<a href="/plan-my-night" class="lc-auth-nav__dropdown-item">Plan My Night</a>'
         + '<a href="/collections" class="lc-auth-nav__dropdown-item">Collections</a>'
-        + '<a href="/community" class="lc-auth-nav__dropdown-item">Community</a>'
+        + '<a href="/community" class="lc-auth-nav__dropdown-item">Find People</a>'
         + '<div class="lc-auth-nav__dropdown-divider"></div>'
         + '<a href="#" class="lc-auth-nav__dropdown-item lc-auth-nav__dropdown-item--signout" id="lc-signout">Sign Out</a>'
         + '</div>';
@@ -84,7 +84,7 @@
     }
   }
 
-  // Add Plan My Night, Collections, Community to mobile menu
+  // Add Plan My Night, Collections, Find People to mobile menu
   function updateMobileMenu() {
     var mobileNav = document.querySelector('.mobile-menu__nav');
     if (!mobileNav) return;
@@ -95,7 +95,7 @@
     var extraLinks = '<div style="margin-top:24px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.1);">'
       + '<a href="/plan-my-night" class="mobile-menu__link" style="font-size:clamp(20px,5vw,32px);">Plan My Night</a>'
       + '<a href="/collections" class="mobile-menu__link" style="font-size:clamp(20px,5vw,32px);">Collections</a>'
-      + '<a href="/community" class="mobile-menu__link" style="font-size:clamp(20px,5vw,32px);">Community</a>'
+      + '<a href="/community" class="mobile-menu__link" style="font-size:clamp(20px,5vw,32px);">Find People</a>'
       + '</div>';
 
     if (cached && cached.authenticated) {
