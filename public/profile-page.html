@@ -245,6 +245,28 @@
             object-fit: cover;
         }
 
+        .profile-avatars__upload {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            border: 2px dashed rgba(212, 120, 138, 0.4);
+            background: rgba(212, 120, 138, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 20px;
+            color: var(--rose3, #D4788A);
+        }
+        .profile-avatars__upload:hover {
+            border-color: var(--rose3, #D4788A);
+            background: rgba(212, 120, 138, 0.1);
+        }
+        .profile-avatars__upload-input {
+            display: none;
+        }
+
         /* Empty state */
         .profile-empty {
             font-family: 'Fraunces', serif;
@@ -510,13 +532,43 @@
           avatarOptions.push({ url: url, label: 'Avatar ' + (i + 1) });
         });
 
-        var avHtml = avatarOptions.map(function(av) {
+        var avHtml = '<label class="profile-avatars__upload" title="Upload your photo">'
+          + '<input type="file" accept="image/*" class="profile-avatars__upload-input" id="avatar-upload">'
+          + '+'
+          + '</label>';
+        avHtml += avatarOptions.map(function(av) {
           var active = currentAvatar === av.url ? ' profile-avatars__option--active' : '';
           return '<div class="profile-avatars__option' + active + '" data-url="' + av.url + '" title="' + av.label + '">'
             + '<img src="' + av.url + '" alt="' + av.label + '">'
             + '</div>';
         }).join('');
         document.getElementById('avatar-grid').innerHTML = avHtml;
+
+        // Upload handler
+        document.getElementById('avatar-upload').addEventListener('change', function(e) {
+          var file = e.target.files[0];
+          if (!file) return;
+          // Preview instantly
+          var reader = new FileReader();
+          reader.onload = function(ev) {
+            avatarEl.innerHTML = '<img src="' + ev.target.result + '" alt="" class="profile-hero__avatar">';
+          };
+          reader.readAsDataURL(file);
+          // Upload to server
+          var formData = new FormData();
+          formData.append('file', file);
+          fetch('/api/profile/avatar', { method: 'POST', body: formData })
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+              if (data.avatar_url) {
+                try {
+                  var cache = JSON.parse(localStorage.getItem('lc_auth_nav') || '{}');
+                  cache.avatar_url = data.avatar_url;
+                  localStorage.setItem('lc_auth_nav', JSON.stringify(cache));
+                } catch(e) {}
+              }
+            });
+        });
 
         // Avatar click handler
         document.getElementById('avatar-grid').addEventListener('click', function(e) {
