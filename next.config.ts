@@ -25,6 +25,8 @@ const nextConfig: NextConfig = {
       { source: '/editorial-policy', destination: '/editorial-policy-page.html' },
       { source: '/profile', destination: '/profile-page.html' },
       { source: '/plan-my-night', destination: '/plan-my-night-page.html' },
+      { source: '/collections', destination: '/collections-page.html' },
+      { source: '/u/:username', destination: '/user-profile-page.html' },
     ]
   },
 }

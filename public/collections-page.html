@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collections | Late Culture Bangkok</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Fraunces:ital,wght@1,300;1,400&family=Indie+Flower&family=Inter:wght@300;400;500;600;700&family=Permanent+Marker&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/variables.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/glass.css">
+    <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+
+    <style>
+        .coll-hero {
+            background: var(--cloud, #F5F0EB);
+            padding: 140px 0 60px;
+        }
+        .coll-hero__inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+        .coll-overline {
+            font-family: 'Inter', sans-serif;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--rose3, #D4788A);
+            margin-bottom: 8px;
+        }
+        .coll-title {
+            font-family: 'Anton', Impact, sans-serif;
+            font-size: clamp(36px, 6vw, 56px);
+            text-transform: uppercase;
+            color: var(--ink, #1A1010);
+            margin: 0 0 12px;
+            line-height: 0.95;
+        }
+        .coll-sub {
+            font-family: 'Fraunces', serif;
+            font-style: italic;
+            font-size: 16px;
+            color: var(--lite, #C09098);
+        }
+
+        .coll-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 48px 40px 80px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .coll-card {
+            background: #fff;
+            border: 1px solid rgba(212, 120, 138, 0.1);
+            border-radius: 16px;
+            padding: 32px;
+            text-decoration: none;
+            transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+        }
+        .coll-card:hover {
+            border-color: var(--rose3, #D4788A);
+            box-shadow: 0 8px 32px rgba(212, 120, 138, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .coll-card__header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 16px;
+        }
+        .coll-card__icon { font-size: 28px; }
+        .coll-card__cat {
+            font-family: 'Inter', sans-serif;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--lite, #C09098);
+        }
+        .coll-card__title {
+            font-family: 'Anton', Impact, sans-serif;
+            font-size: 22px;
+            text-transform: uppercase;
+            color: var(--ink, #1A1010);
+            margin: 0 0 8px;
+        }
+        .coll-card__desc {
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            color: var(--mid, #6A3A44);
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+        .coll-card__progress {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .coll-card__bar {
+            flex: 1;
+            height: 4px;
+            background: rgba(212, 120, 138, 0.12);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+        .coll-card__bar-fill {
+            height: 100%;
+            background: var(--rose3, #D4788A);
+            border-radius: 2px;
+        }
+        .coll-card__count {
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--mid, #6A3A44);
+        }
+        .coll-card__reward {
+            display: inline-block;
+            margin-top: 12px;
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            color: var(--rose3, #D4788A);
+            font-weight: 500;
+        }
+        .coll-card__completed {
+            display: inline-block;
+            margin-top: 12px;
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            font-weight: 600;
+            color: #27ae60;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .coll-empty {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 80px 0;
+        }
+        .coll-empty__text {
+            font-family: 'Fraunces', serif;
+            font-style: italic;
+            font-size: 18px;
+            color: var(--mid, #6A3A44);
+        }
+        .coll-empty__sub {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: var(--lite, #C09098);
+            margin-top: 8px;
+        }
+
+        .coll-signin {
+            text-align: center;
+            padding: 24px 0 48px;
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            color: var(--lite, #C09098);
+        }
+        .coll-signin a {
+            color: var(--rose3, #D4788A);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        @media (max-width: 1024px) {
+            .coll-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .coll-hero { padding: 120px 0 40px; }
+            .coll-hero__inner { padding: 0 24px; }
+            .coll-grid { grid-template-columns: 1fr; padding: 32px 24px 60px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ── GLASS NAV ── -->
+    <nav class="glass-nav">
+        <div class="glass-nav__inner">
+            <div class="nav__wordmark-wrap" style="position:relative;">
+                <a href="/" class="nav__wordmark" style="text-decoration:none;color:#fff;font-family:'Impact',sans-serif;text-transform:uppercase;letter-spacing:0.04em;font-size:15px;">LATE CULTURE&nbsp;<span style="color:#d4788a;">BANGKOK</span>
+                    <svg class="city-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none" style="margin-left:6px;"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+                <div class="city-dropdown" id="cityDropdown">
+                    <a href="/" class="city-dropdown__item city-dropdown__item--active"><span class="city-dropdown__dot" style="background:#d4788a;"></span><span class="city-dropdown__name">Bangkok</span></a>
+                    <div class="city-dropdown__item city-dropdown__item--soon" style="opacity:0.6;"><span class="city-dropdown__dot" style="background:#78B0D4;"></span><span class="city-dropdown__name" style="color:#fff;">Phuket</span><span class="city-dropdown__badge">SOON</span></div>
+                </div>
+            </div>
+            <div class="glass-nav__links" style="position:absolute;left:50%;transform:translateX(-50%);">
+                <a href="/stay" class="glass-nav__link">Stay</a>
+                <a href="/eat" class="glass-nav__link">Eat</a>
+                <a href="/drink" class="glass-nav__link">Drink</a>
+                <a href="/party" class="glass-nav__link">Party</a>
+            </div>
+            <a href="/explore" class="glass-nav__cta" style="margin-left:auto;padding:8px 20px;background:#d4788a;border:none;border-radius:50px;font-family:'Inter',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#fff;text-decoration:none;transition:all .3s;white-space:nowrap;">Explore Bangkok <span style="margin-left:4px;">&#8599;</span></a>
+            <button class="glass-nav__hamburger" aria-label="Open menu" onclick="document.getElementById('mobile-menu').classList.toggle('open')"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+
+    <section class="coll-hero">
+        <div class="coll-hero__inner">
+            <p class="coll-overline">Collections</p>
+            <h1 class="coll-title">EXPLORE BY COLLECTION.</h1>
+            <p class="coll-sub">Curated lists. Track your progress. Complete the set.</p>
+        </div>
+    </section>
+
+    <div class="coll-grid" id="coll-grid">
+        <div class="coll-empty">
+            <p class="coll-empty__text">Loading collections...</p>
+        </div>
+    </div>
+
+    <div class="coll-signin" id="coll-signin" style="display:none;">
+        <a href="/login">Sign in</a> to track your collection progress.
+    </div>
+
+    <footer class="footer">
+        <div class="footer__container">
+            <div class="footer__brand">
+                <h2 class="footer__wordmark">LATE CULTURE</h2>
+                <p class="footer__tagline">The city has a thousand doors. We opened the right ones.</p>
+            </div>
+            <div style="border-top:1px solid rgba(255,255,255,0.1);margin-top:48px;padding-top:24px;text-align:center;color:rgba(255,255,255,0.3);font-size:13px;">&copy; 2025 Late Culture. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-menu__inner">
+            <button class="mobile-menu__close" onclick="document.getElementById('mobile-menu').classList.remove('open')">&times;</button>
+            <nav class="mobile-menu__nav">
+                <a href="/stay" class="mobile-menu__link">Stay</a>
+                <a href="/eat" class="mobile-menu__link">Eat</a>
+                <a href="/drink" class="mobile-menu__link">Drink</a>
+                <a href="/party" class="mobile-menu__link">Party</a>
+            </nav>
+        </div>
+    </div>
+
+    <script>
+    (async function() {
+        try {
+            var res = await fetch('/api/collections/curated', { credentials: 'same-origin' });
+            var data = await res.json();
+            var colls = data.collections || [];
+
+            if (!data.authenticated) {
+                document.getElementById('coll-signin').style.display = '';
+            }
+
+            if (colls.length === 0) {
+                document.getElementById('coll-grid').innerHTML =
+                    '<div class="coll-empty">'
+                    + '<p class="coll-empty__text">Collections coming soon.</p>'
+                    + '<p class="coll-empty__sub">Curated lists of the best venues in Bangkok.</p>'
+                    + '</div>';
+                return;
+            }
+
+            var html = colls.map(function(c) {
+                var progress = Math.round((c.progress || 0) * 100);
+                var reward = c.completed
+                    ? '<span class="coll-card__completed">Completed</span>'
+                    : (c.reward_xp > 0 ? '<span class="coll-card__reward">+' + c.reward_xp + ' XP on completion</span>' : '');
+
+                return '<a href="/collections/' + c.slug + '" class="coll-card">'
+                    + '<div class="coll-card__header">'
+                    + '<span class="coll-card__icon">' + (c.icon || '📋') + '</span>'
+                    + '<span class="coll-card__cat">' + (c.category || '') + '</span>'
+                    + '</div>'
+                    + '<h2 class="coll-card__title">' + c.title + '</h2>'
+                    + '<p class="coll-card__desc">' + (c.description || '') + '</p>'
+                    + '<div class="coll-card__progress">'
+                    + '<div class="coll-card__bar"><div class="coll-card__bar-fill" style="width:' + progress + '%"></div></div>'
+                    + '<span class="coll-card__count">' + c.visited_count + '/' + c.venue_count + '</span>'
+                    + '</div>'
+                    + reward
+                    + '</a>';
+            }).join('');
+
+            document.getElementById('coll-grid').innerHTML = html;
+        } catch (err) {
+            document.getElementById('coll-grid').innerHTML =
+                '<div class="coll-empty"><p class="coll-empty__text">Collections coming soon.</p></div>';
+        }
+    })();
+    </script>
+    <script src="/js/auth-nav.js"></script>
+</body>
+</html>
