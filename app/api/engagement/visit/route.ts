@@ -8,7 +8,7 @@ export async function POST(request: Request) {
   const { data: { user } } = await supabase.auth.getUser()
   if (!user) return NextResponse.json({ error: 'Not authenticated' }, { status: 401 })
 
-  const { venue_id, venue_type, venue_slug, venue_name, venue_neighborhood, venue_category, venue_lat, venue_lng } = await request.json()
+  const { venue_id, venue_type, venue_slug, venue_name, venue_neighborhood, venue_category, venue_lat, venue_lng, highlight } = await request.json()
   if (!venue_id) return NextResponse.json({ error: 'Missing venue_id' }, { status: 400 })
 
   const admin = createServiceRoleClient()
@@ -46,6 +46,7 @@ export async function POST(request: Request) {
     venue_category: venue_category || '',
     venue_lat: venue_lat || null,
     venue_lng: venue_lng || null,
+    highlight: highlight || null,
   })
 
   // Award XP — first visit: 15 XP, return visit: 5 XP

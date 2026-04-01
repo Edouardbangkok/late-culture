@@ -127,14 +127,20 @@
   }
 
   async function handleVisit() {
-    if (!engagementState.authenticated || engagementState.visited) return;
-    const venue = window.__lcVenue;
+    if (!engagementState.authenticated || engagementState.visitedToday) return;
+    var venue = window.__lcVenue;
     if (!venue) return;
 
-    // Optimistic update — instant feedback
-    engagementState.visited = true;
-    engagementState.profile.xp_total = (engagementState.profile.xp_total || 0) + 15;
-    showToast('+15 XP');
+    // Show highlight prompt
+    var highlight = prompt('What was the highlight? (optional — a dish, the music, the view...)');
+    if (highlight === null) highlight = ''; // user cancelled = empty string, still check in
+
+    // Optimistic update
+    var xpGain = engagementState.visitCount > 0 ? 5 : 15;
+    engagementState.visitedToday = true;
+    engagementState.visitCount = (engagementState.visitCount || 0) + 1;
+    engagementState.profile.xp_total = (engagementState.profile.xp_total || 0) + xpGain;
+    showToast('+' + xpGain + ' XP');
     renderBar(engagementState);
 
     // Background API call
@@ -148,8 +154,9 @@
         venue_name: venue.name,
         venue_neighborhood: venue.neighborhood,
         venue_category: venue.category,
+        highlight: highlight || null,
       }),
-    }).then(r => r.json()).then(data => {
+    }).then(function(r) { return r.json(); }).then(function(data) {
       if (data.level) engagementState.profile.level = data.level;
       if (data.total_xp) engagementState.profile.xp_total = data.total_xp;
       if (data.new_badges && data.new_badges.length > 0) {

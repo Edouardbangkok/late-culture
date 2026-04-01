@@ -18,7 +18,7 @@ export async function GET(request: Request, { params }: { params: Promise<{ user
       .select('badge_id, earned_at, badges(name, description, icon, category)')
       .eq('user_id', profile.id),
     admin.from('checkins')
-      .select('venue_name, venue_type, checked_in_at')
+      .select('venue_name, venue_type, venue_slug, checked_in_at, highlight')
       .eq('user_id', profile.id)
       .order('checked_in_at', { ascending: false })
       .limit(10),
