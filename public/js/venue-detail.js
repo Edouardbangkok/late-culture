@@ -225,7 +225,8 @@ function render(v, info) {
     mapDiv.setAttribute('data-name', v.name);
 
     setTimeout(() => {
-      mapboxgl.accessToken = 'MAPBOX_TOKEN_PLACEHOLDER';
+      var tokenRes = await fetch('/api/config').then(function(r){return r.json()}).catch(function(){return {}});
+      mapboxgl.accessToken = tokenRes.mapbox || '';
       const map = new mapboxgl.Map({
         container: 'venue-map',
         style: 'mapbox://styles/mapbox/light-v11',

@@ -32,16 +32,18 @@ function mapSanityVenue(doc, type) {
     link: `/${type === 'hotel' ? 'stay' : type === 'restaurant' ? 'eat' : type === 'party' ? 'party' : 'drink'}/${doc.slug?.current || ''}`,
     priceRange: doc.priceRange || '',
     cuisine: doc.cuisine || '',
+    lat: doc.lat || null,
+    lng: doc.lng || null,
   };
 }
 
 async function fetchSanityVenues() {
   try {
     const query = encodeURIComponent(`{
-      "hotels": *[_type=="hotel"]{_id, name, slug, category, categories, neighborhood, excerpt, priceRange, heroImage},
-      "restaurants": *[_type=="restaurant"]{_id, name, slug, category, categories, neighborhood, cuisine, excerpt, priceRange, heroImage},
-      "bars": *[_type=="bar"]{_id, name, slug, category, categories, neighborhood, excerpt, heroImage},
-      "parties": *[_type=="party"]{_id, name, slug, category, categories, neighborhood, excerpt, heroImage}
+      "hotels": *[_type=="hotel"]{_id, name, slug, category, categories, neighborhood, excerpt, priceRange, heroImage, lat, lng},
+      "restaurants": *[_type=="restaurant"]{_id, name, slug, category, categories, neighborhood, cuisine, excerpt, priceRange, heroImage, lat, lng},
+      "bars": *[_type=="bar"]{_id, name, slug, category, categories, neighborhood, excerpt, heroImage, lat, lng},
+      "parties": *[_type=="party"]{_id, name, slug, category, categories, neighborhood, excerpt, heroImage, lat, lng}
     }`);
     const res = await fetch(`${SANITY_API}?query=${query}`);
     const data = await res.json();
@@ -445,7 +447,7 @@ function initMap() {
   const mapEl = document.getElementById('map');
   if (!mapEl) return;
 
-  mapboxgl.accessToken = 'MAPBOX_TOKEN_PLACEHOLDER';
+  mapboxgl.accessToken = window.__LC_MAPBOX_TOKEN || window.__lcMapboxToken || '';
 
   map = new mapboxgl.Map({
     container: 'map',
@@ -511,6 +513,10 @@ function addMapMarkers(filter) {
 }
 
 function getVenueCoords(venue) {
+  // Use Sanity lat/lng if available
+  if (venue.lat && venue.lng) return [venue.lng, venue.lat];
+
+  // Fallback to hardcoded coords
   const coordMap = {
     'capella-bangkok': [100.5133, 13.7080],
     'the-siam': [100.5100, 13.7825],
@@ -633,7 +639,12 @@ function renderTonight() {
 
 // Run
 init();
-initMap();
+
+// Load Mapbox token from API then init map
+fetch('/api/config').then(r => r.json()).then(cfg => {
+  window.__lcMapboxToken = cfg.mapbox || '';
+  initMap();
+}).catch(() => {});
 
 document.querySelectorAll('.category-strip').forEach(strip => {
   initSlider(strip);
