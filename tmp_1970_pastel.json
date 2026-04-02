@@ -1,0 +1,47 @@
+{
+  "mutations": [
+    {
+      "createOrReplace": {
+        "_id": "drafts.1970-bar",
+        "_type": "bar",
+        "name": "1970 Bar",
+        "slug": {"_type": "slug", "current": "1970-bar"},
+        "category": "Above the City",
+        "neighborhood": "Silom",
+        "signature": "1970 Martini (tableside from a rolling trolley)",
+        "excerpt": "39th floor of the rebuilt Dusit Thani Bangkok. Cocktail program by the team behind Vesper. Three rooms: Salon, Library, Bar Boudoir. Named for the year the original hotel opened.",
+        "overview": "Conceived by interior architect Andre Fu, 1970 Bar is arranged as three sequential rooms: the Salon with vintage furniture against a painted mural, the Library stocked with design objects and art books, and the Bar Boudoir where an undulating bronze shelf frames the working bar. The cocktail menu assigns each drink to a 1970s cultural reference. Floor-to-ceiling windows face Lumpini Park and the low-rise Silom skyline.",
+        "insiderTip": "Book at least three hours ahead through TableCheck. Arrive for golden hour (17:00-19:00) to catch the light over Lumpini Park. For groups of eight or more, email 1970.dtbk@dusit.com directly.",
+        "address": "39th Floor, Dusit Thani Bangkok, 98 Rama IV Road, Silom, Bangrak, Bangkok 10500",
+        "phone": "+66 2 200 9000",
+        "website": "https://www.dusit.com/dusitthani-bangkok/dining/1970-bar/",
+        "bookingUrl": "https://www.tablecheck.com/en/dusit-thani-bangkok-1970-bar/reserve",
+        "openingHours": "Daily 17:00-01:00",
+        "dressCode": "Elegant attire. No flip-flops or tank tops.",
+        "lat": 13.7282,
+        "lng": 100.5340
+      }
+    },
+    {
+      "createOrReplace": {
+        "_id": "drafts.pastel",
+        "_type": "party",
+        "name": "Pastel",
+        "slug": {"_type": "slug", "current": "pastel"},
+        "category": "Rooftop Session",
+        "neighborhood": "Sukhumvit",
+        "excerpt": "22nd floor of the Aira Hotel on Sukhumvit Soi 11. Mediterranean small plates. Open-air terrace. Live DJs on weekends. Kitchen by Swiss chef Kilian Fioretto.",
+        "overview": "Pastel is arranged as a single open-plan terrace on the 22nd floor of the Aira Hotel, with banquette seating along the perimeter and a bar running through the center. Chef Kilian Fioretto builds the menu around Mediterranean coastal cooking. Weekend evenings shift toward a louder register with themed nights, live DJs, and a predominantly international crowd. Five minutes from BTS Nana.",
+        "insiderTip": "Reserve through the website for Thursday through Saturday. Walk-in men after 21:00 on these nights face a 500 THB cover that does not apply to reservations. Request a terrace-edge table facing east for the clearest sightline. Last food order at 23:30.",
+        "address": "22nd Floor, Aira Hotel Bangkok, 14 Soi Sukhumvit 11, Watthana, Bangkok 10110",
+        "phone": "+66 95 703 5679",
+        "website": "https://www.pastelbangkok.com",
+        "bookingUrl": "https://www.pastelbangkok.com/reservations",
+        "openingHours": "Daily 17:00-01:00",
+        "dressCode": "Smart casual. No sportswear, slippers, or flip-flops.",
+        "lat": 13.7426,
+        "lng": 100.5566
+      }
+    }
+  ]
+}

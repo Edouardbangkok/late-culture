@@ -1,0 +1,92 @@
+{
+  "mutations": [
+    {
+      "createOrReplace": {
+        "_id": "drafts.tropic-city",
+        "_type": "bar",
+        "name": "Tropic City",
+        "slug": {"_type": "slug", "current": "tropic-city"},
+        "category": "The Glass",
+        "neighborhood": "Charoenkrung",
+        "signature": "Mumsfilibaba (cinnamon-infused rum, pisco, applejack, blackberry, salted caramel orgeat)",
+        "excerpt": "Tropical cocktail bar on Soi Charoen Krung 28. Rum-forward menu drawing from Caribbean, Brazilian, and Thai flavor profiles. Asia 50 Best Bars listed.",
+        "overview": "Tropic City occupies a converted old house down Soi Charoen Krung 28 in Bang Rak. Founded by Sebastian De La Cruz and Philip Stefanescu. The cocktail program centers on rum, with a rotating menu built around house-made infusions, reductions, and tinctures. Sharing serves and zero-proof options receive equal attention. The sound system tends toward reggae and dancehall.",
+        "insiderTip": "Reserve by email on weekends. Ask for the rum flight for a guided tour of the range. Nearest BTS is Saphan Taksin, about a 10-minute walk.",
+        "address": "672/65 Soi Charoen Krung 28, Bang Rak, Bangkok 10500",
+        "phone": "+66 83 838 2750",
+        "website": "https://www.tropiccitybkk.com",
+        "bookingUrl": "https://www.tropiccitybkk.com",
+        "openingHours": "Daily 19:00-02:00",
+        "dressCode": "Smart casual",
+        "lat": 13.7268,
+        "lng": 100.5139
+      }
+    },
+    {
+      "createOrReplace": {
+        "_id": "drafts.teens-of-thailand",
+        "_type": "bar",
+        "name": "Teens of Thailand",
+        "slug": {"_type": "slug", "current": "teens-of-thailand"},
+        "category": "Behind the Door",
+        "neighborhood": "Chinatown",
+        "signature": "Thai Tea Gin Tonic (Thai tea-infused gin with Fever-Tree tonic)",
+        "excerpt": "Bangkok first specialist gin bar. Fifteen seats on Soi Nana in Chinatown. House-infused gin cocktails built around Thai botanicals. Asia 50 Best Bars since 2016.",
+        "overview": "Teens of Thailand sits behind a heavy wooden door on Soi Nana, the quiet creative alley in Yaowarat. The interior is small and deliberately dim. Red lights, old movie posters, candles. Thailand first gin-focused establishment. The Unusual Gin Tonics menu rotates infusions using Thai ingredients like chrysanthemum, jackfruit, and salted guava. Capacity is roughly 15 people.",
+        "insiderTip": "Go early or on a weekday. The 15-seat limit means weekend evenings fill fast. Ask for whatever gin infusion is newest; rotating options change regularly.",
+        "address": "76 Soi Nana (Rammaitree), Pom Prap Sattru Phai, Bangkok 10100",
+        "phone": "+66 81 443 3784",
+        "website": "https://www.instagram.com/teens_of_thailand",
+        "bookingUrl": "https://www.chope.co/bangkok-restaurants/restaurant/teens-of-thailand",
+        "openingHours": "Daily 12:00-01:00",
+        "dressCode": "Casual",
+        "lat": 13.7412,
+        "lng": 100.5103
+      }
+    },
+    {
+      "createOrReplace": {
+        "_id": "drafts.find-the-locker-room",
+        "_type": "bar",
+        "name": "Find the Locker Room",
+        "slug": {"_type": "slug", "current": "find-the-locker-room"},
+        "category": "Behind the Door",
+        "neighborhood": "Thonglor",
+        "signature": "Past-Present-Future concept (classics reimagined three ways)",
+        "excerpt": "Speakeasy on Thonglor accessed through steel lockers at the end of a sticker-covered alley. Cocktails reimagine classics in three temporal variations.",
+        "overview": "Find the Locker Room requires effort to reach. The entrance is down a narrow alleyway off Sukhumvit Soi 55, marked only by stickers and graffiti. A bank of steel gym lockers slides open to reveal the bar. Dark grey interior with low lighting, seating roughly 30-40. Head bartender Yoshi Ueno developed the Past-Present-Future concept. Cocktails run 400-500 THB.",
+        "insiderTip": "Reserve via Nightify or Line, particularly for bar seats. The alley entrance is easy to walk past. Look for the corridor covered in stickers, not a sign.",
+        "address": "406 Sukhumvit Soi 55 (Thonglor), Khlong Tan Nuea, Watthana, Bangkok 10110",
+        "phone": "+66 61 524 2689",
+        "website": "https://www.instagram.com/findthelockerroom.bkk",
+        "bookingUrl": "https://nightify.co/venues/find-the-locker-room/booking",
+        "openingHours": "Daily 18:00-02:00",
+        "dressCode": "Smart casual",
+        "lat": 13.7384,
+        "lng": 100.5663
+      }
+    },
+    {
+      "createOrReplace": {
+        "_id": "drafts.vesper",
+        "_type": "bar",
+        "name": "Vesper",
+        "slug": {"_type": "slug", "current": "vesper"},
+        "category": "The Glass",
+        "neighborhood": "Silom",
+        "signature": "White Matcha Negroni (pistachio matcha, white chocolate variation)",
+        "excerpt": "European-inflected cocktail bar on Convent Road. No. 29 Asia 50 Best Bars 2025. Culinary technique meets locally sourced ingredients. Full food menu.",
+        "overview": "Vesper occupies a ground-floor space on Convent Road in Silom, a short walk from BTS Sala Daeng. European brasserie interior: leather furnishings, forest green counters, warm lighting. Open since April 2014, consistently on Asia 50 Best Bars since 2016. The cocktail program incorporates culinary techniques and Thai ingredients. Food also served, making it a full evening destination.",
+        "insiderTip": "Reserve through the website for the early 17:30 window for a guaranteed table. After 20:00 it converts to walk-in only and fills by 21:00. The White Matcha Negroni is a consistent standout.",
+        "address": "10/15 Convent Road, Silom, Bang Rak, Bangkok 10500",
+        "phone": "+66 2 235 2777",
+        "website": "https://www.vesperbar.co",
+        "bookingUrl": "https://vesper.dineanddrink.site",
+        "openingHours": "Daily 17:30-01:00",
+        "dressCode": "Smart casual. No slippers or athletic wear.",
+        "lat": 13.7265,
+        "lng": 100.5340
+      }
+    }
+  ]
+}

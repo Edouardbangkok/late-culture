@@ -1,0 +1,27 @@
+{
+  "mutations": [
+    {
+      "createOrReplace": {
+        "_id": "drafts.clara",
+        "_type": "restaurant",
+        "name": "Clara",
+        "slug": {"_type": "slug", "current": "clara"},
+        "category": "Grand Occasion",
+        "neighborhood": "Yen Akart",
+        "cuisine": "Contemporary Italian",
+        "priceRange": "3000+ THB",
+        "chef": "Christian Martena",
+        "excerpt": "Contemporary Italian fine dining in a Bauhaus villa on a quiet Yen Akart soi. Chef Christian Martena. Six or eight-course tasting menus. Puglian roots, Thai produce.",
+        "overview": "Clara occupies a two-storey Bauhaus villa at the end of Soi Prasat Suk, surrounded by sculpture-filled gardens. The ground floor holds a main dining room with views into an open kitchen. Upstairs, a mezzanine offers a semi-private setting. A ten-seat chef table, fitted with leather chairs tattooed by Thai artist Tantai, sits adjacent to the pass. Chef Christian Martena tasting menus draw on his Puglian roots, pairing imported Italian ingredients with Thai-sourced produce. Service is led by Clara Del Corso-Martena.",
+        "insiderTip": "Book the kitchen counter seats or the chef table for the closest interaction with the pass. Saturday lunch is the only midday service and tends to be quieter. The wine pairing is assembled in-house and represents strong value relative to the food menu.",
+        "address": "69 Soi Prasat Suk, Chong Nonsi, Yan Nawa, Bangkok 10120",
+        "phone": "+66 83 496 3663",
+        "website": "https://www.clarabangkok.com",
+        "bookingUrl": "https://www.clarabangkok.com/reservations",
+        "openingHours": "Tue-Fri 17:00-23:00, Sat 12:00-15:00 & 18:00-23:00, closed Sun-Mon",
+        "lat": 13.71627,
+        "lng": 100.54861
+      }
+    }
+  ]
+}

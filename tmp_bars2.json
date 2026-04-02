@@ -1,0 +1,92 @@
+{
+  "mutations": [
+    {
+      "createOrReplace": {
+        "_id": "drafts.rabbit-hole",
+        "_type": "bar",
+        "name": "Rabbit Hole",
+        "slug": {"_type": "slug", "current": "rabbit-hole"},
+        "category": "Behind the Door",
+        "neighborhood": "Thonglor",
+        "signature": "Crossword menu series (16 cocktails named after global cities)",
+        "excerpt": "Three-story cocktail bar on Thonglor with no signage. Apothecary-styled floors, each with a different atmosphere. Asia 50 Best Bars listed.",
+        "overview": "Rabbit Hole occupies a narrow shophouse between Thonglor Soi 5 and 7, accessible through an unmarked door. The interior layers industrial brickwork against marble bar tops and glass cabinets, distributed across three distinct floors. Each level shifts in mood. The current cocktail program is structured around a crossword-puzzle concept with 16 drinks named after global cities.",
+        "insiderTip": "Book at least a week ahead for Friday or Saturday. Valet parking available in front. Ask for the third-floor seating for a quieter conversation.",
+        "address": "125 Sukhumvit 55 (Thonglor), Khlong Tan Nuea, Watthana, Bangkok 10110",
+        "phone": "+66 98 532 3500",
+        "website": "https://rabbitholebkk.com",
+        "bookingUrl": "https://rabbitholebkk.com",
+        "openingHours": "Daily 19:00-02:00",
+        "dressCode": "Smart casual",
+        "lat": 13.7384,
+        "lng": 100.5663
+      }
+    },
+    {
+      "createOrReplace": {
+        "_id": "drafts.lennons",
+        "_type": "bar",
+        "name": "Lennon's",
+        "slug": {"_type": "slug", "current": "lennons"},
+        "category": "Above the City",
+        "neighborhood": "Ploenchit",
+        "signature": "Bangkok Beats menu (cocktails tied to songs and artists)",
+        "excerpt": "Vinyl-themed speakeasy on the 30th floor of Rosewood Bangkok. Over 6,000 records. Cocktails structured around music-era themes. City views.",
+        "overview": "Lennon's sits behind an unmarked entrance on the 30th floor of Rosewood Bangkok, designed by AvroKO to resemble a home recording studio. The collection of over 6,000 vinyl records lines the walls and is playable by guests. The cocktail program rotates thematically. Seating is intimate, holding roughly 50 guests with city views through floor-to-ceiling windows.",
+        "insiderTip": "Enter via Rosewood lobby elevators to the 30th floor. Request a window-side seat facing east. Connected to Exit 1 of Ploenchit BTS, making it one of the easiest high-floor bars to reach without a taxi.",
+        "address": "30th Floor, Rosewood Bangkok, 1041/38 Ploenchit Road, Lumpini, Pathum Wan, Bangkok 10330",
+        "phone": "+66 2 080 0030",
+        "website": "https://www.rosewoodhotels.com/en/bangkok/dining/lennons",
+        "bookingUrl": "https://www.rosewoodhotels.com/en/bangkok/dining/lennons",
+        "openingHours": "Daily 19:00-00:00",
+        "dressCode": "Smart casual",
+        "lat": 13.7430,
+        "lng": 100.5480
+      }
+    },
+    {
+      "createOrReplace": {
+        "_id": "drafts.smalls",
+        "_type": "bar",
+        "name": "Smalls",
+        "slug": {"_type": "slug", "current": "smalls"},
+        "category": "Behind the Door",
+        "neighborhood": "Suan Phlu",
+        "signature": "A Walk Among The Fairies (cachaca, cherry liqueur, absinthe, cranberry)",
+        "excerpt": "Three-floor neighborhood bar on Soi Suan Phlu. Live jazz, absinthe-forward cocktails, rooftop terrace. Asia 50 Best Bars listed.",
+        "overview": "Smalls takes over a converted shophouse on a quiet residential soi in Sathorn, arranged across three levels with exposed brick, contemporary art, and dim lighting. The ground floor functions as a bistro-bar with French-leaning food. Upper floors host the main bar and a rooftop terrace. Programming centers on live jazz, particularly Wednesday nights from 21:30, alongside DJ sets.",
+        "insiderTip": "Wednesday jazz night draws the strongest musicians. Arrive before 21:00 to guarantee a seat on the second floor where the stage is. The rooftop terrace is the quietest section.",
+        "address": "186/3-4 Soi Suan Phlu 1, Thung Maha Mek, Sathorn, Bangkok 10120",
+        "phone": "+66 89 666 5429",
+        "website": "https://www.facebook.com/smallsbkk",
+        "bookingUrl": "https://book.tavolos.com/restaurant/smalls",
+        "openingHours": "Wed-Mon 19:00-02:00, closed Tuesday",
+        "dressCode": "Casual",
+        "lat": 13.7206,
+        "lng": 100.5375
+      }
+    },
+    {
+      "createOrReplace": {
+        "_id": "drafts.mahaniyom",
+        "_type": "bar",
+        "name": "Mahaniyom Cocktail Bar",
+        "slug": {"_type": "slug", "current": "mahaniyom"},
+        "category": "Behind the Door",
+        "neighborhood": "Bang Rak",
+        "signature": "Cow (brandy, red wine, brown butter, beef fat, clarified milk, blue cheese air)",
+        "excerpt": "Single-ingredient cocktail bar above 100 Mahaseth in Bangkok old town. No. 18 Asia 50 Best Bars 2024. Nose-to-tail drinking.",
+        "overview": "Mahaniyom occupies the second floor above 100 Mahaseth, a nose-to-tail Thai restaurant on Maha Set Road. Access through an unmarked door guarded by a two-headed neon tiger sign. Seats roughly 50 in a souk-inspired setting with low lighting. Each cocktail is named after a single ingredient and explores that ingredient in multiple derivative forms. Best New Opening at Asia 50 Best Bars 2023.",
+        "insiderTip": "Arrive by 17:30 on weekends. The room holds about 50 and fills within the first 90 minutes. Start with the Cow cocktail. Pair drinks with bar snacks from the 100 Mahaseth kitchen below.",
+        "address": "2nd Floor, 104 Maha Set Road, Si Phraya, Bang Rak, Bangkok 10500",
+        "phone": "+66 61 664 6588",
+        "website": "https://www.instagram.com/mahaniyom.cocktailbar",
+        "bookingUrl": "https://www.instagram.com/mahaniyom.cocktailbar",
+        "openingHours": "Tue-Sun 17:00-00:00, closed Monday",
+        "dressCode": "Smart casual. No shorts, sandals, or tank tops.",
+        "lat": 13.7270,
+        "lng": 100.5210
+      }
+    }
+  ]
+}

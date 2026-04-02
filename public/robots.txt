@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /studio
+Disallow: /api/
+Disallow: /photo-identity.html
+
+Sitemap: https://lateculture.com/sitemap.xml

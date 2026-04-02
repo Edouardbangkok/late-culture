@@ -1,0 +1,96 @@
+{
+  "mutations": [
+    {
+      "createOrReplace": {
+        "_id": "drafts.potong",
+        "_type": "restaurant",
+        "name": "Potong",
+        "slug": {"_type": "slug", "current": "potong"},
+        "category": "Grand Occasion",
+        "neighborhood": "Yaowarat",
+        "cuisine": "Progressive Thai-Chinese",
+        "priceRange": "3000+ THB",
+        "chef": "Pichaya Soontornyanakij",
+        "excerpt": "Progressive Thai-Chinese tasting menu on the second floor of a century-old herbal medicine shophouse in Yaowarat. Chef Pam. Twenty courses. One Michelin star.",
+        "overview": "Potong occupies a five-storey Sino-Portuguese shophouse on Vanich 1 Road in Chinatown that housed Chef Pam family Chinese herbal medicine business since 1910. The main dining room is on the second floor, framed by original wooden dividers and windows. The 20-course tasting menu draws on Thai-Chinese culinary traditions, reinterpreted through a framework of five elements and five senses. A 1,000 THB deposit per guest is required to confirm a booking.",
+        "insiderTip": "Book at least two weeks ahead. Ask about the bar on the lower floor for a drink before your seating. The building original pharmacy artifacts are incorporated into the decor throughout five floors.",
+        "address": "422 Vanich 1 Road, Samphanthawong, Bangkok 10100",
+        "phone": "+66 82 979 3950",
+        "website": "https://www.restaurantpotong.com",
+        "bookingUrl": "https://www.restaurantpotong.com/reservation",
+        "openingHours": "Thu-Mon 16:30-23:00, closed Tue-Wed",
+        "lat": 13.7392,
+        "lng": 100.5085
+      }
+    },
+    {
+      "createOrReplace": {
+        "_id": "drafts.suhring",
+        "_type": "restaurant",
+        "name": "Suhring",
+        "slug": {"_type": "slug", "current": "suhring"},
+        "category": "Grand Occasion",
+        "neighborhood": "Yen Akart",
+        "cuisine": "Modern German",
+        "priceRange": "3000+ THB",
+        "chef": "Matthias and Thomas Suhring",
+        "excerpt": "Twin German chefs. Modern German tasting menu in a restored 1970s villa surrounded by tropical garden. Three Michelin stars as of 2026.",
+        "overview": "Suhring is set inside a converted 1970s residential villa on a quiet soi off Yen Akat Road. Four dining areas: main Dining Room, the Kitchen with a view of the brigade, the Glass House overlooking the garden, and the Living Room upstairs for groups up to eight. Twin brothers Matthias and Thomas Suhring base their tasting menu on family recipes and childhood memories, reinterpreted with Thai-sourced ingredients. Three Michelin stars. Reservations open 60 days in advance.",
+        "insiderTip": "Request the Glass House for a garden-facing table if dining as a couple. The wine pairing is German-leaning and worth considering. Arrive by taxi; the soi is narrow and not easily reached by public transit.",
+        "address": "10 Soi Yen Akat 3, Chong Nonsi, Yan Nawa, Bangkok 10120",
+        "phone": "+66 2 107 2777",
+        "website": "https://restaurantsuhring.com",
+        "bookingUrl": "https://restaurantsuhring.com/reservations.html",
+        "openingHours": "Wed dinner 17:30-21:30, Thu-Sun lunch 12:30-14:30 & dinner 17:30-21:30, closed Mon-Tue",
+        "lat": 13.7108,
+        "lng": 100.5454
+      }
+    },
+    {
+      "createOrReplace": {
+        "_id": "drafts.mezzaluna",
+        "_type": "restaurant",
+        "name": "Mezzaluna",
+        "slug": {"_type": "slug", "current": "mezzaluna"},
+        "category": "Grand Occasion",
+        "neighborhood": "Riverside",
+        "cuisine": "French-Japanese",
+        "priceRange": "3000+ THB",
+        "chef": "Ryuki Kawasaki",
+        "excerpt": "Forty-six-seat crescent-shaped dining room on the 65th floor of State Tower. French-Japanese tasting menu. Two Michelin stars held without interruption since 2018.",
+        "overview": "Mezzaluna occupies the 65th floor of State Tower on Silom Road, with double-height windows curving around a crescent-shaped room that looks out over the Chao Phraya River. Chef Ryuki Kawasaki leads the kitchen with a menu that pairs French technique with Japanese sensibility. The restaurant seats 46 and includes an open kitchen visible from the dining room. Two Michelin stars from the inaugural 2018 edition through every subsequent year.",
+        "insiderTip": "Request a window-side table when booking by phone for the fullest river view. Dress code is smart elegant. The building also houses Sirocco and Sky Bar on the 63rd floor for a drink before dinner.",
+        "address": "65th Floor, State Tower, 1055 Silom Road, Si Lom, Bang Rak, Bangkok 10500",
+        "phone": "+66 2 624 9555",
+        "website": "https://lebua.com/restaurants/mezzaluna",
+        "bookingUrl": "https://lebua.com/restaurants/mezzaluna",
+        "openingHours": "Mon-Sat 18:00-01:00, closed Sunday",
+        "lat": 13.7211,
+        "lng": 100.5175
+      }
+    },
+    {
+      "createOrReplace": {
+        "_id": "drafts.eighty-twenty",
+        "_type": "restaurant",
+        "name": "80/20",
+        "slug": {"_type": "slug", "current": "eighty-twenty"},
+        "category": "The Counter",
+        "neighborhood": "Charoenkrung",
+        "cuisine": "Progressive Thai",
+        "priceRange": "3000+ THB",
+        "chef": "Thavisack Phouthavong",
+        "excerpt": "Thirty-seat restaurant on Charoenkrung Road. Eighty percent local Thai ingredients, twenty percent outside technique. One Michelin star. Seasonal tasting menu.",
+        "overview": "80/20 sits on Charoenkrung Road in Bang Rak district, a short walk from the river. The name refers to the kitchen founding principle: 80 percent Thai-sourced ingredients, 20 percent external influences and technique. Chef Thavisack Phouthavong brings a background from London kitchens. The seasonal tasting menu changes frequently based on ingredient availability. Compact at 30 covers.",
+        "insiderTip": "Book through TableCheck at least a week in advance. For larger groups of nine or more, contact by WhatsApp. The Charoenkrung neighborhood has a concentration of galleries and bars worth exploring before or after dinner.",
+        "address": "1052-1054 Charoen Krung 26, Bang Rak, Bangkok 10500",
+        "phone": "+66 99 118 2200",
+        "website": "https://8020bkk.com",
+        "bookingUrl": "https://www.tablecheck.com/en/80-20-bkk/reserve",
+        "openingHours": "Wed-Sun 18:00-23:00, closed Mon-Tue",
+        "lat": 13.7311,
+        "lng": 100.5155
+      }
+    }
+  ]
+}

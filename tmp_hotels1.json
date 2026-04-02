@@ -1,0 +1,129 @@
+{
+  "mutations": [
+    {
+      "createOrReplace": {
+        "_id": "drafts.the-siam",
+        "_type": "hotel",
+        "name": "The Siam",
+        "slug": {"_type": "slug", "current": "the-siam"},
+        "category": "River & Water",
+        "neighborhood": "Dusit",
+        "priceRange": "3000+ THB",
+        "rooms": "39 (28 suites + 11 pool villas)",
+        "architect": "Bill Bensley",
+        "yearOpened": "2012",
+        "checkIn": "14:00",
+        "checkOut": "12:00",
+        "excerpt": "39-key riverside estate in the Royal Dusit district. Bill Bensley design. Three acres of riverfront land. Each suite individually furnished with original antiques.",
+        "overview": "The Siam occupies a rare stretch of the Chao Phraya quieter northern bank, removed from the hotel density of Sathorn and Riverside. Bill Bensley treated the property as a private collection house. Suites function as gallery rooms filled with period furniture, taxidermy, and Southeast Asian artefacts. A Muay Thai ring, cooking school, and screening room sit alongside the spa and pool. A speedboat shuttle connects to Sathorn Central Pier.",
+        "insiderTip": "Book the speedboat transfer to Sathorn Pier rather than a car. It takes 20 minutes and avoids traffic entirely. Request a courtyard pool villa for direct garden-level water access.",
+        "address": "3/2 Thanon Khao, Vachirapayabal, Dusit, Bangkok 10300",
+        "phone": "+66 2 206 6999",
+        "website": "https://www.thesiamhotel.com",
+        "bookingUrl": "https://www.thesiamhotel.com/offers/all-inclusive",
+        "lat": 13.7828,
+        "lng": 100.5103
+      }
+    },
+    {
+      "createOrReplace": {
+        "_id": "drafts.capella-bangkok",
+        "_type": "hotel",
+        "name": "Capella Bangkok",
+        "slug": {"_type": "slug", "current": "capella-bangkok"},
+        "category": "River & Water",
+        "neighborhood": "Charoenkrung",
+        "priceRange": "3000+ THB",
+        "rooms": "101 (94 suites + 7 riverfront villas)",
+        "architect": "Hamiltons International (architecture), BAMO (interiors)",
+        "yearOpened": "2020",
+        "checkIn": "15:00",
+        "checkOut": "12:00",
+        "excerpt": "101-key riverside property on the Chao Phraya Estate along Charoenkrung Road. Low-rise compound. Suites start at 61 sqm with floor-to-ceiling glass.",
+        "overview": "Capella Bangkok sits on the 14-acre Chao Phraya Estate, connecting the energy of Charoenkrung to the calm of the river. The low-rise compound keeps sightlines open. Suites start at 61 square metres with private outdoor space. Seven ground-level villas edge the water directly, each with a private garden and plunge pool. A shuttle boat runs guests upriver. The property reads as residential rather than monumental.",
+        "insiderTip": "Request a villa with direct river frontage for the plunge pool and garden access. Use the hotel river shuttle rather than road taxis to reach Saphan Taksin BTS and avoid Charoenkrung congestion.",
+        "address": "300/2 Charoenkrung Road, Yannawa, Sathorn, Bangkok 10120",
+        "phone": "+66 2 098 3888",
+        "website": "https://capellahotels.com/en/capella-bangkok",
+        "bookingUrl": "https://capellahotels.com/en/capella-bangkok/offers",
+        "lat": 13.7131,
+        "lng": 100.5109
+      }
+    },
+    {
+      "createOrReplace": {
+        "_id": "drafts.the-mustang-nero",
+        "_type": "hotel",
+        "name": "The Mustang Nero",
+        "slug": {"_type": "slug", "current": "the-mustang-nero"},
+        "category": "Old Soul",
+        "neighborhood": "Phra Khanong",
+        "priceRange": "1500-3000 THB",
+        "rooms": "10 rooms",
+        "architect": "Owner-renovated",
+        "yearOpened": "2017",
+        "checkIn": "14:00",
+        "checkOut": "12:00",
+        "excerpt": "Ten-room owner-operated boutique in Phra Khanong. Each room carries a distinct animal-themed design. Vintage furniture, taxidermy, jungle decor. Five minutes from BTS.",
+        "overview": "The Mustang Nero is a small-scale oddity in the Phra Khanong neighbourhood, identifiable by the vintage Volkswagen parked out front. The building retains its original commercial structure, stripped back and filled with taxidermy, vintage objects, and botanical details. Each of the ten rooms is themed differently. No two share the same layout or furniture. Free breakfast and parking included.",
+        "insiderTip": "Ask for the Flamingo or Zebra rooms for the most natural light. No elevator, so request a lower floor if carrying heavy luggage. Phra Khanong BTS is a five-minute walk south.",
+        "address": "1112/91-93 Soi Daimaru Department, Phra Khanong, Khlong Toei, Bangkok 10110",
+        "phone": "+66 99 470 3314",
+        "website": "https://www.facebook.com/themustangnero",
+        "bookingUrl": "https://www.expedia.com/Bangkok-Hotels-The-Mustang-Nero.h49307598.Hotel-Information",
+        "lat": 13.7145,
+        "lng": 100.5920
+      }
+    },
+    {
+      "createOrReplace": {
+        "_id": "drafts.137-pillars",
+        "_type": "hotel",
+        "name": "137 Pillars Suites & Residences",
+        "slug": {"_type": "slug", "current": "137-pillars"},
+        "category": "Design Forward",
+        "neighborhood": "Sukhumvit",
+        "priceRange": "3000+ THB",
+        "rooms": "34 suites",
+        "architect": "Palmer & Turner (architecture), P49 Design (interiors)",
+        "yearOpened": "2017",
+        "checkIn": "15:00",
+        "checkOut": "12:00",
+        "excerpt": "34-suite tower on Sukhumvit Soi 39. Northern Thai craft traditions through hand-woven silk, teak, and handmade carvings. Walking distance to Phrom Phong BTS.",
+        "overview": "137 Pillars translates a Chiang Mai heritage pedigree into a vertical Sukhumvit format. The 34 suites occupy dedicated floors above a separate 176-unit residential tower, maintaining a boutique ratio within a high-rise shell. Interiors by P49 Design lean on Thai textiles and teak. Soi 39 places the hotel within walking distance of Phrom Phong BTS and EmQuartier. The scale is quiet and the service model borrows from the Chiang Mai property slower, personal pace.",
+        "insiderTip": "Book a suite rather than a residence unit for the full hotel experience with dedicated check-in and higher-specification finishes. Walk to EmQuartier via Soi 39 for the rooftop dining options.",
+        "address": "59/1 Sukhumvit Soi 39, Klongton Nua, Wattana, Bangkok 10110",
+        "phone": "+66 2 079 7111",
+        "website": "https://137pillarshotels.com/en/bangkok",
+        "bookingUrl": "https://137pillarshotels.com/en/bangkok",
+        "lat": 13.7375,
+        "lng": 100.5724
+      }
+    },
+    {
+      "createOrReplace": {
+        "_id": "drafts.ariyasom-villa",
+        "_type": "hotel",
+        "name": "Ariyasom Villa",
+        "slug": {"_type": "slug", "current": "ariyasom-villa"},
+        "category": "Old Soul",
+        "neighborhood": "Sukhumvit Soi 1",
+        "priceRange": "3000+ THB",
+        "rooms": "24 rooms",
+        "architect": "Khun Phra Charoen Sheanakul (1941 original)",
+        "yearOpened": "1941 (hotel 2008)",
+        "checkIn": "14:00",
+        "checkOut": "11:00",
+        "excerpt": "24-room boutique in a 1941 heritage villa on Sukhumvit Soi 1. Built by the founding dean of engineering at Chulalongkorn University. Vegetarian restaurant. Meditation hall.",
+        "overview": "Ariyasom Villa is a family-held property where the architecture is the primary narrative. The original 1941 residence was designed by its owner, an engineer who also built the National Stadium and Don Mueang Airport first runway. The conversion preserved domestic proportions. 24 rooms across four floors. Na Aroon restaurant serves vegetarian and seafood dishes. A meditation hall and spa occupy the rear.",
+        "insiderTip": "Request an Executive Suite on the upper floor for the most space and garden views. Na Aroon restaurant is worth visiting for breakfast even if not staying. Check-out is 11:00 AM, earlier than Bangkok standard.",
+        "address": "65 Sukhumvit Soi 1, Klongtoey Nua, Wattana, Bangkok 10110",
+        "phone": "+66 2 254 8880",
+        "website": "https://www.ariyasom.com",
+        "bookingUrl": "https://www.ariyasom.com/contact",
+        "lat": 13.7438,
+        "lng": 100.5530
+      }
+    }
+  ]
+}

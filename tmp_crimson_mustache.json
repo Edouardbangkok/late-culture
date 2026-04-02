@@ -1,0 +1,47 @@
+{
+  "mutations": [
+    {
+      "createOrReplace": {
+        "_id": "drafts.crimson-room",
+        "_type": "bar",
+        "name": "Crimson Room",
+        "slug": {"_type": "slug", "current": "crimson-room"},
+        "category": "Behind the Door",
+        "neighborhood": "Langsuan",
+        "signature": "Bee Pollen (amber cocktail in a birdie glass with wildflowers)",
+        "excerpt": "1920s cabaret-style cocktail bar with live jazz inside Velaa Sindhorn Village on Langsuan Road. Cocktails rotate through theatrical categories. Reservations close at 21:30.",
+        "overview": "Crimson Room occupies a low-lit corner of Velaa Sindhorn Village, the semi-outdoor retail development set against the edge of Lumphini Park. The interior references Prohibition-era New York: deep reds, brass, velvet seating. Live jazz runs most evenings from 20:00 or 21:00, shifting to DJ sets once the band wraps. The cocktail program is structured around a stage-show conceit, with around 20 signatures priced 320-380 THB.",
+        "insiderTip": "Book a sofa booth through TableCheck before 21:30, especially Thursday through Saturday. Arrive by 19:30 on a Wednesday or Thursday to secure seating near the stage without a booth reservation. The Bee Pollen is the most-photographed drink, but the Orange Jasmine travels better on a crowded night.",
+        "address": "Velaa Sindhorn Village, 87 Lang Suan Road, Lumphini, Pathum Wan, Bangkok 10330",
+        "phone": "+66 62 259 2525",
+        "website": "https://www.crimsonroombkk.com",
+        "bookingUrl": "https://www.tablecheck.com/th/crimson-room-bangkok/reserve",
+        "openingHours": "Sun-Thu 18:00-01:00, Fri-Sat 18:00-02:00",
+        "dressCode": "Smart casual",
+        "lat": 13.7375,
+        "lng": 100.5431
+      }
+    },
+    {
+      "createOrReplace": {
+        "_id": "drafts.mustache",
+        "_type": "party",
+        "name": "Mustache",
+        "slug": {"_type": "slug", "current": "mustache"},
+        "category": "Underground",
+        "neighborhood": "Silom",
+        "excerpt": "Bangkok leading underground house and techno club. Fuchsia complex on Decho Road in Silom. VOID sound system. 700-capacity room. Three nights a week.",
+        "overview": "Mustache has operated in Bangkok for over eight years, building the city most dedicated electronic music following. The current Decho Road location replaced the former Sukhumvit 23 space in late 2024. The room runs on a VOID sound system tuned for low-end pressure. Programming leans toward melodic techno and peak-time sets, with touring European and South American artists alongside Bangkok residents. Doors open at 22:00.",
+        "insiderTip": "Entry is 300 THB with one drink included. Arrive before 23:30 on Fridays and Saturdays to avoid the queue after midnight. Set your Grab destination to Fuchsia Decho Road Silom, not Mustache which may point to the old Sukhumvit location.",
+        "address": "Fuchsia Complex, 4 Decho Road, Suriyawong, Bang Rak, Bangkok 10500",
+        "phone": "+66 63 017 8555",
+        "website": "https://mustachebangkok.com",
+        "bookingUrl": "https://linktr.ee/mustachebkk",
+        "openingHours": "Wed, Fri, Sat 22:00-03:30",
+        "dressCode": "Relaxed but stylish. No flip-flops or singlets. Closed shoes recommended.",
+        "lat": 13.7257,
+        "lng": 100.5256
+      }
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "mutations": [
+    {
+      "createOrReplace": {
+        "_id": "drafts.the-standard-bangkok",
+        "_type": "hotel",
+        "name": "The Standard Bangkok Mahanakhon",
+        "slug": {"_type": "slug", "current": "the-standard-bangkok"},
+        "category": "Design Forward",
+        "neighborhood": "Silom",
+        "priceRange": "3000+ THB",
+        "rooms": "155 rooms",
+        "architect": "Jaime Hayon",
+        "yearOpened": "2022",
+        "checkIn": "15:00",
+        "checkOut": "12:00",
+        "excerpt": "155-room design hotel occupying floors 1 through 18 of the MahaNakhon tower. Conceived by Jaime Hayon. Playful curves, bold color, textured surfaces.",
+        "overview": "The Standard Bangkok Mahanakhon is the brand first property in Asia, opened in late 2022 inside the pixelated silhouette of Ole Scheeren 314-meter tower. Jaime Hayon interiors lean into saturated color and rounded forms across 155 rooms, a rooftop pool terrace, and a ground-floor parlor. Dining includes Cantonese restaurant Mott 32, rooftop bar Ojo, and Sky Beach on the 76th floor. Direct BTS access at Chong Nonsi station.",
+        "insiderTip": "Book a higher floor facing east for unobstructed views toward the Chao Phraya bend. Sky Beach on the 76th floor is open to hotel guests without the cover charge that walk-ins pay.",
+        "address": "114 Narathiwas Road, Silom, Bangrak, Bangkok 10500",
+        "phone": "+66 2 085 8888",
+        "website": "https://www.standardhotels.com/bangkok/properties/bangkok",
+        "bookingUrl": "https://www.hyatt.com/the-standard/en-US/bkksb-the-standard-bangkok",
+        "lat": 13.7212,
+        "lng": 100.5237
+      }
+    },
+    {
+      "createOrReplace": {
+        "_id": "drafts.sindhorn-kempinski",
+        "_type": "hotel",
+        "name": "Sindhorn Kempinski",
+        "slug": {"_type": "slug", "current": "sindhorn-kempinski"},
+        "category": "Design Forward",
+        "neighborhood": "Langsuan",
+        "priceRange": "3000+ THB",
+        "rooms": "274 rooms and suites",
+        "architect": "PLAN Architect (building), P49 Deesign (interior)",
+        "yearOpened": "2020",
+        "checkIn": "14:00",
+        "checkOut": "12:00",
+        "excerpt": "274-room luxury hotel within the Sindhorn Village development on Soi Tonson. Undulating facade by PLAN Architect inspired by a banyan tree canopy.",
+        "overview": "Sindhorn Kempinski opened in 2020 as the anchor of the Sindhorn Village development, a landscaped urban estate. The building organic wave-like facade by PLAN Architect was recognized at the Architecture Masterprize. Interiors by P49 Deesign channel warm stone, brass, and natural wood. The 274 rooms are among the more spacious in central Bangkok. Walking distance to Lumpini Park and the embassy row.",
+        "insiderTip": "Request a room on the Langsuan side for views into the tree canopy. The hotel connection to the Sindhorn Village courtyard provides a quieter walking path to Central Chidlom and the BTS.",
+        "address": "80 Soi Tonson, Lumphini, Pathumwan, Bangkok 10330",
+        "phone": "+66 2 095 9999",
+        "website": "https://www.kempinski.com/en/sindhorn-hotel",
+        "bookingUrl": "https://www.booking.com/hotel/th/sindhorn-kempinski-bangkok.html",
+        "lat": 13.7403,
+        "lng": 100.5410
+      }
+    },
+    {
+      "createOrReplace": {
+        "_id": "drafts.rosewood-bangkok",
+        "_type": "hotel",
+        "name": "Rosewood Bangkok",
+        "slug": {"_type": "slug", "current": "rosewood-bangkok"},
+        "category": "Design Forward",
+        "neighborhood": "Ploenchit",
+        "priceRange": "3000+ THB",
+        "rooms": "159 rooms",
+        "architect": "Kohn Pedersen Fox (KPF)",
+        "yearOpened": "2019",
+        "checkIn": "15:00",
+        "checkOut": "12:00",
+        "excerpt": "30-floor vertical resort on Ploenchit Road. 159 rooms designed as a vertical village. KPF architecture. Directly connected to Phloen Chit BTS.",
+        "overview": "Rosewood Bangkok occupies a freestanding 30-story tower on Ploenchit Road, organized as stacked neighborhoods rather than a conventional floor plate. KPF designed the structure with setbacks and terraces allowing outdoor space at multiple elevations, including three top-floor houses with private pools. Celia Chu interiors reference Thai craft traditions. A skywalk connects directly to Phloen Chit BTS.",
+        "insiderTip": "The three Sky Villas on upper floors each have private plunge pools. Even standard rooms above the 20th floor offer generous balcony space. Ask about the curated neighborhood walking tours of Langsuan side streets.",
+        "address": "1041/38 Ploenchit Road, Lumpini, Pathumwan, Bangkok 10330",
+        "phone": "+66 2 080 0088",
+        "website": "https://www.rosewoodhotels.com/en/bangkok",
+        "bookingUrl": "https://www.rosewoodhotels.com/en/bangkok/reservations/select-a-service",
+        "lat": 13.7440,
+        "lng": 100.5467
+      }
+    },
+    {
+      "createOrReplace": {
+        "_id": "drafts.como-metropolitan",
+        "_type": "hotel",
+        "name": "COMO Metropolitan Bangkok",
+        "slug": {"_type": "slug", "current": "como-metropolitan"},
+        "category": "Slow Stay",
+        "neighborhood": "Sathorn",
+        "priceRange": "3000+ THB",
+        "rooms": "137 rooms and suites",
+        "architect": "Paola Navone (2025 redesign)",
+        "yearOpened": "2003 (reopened 2025)",
+        "checkIn": "14:00",
+        "checkOut": "12:00",
+        "excerpt": "137-room urban retreat on South Sathorn Road. Originally 2003, fully redesigned by Paola Navone in 2025. COMO Shambhala spa. 25-meter outdoor pool.",
+        "overview": "COMO Metropolitan Bangkok has operated on South Sathorn Road since 2003. The 2025 renovation by Paola Navone balanced local materials with confident use of color, including oversized woven seat-backs and Buddhist orange across 137 rooms. The COMO Shambhala Urban Escape spa retains 10 treatment rooms, yoga studio, and hydro pool. A 25-meter outdoor pool runs along the ground level.",
+        "insiderTip": "COMO Shambhala treatments incorporate the brand own product line. Ayurvedic programs here are more developed than at most Bangkok hotel spas. Book a Metropolitan Suite on an upper floor facing north for a sightline to the Mahanakhon tower.",
+        "address": "27 South Sathorn Road, Tungmahamek, Sathorn, Bangkok 10120",
+        "phone": "+66 2 625 3333",
+        "website": "https://www.comohotels.com/thailand/como-metropolitan-bangkok",
+        "bookingUrl": "https://www.comohotels.com/thailand/como-metropolitan-bangkok/offers/book-with-como",
+        "lat": 13.7230,
+        "lng": 100.5285
+      }
+    }
+  ]
+}

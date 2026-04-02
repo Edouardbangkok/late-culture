@@ -1,0 +1,119 @@
+{
+  "mutations": [
+    {
+      "createOrReplace": {
+        "_id": "drafts.le-du",
+        "_type": "restaurant",
+        "name": "Le Du",
+        "slug": {"_type": "slug", "current": "le-du"},
+        "category": "Grand Occasion",
+        "neighborhood": "Silom",
+        "cuisine": "Contemporary Thai",
+        "priceRange": "3000+ THB",
+        "chef": "Thitid Tassanakajohn",
+        "excerpt": "One-Michelin-star restaurant on Silom Soi 7. Chef Ton. Seasonal Thai tasting menus. Forty-five covers.",
+        "overview": "Le Du occupies a two-storey shophouse on a quiet alley off Silom Road, a short walk from BTS Chong Nonsi. The dining room seats 45 across two floors. Chef Ton trained at Eleven Madison Park and Jean-Georges before returning to Bangkok in 2013. The menu rotates every three months around Thai seasonal produce, offered as a 4-course or 6-course tasting format.",
+        "insiderTip": "Book at least two weeks ahead through the website. Groups of five or more are required to order the 6-course menu.",
+        "address": "399/3 Silom 7 Alley, Si Lom, Bang Rak, Bangkok 10500",
+        "phone": "+66 92 919 9969",
+        "website": "https://www.ledubkk.com",
+        "bookingUrl": "https://www.ledubkk.com/reservation",
+        "openingHours": "Mon-Wed 18:00-23:00, Thu-Sun 12:00-14:00 & 18:00-23:00",
+        "lat": 13.7250,
+        "lng": 100.5294
+      }
+    },
+    {
+      "createOrReplace": {
+        "_id": "drafts.sorn",
+        "_type": "restaurant",
+        "name": "Sorn",
+        "slug": {"_type": "slug", "current": "sorn"},
+        "category": "Grand Occasion",
+        "neighborhood": "Sukhumvit",
+        "cuisine": "Southern Thai",
+        "priceRange": "3000+ THB",
+        "chef": "Supaksorn Jongsiri",
+        "excerpt": "Three Michelin stars. Southern Thai cuisine. Twenty-plus-course tasting menu. Twenty-two covers.",
+        "overview": "Sorn is a converted house on a residential soi off Sukhumvit 26, seating just 22 guests. Chef Ice draws on his grandmother Southern Thai cooking, with ingredients sourced directly from 14 southern provinces. The menu runs to more than 20 courses. Meals last approximately four hours.",
+        "insiderTip": "Email reservations open on the 15th of each month for the following month at midnight Bangkok time. Book two to three months in advance.",
+        "address": "56 Soi Sukhumvit 26, Khlong Tan, Khlong Toei, Bangkok 10110",
+        "phone": "+66 99 081 1119",
+        "website": "https://sornfinesouthern.com",
+        "bookingUrl": "https://www.tablecheck.com/en/shops/sorn-fine-southern-cuisine/reserve",
+        "openingHours": "Tue-Sun 12:00-14:00 & 18:00-23:00, closed Monday",
+        "lat": 13.7231,
+        "lng": 100.5685
+      }
+    },
+    {
+      "createOrReplace": {
+        "_id": "drafts.gaggan",
+        "_type": "restaurant",
+        "name": "Gaggan",
+        "slug": {"_type": "slug", "current": "gaggan"},
+        "category": "The Counter",
+        "neighborhood": "Langsuan",
+        "cuisine": "Progressive Indian",
+        "priceRange": "3000+ THB",
+        "chef": "Gaggan Anand",
+        "excerpt": "Fourteen-seat counter. Progressive Indian cuisine across 25 courses in five acts. One Michelin star.",
+        "overview": "Gaggan operates from a house on Soi Langsuan with a single 14-seat L-shaped counter. The format is a multi-course performance in five acts, combining Indian flavors with theatrical presentation. Chef Gaggan Anand has defined Bangkok fine dining since 2010. Two seatings per evening.",
+        "insiderTip": "Contact reservations directly or ask a hotel concierge to book. Reserve two to three months ahead. Every counter seat has a direct view of the kitchen.",
+        "address": "68/1 Soi Langsuan, Ploenchit Road, Lumpini, Pathum Wan, Bangkok 10330",
+        "phone": "+66 98 883 1022",
+        "website": "https://gaggan.com",
+        "bookingUrl": "https://gaggan.com",
+        "openingHours": "Mon-Sat 17:30-20:30 & 21:30-00:30, closed Sunday",
+        "lat": 13.7377,
+        "lng": 100.5422
+      }
+    },
+    {
+      "createOrReplace": {
+        "_id": "drafts.paste-bangkok",
+        "_type": "restaurant",
+        "name": "Paste Bangkok",
+        "slug": {"_type": "slug", "current": "paste-bangkok"},
+        "category": "Grand Occasion",
+        "neighborhood": "Ploenchit",
+        "cuisine": "Royal Thai",
+        "priceRange": "3000+ THB",
+        "chef": "Bongkoch Satongun",
+        "excerpt": "Chef Bee Satongun. Third floor of Gaysorn Village. Royal Thai recipes through a contemporary lens.",
+        "overview": "Paste occupies a refined dining room on the third floor of Gaysorn Village, adjacent to the InterContinental Hotel. Chef Bee researches historical royal Thai recipes and reinterprets them using traditional techniques and modern presentation. Both lunch and dinner tasting menus offered daily.",
+        "insiderTip": "Lunch is the same caliber as dinner but at a lower price point, and the dining room is typically quieter at midday. Book directly by phone or email.",
+        "address": "3rd Floor, Gaysorn Village, 999 Ploenchit Road, Lumpini, Pathum Wan, Bangkok 10330",
+        "phone": "+66 2 656 1003",
+        "website": "https://www.pastebangkok.com",
+        "bookingUrl": "https://www.pastebangkok.com/contact",
+        "openingHours": "Daily 12:00-15:30 & 18:00-23:00",
+        "lat": 13.7440,
+        "lng": 100.5407
+      }
+    },
+    {
+      "createOrReplace": {
+        "_id": "drafts.nusara",
+        "_type": "restaurant",
+        "name": "Nusara",
+        "slug": {"_type": "slug", "current": "nusara"},
+        "category": "Grand Occasion",
+        "neighborhood": "Phra Nakhon",
+        "cuisine": "Heritage Thai",
+        "priceRange": "3000+ THB",
+        "chef": "Thitid Tassanakajohn",
+        "excerpt": "Maha Rat Road overlooking Wat Pho. Twelve-course tasting menu rooted in family recipes and royal Thai cookbooks.",
+        "overview": "Nusara sits on Maha Rat Road in Bangkok Old Town, with views of Wat Pho from the dining room. Chef Ton opened the restaurant alongside his brother Tam as a tribute to their grandmother. The tasting menu draws from family recipes and the kitchens of King Rama V, presented across 12 courses.",
+        "insiderTip": "A 100% deposit equal to the 60,000 THB minimum spend is required at booking. Request a window-side seat for the Wat Pho view.",
+        "address": "336 Maha Rat Road, Phra Borom Maha Ratchawang, Phra Nakhon, Bangkok 10200",
+        "phone": "+66 97 293 5549",
+        "website": "https://www.nusarabkk.com",
+        "bookingUrl": "https://www.nusarabkk.com/reservation",
+        "openingHours": "Mon, Wed-Sun 18:00-23:00, closed Tuesday",
+        "lat": 13.7457,
+        "lng": 100.4915
+      }
+    }
+  ]
+}

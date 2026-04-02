@@ -1,0 +1,26 @@
+{
+  "mutations": [
+    {
+      "createOrReplace": {
+        "_id": "drafts.scarlett",
+        "_type": "bar",
+        "name": "Scarlett",
+        "slug": {"_type": "slug", "current": "scarlett"},
+        "category": "The Glass",
+        "neighborhood": "Silom",
+        "signature": "Scarlett Night (Bombay gin, Antica Formula, Aperol, rosemary syrup, lemon)",
+        "excerpt": "37th-floor French wine bar atop Pullman Bangkok Hotel G on Silom Road. Chef Sylvain Royer. Over 150 wine labels. Dry-aged steaks. Imported French charcuterie. Resident DJ nightly.",
+        "overview": "Scarlett occupies the full rooftop of Pullman Bangkok Hotel G, 37 floors above Bang Rak. The kitchen is led by Sylvain Royer, a Maitre Cuisinier de France, who runs a produce-driven French bistro menu with emphasis on grilled meats, seafood, and imported charcuterie. The wine program carries over 150 labels at pricing that undercuts much of Bangkok rooftop competition. A resident DJ plays lounge sets nightly. The terrace wraps the building with open views of the Silom-Sathorn skyline.",
+        "insiderTip": "Arrive at opening on a weekday to secure a terrace table without a reservation. Happy hour runs daily until 19:00 with signature cocktails from 100 THB. Order from the charcuterie and cheese selection rather than the mains for the kitchen strongest suit alongside the wine list.",
+        "address": "37F, Pullman Bangkok Hotel G, 188 Silom Road, Suriyawong, Bang Rak, Bangkok 10500",
+        "phone": "+66 96 860 7990",
+        "website": "https://www.randblab.com/scarlett-bangkok",
+        "bookingUrl": "https://www.randblab.com/scarlett-bangkok",
+        "openingHours": "Mon-Fri 17:00-23:30, Sat-Sun 16:00-23:30",
+        "dressCode": "Smart casual. Long trousers and closed-toe shoes for men.",
+        "lat": 13.7218,
+        "lng": 100.5210
+      }
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "mutations": [
+    {
+      "createOrReplace": {
+        "_id": "drafts.ce-la-vi",
+        "_type": "party",
+        "name": "Ce La Vi",
+        "slug": {"_type": "slug", "current": "ce-la-vi"},
+        "category": "Rooftop Session",
+        "neighborhood": "Sathorn",
+        "excerpt": "39th-floor club and lounge atop Sathorn Square. Themed nights spanning house, hip-hop, and funk. Panoramic views south across the Chao Phraya basin.",
+        "overview": "Ce La Vi occupies the full top floor of Sathorn Square Tower in the Silom-Sathorn corridor. The venue splits into a restaurant, sky bar, and a club space that opens later in the evening. Weekday themes tend toward soul and hip-hop. Friday and Saturday nights pivot to house and dance music with resident and guest DJs. The crowd skews international and upscale. 39th-floor elevation means open-air sections carry wind and temperature shifts after dark.",
+        "insiderTip": "Wednesday Crush ladies night draws the most consistent midweek crowd with free-flow sparkling wine. For weekend nights, table reservations through Instagram are recommended. Arrive before 22:00 for the sky bar experience before the club takes over.",
+        "address": "39th Floor, Sathorn Square Building, 98 North Sathorn Road, Silom, Bangrak, Bangkok 10500",
+        "phone": "+66 2 108 2000",
+        "website": "https://www.celavi.com",
+        "bookingUrl": "https://www.celavi.com",
+        "openingHours": "Mon-Thu 11:00-01:00, Fri-Sat 11:00-03:00",
+        "dressCode": "Smart casual. Collared shirt, long trousers, closed-toe shoes for men.",
+        "lat": 13.7224,
+        "lng": 100.5294
+      }
+    }
+  ]
+}
