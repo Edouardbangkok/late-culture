@@ -48,6 +48,7 @@
         + '<a href="/plan-my-night" class="lc-auth-nav__dropdown-item">Plan My Night</a>'
         + '<a href="/collections" class="lc-auth-nav__dropdown-item">Collections</a>'
         + '<a href="/community" class="lc-auth-nav__dropdown-item">Find People</a>'
+        + '<a href="/the-people-spoke" class="lc-auth-nav__dropdown-item">The People Spoke</a>'
         + '<div class="lc-auth-nav__dropdown-divider"></div>'
         + '<a href="#" class="lc-auth-nav__dropdown-item lc-auth-nav__dropdown-item--signout" id="lc-signout">Sign Out</a>'
         + '</div>';

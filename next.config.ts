@@ -25,6 +25,7 @@ const nextConfig: NextConfig = {
       { source: '/u/:username', destination: '/user-profile-page.html' },
       { source: '/community', destination: '/community-page.html' },
       { source: '/feed', destination: '/feed-page.html' },
+      { source: '/the-people-spoke', destination: '/the-people-spoke-page.html' },
     ]
   },
 }
