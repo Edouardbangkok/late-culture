@@ -224,7 +224,7 @@ function render(v, info) {
     mapDiv.setAttribute('data-lng', v.lng);
     mapDiv.setAttribute('data-name', v.name);
 
-    setTimeout(() => {
+    setTimeout(async () => {
       var tokenRes = await fetch('/api/config').then(function(r){return r.json()}).catch(function(){return {}});
       mapboxgl.accessToken = tokenRes.mapbox || '';
       const map = new mapboxgl.Map({
