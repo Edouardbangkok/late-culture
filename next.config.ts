@@ -9,11 +9,7 @@ const nextConfig: NextConfig = {
   },
   async rewrites() {
     return [
-      // Venue detail pages
-      { source: '/stay/:slug', destination: '/venue-detail.html' },
-      { source: '/eat/:slug', destination: '/venue-detail.html' },
-      { source: '/drink/:slug', destination: '/venue-detail.html' },
-      { source: '/party/:slug', destination: '/venue-detail.html' },
+      // Venue detail pages handled by app/[section]/[slug]/page.tsx (SSR)
       // Listing pages
       { source: '/stay', destination: '/stay-page.html' },
       { source: '/eat', destination: '/eat-page.html' },

@@ -67,6 +67,17 @@
         </div>
     </nav>
 
+    <!-- ── LOADING STATE ── -->
+    <div id="vd-loader" style="min-height:100vh;display:flex;align-items:center;justify-content:center;background:var(--cloud,#F5F0EB);">
+        <div style="text-align:center;">
+            <div style="font-family:'Anton',Impact,sans-serif;font-size:24px;color:var(--ink,#1A1010);text-transform:uppercase;letter-spacing:0.06em;">LATE CULTURE</div>
+            <div style="font-family:'Fraunces',serif;font-style:italic;font-size:14px;color:var(--lite,#C09098);margin-top:8px;">Loading...</div>
+        </div>
+    </div>
+
+    <!-- ── VENUE CONTENT (hidden until loaded) ── -->
+    <div id="vd-content" style="display:none;">
+
     <!-- ── HERO ── -->
     <section class="vd-hero">
         <div class="vd-hero__img">
@@ -154,6 +165,8 @@
         </section>
 
     </div>
+
+    </div> <!-- end vd-content -->
 
     <!-- ── FOOTER ── -->
     <footer class="footer">
