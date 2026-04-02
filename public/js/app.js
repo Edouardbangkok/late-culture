@@ -288,8 +288,8 @@ function highlightTonightCards() {
 
 /* ── Init ── */
 function init() {
-  // Tonight section
-  renderTonight();
+  // Tonight section — disabled for now
+  // renderTonight();
 
   // Home page grids
   renderGrid('hotels-grid', HOTELS);
