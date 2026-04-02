@@ -12,9 +12,25 @@ export const hotel = defineType({
     defineField({ name: 'slug', title: 'Slug', type: 'slug', options: { source: 'name' }, validation: r => r.required(), group: 'basics',
       description: 'URL-friendly name. Click "Generate" to auto-create from the name.' }),
     defineField({
-      name: 'category', title: 'Category', type: 'string', group: 'basics',
-      description: 'Appears as a badge on the hero image + used for filtering on the Stay page.',
+      name: 'category', title: 'Primary Category', type: 'string', group: 'basics',
+      description: 'Main badge on the hero image.',
       options: { list: ['Grand Occasion', 'Design Forward', 'River & Water', 'The Pool', 'Slow Stay', 'New Opening', 'Old Soul', 'Night City'] }
+    }),
+    defineField({
+      name: 'categories', title: 'All Categories', type: 'array', group: 'basics',
+      description: 'Select 1-3 categories. The hotel appears in all selected filters.',
+      of: [{ type: 'string' }],
+      options: { list: [
+        { title: 'Grand Occasion', value: 'Grand Occasion' },
+        { title: 'Design Forward', value: 'Design Forward' },
+        { title: 'River & Water', value: 'River & Water' },
+        { title: 'The Pool', value: 'The Pool' },
+        { title: 'Slow Stay', value: 'Slow Stay' },
+        { title: 'New Opening', value: 'New Opening' },
+        { title: 'Old Soul', value: 'Old Soul' },
+        { title: 'Night City', value: 'Night City' },
+      ]},
+      validation: r => r.max(3),
     }),
     defineField({ name: 'neighborhood', title: 'Neighborhood', type: 'string', group: 'basics',
       description: 'Appears in the hero meta info + card overline. Example: Chao Phraya Riverside' }),

@@ -28,7 +28,7 @@ function mapSanityVenue(doc, type) {
     neighborhood: doc.neighborhood || '',
     description: doc.excerpt || '',
     image: sanityImageUrl(doc.heroImage),
-    tags: doc.category ? [doc.category] : [],
+    tags: doc.categories && doc.categories.length > 0 ? doc.categories : (doc.category ? [doc.category] : []),
     link: `/${type === 'hotel' ? 'stay' : type === 'restaurant' ? 'eat' : type === 'party' ? 'party' : 'drink'}/${doc.slug?.current || ''}`,
     priceRange: doc.priceRange || '',
     cuisine: doc.cuisine || '',
@@ -38,10 +38,10 @@ function mapSanityVenue(doc, type) {
 async function fetchSanityVenues() {
   try {
     const query = encodeURIComponent(`{
-      "hotels": *[_type=="hotel"]{_id, name, slug, category, neighborhood, excerpt, priceRange, heroImage},
-      "restaurants": *[_type=="restaurant"]{_id, name, slug, category, neighborhood, cuisine, excerpt, priceRange, heroImage},
-      "bars": *[_type=="bar"]{_id, name, slug, category, neighborhood, excerpt, heroImage},
-      "parties": *[_type=="party"]{_id, name, slug, category, neighborhood, excerpt, heroImage}
+      "hotels": *[_type=="hotel"]{_id, name, slug, category, categories, neighborhood, excerpt, priceRange, heroImage},
+      "restaurants": *[_type=="restaurant"]{_id, name, slug, category, categories, neighborhood, cuisine, excerpt, priceRange, heroImage},
+      "bars": *[_type=="bar"]{_id, name, slug, category, categories, neighborhood, excerpt, heroImage},
+      "parties": *[_type=="party"]{_id, name, slug, category, categories, neighborhood, excerpt, heroImage}
     }`);
     const res = await fetch(`${SANITY_API}?query=${query}`);
     const data = await res.json();
