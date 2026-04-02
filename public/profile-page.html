@@ -260,6 +260,177 @@
             border-top: 1px solid rgba(212, 120, 138, 0.08);
         }
 
+        /* Top 3 Picks */
+        .top3 {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 32px 40px 0;
+        }
+        .top3__header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .top3__title {
+            font-family: 'Anton', Impact, sans-serif;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--mid, #6A3A44);
+        }
+        .top3__privacy {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            color: var(--lite, #C09098);
+        }
+        .top3__privacy input[type="checkbox"] {
+            accent-color: #D4788A;
+        }
+        .top3__grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+        .top3__slot {
+            background: #fff;
+            border: 2px dashed rgba(212, 120, 138, 0.2);
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+            min-height: 120px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.2s;
+            cursor: pointer;
+            position: relative;
+        }
+        .top3__slot:hover {
+            border-color: var(--rose3, #D4788A);
+            background: rgba(212, 120, 138, 0.03);
+        }
+        .top3__slot--filled {
+            border-style: solid;
+            border-color: rgba(212, 120, 138, 0.15);
+            cursor: default;
+        }
+        .top3__rank {
+            font-family: 'Anton', Impact, sans-serif;
+            font-size: 28px;
+            color: var(--rose, #F2C4CE);
+        }
+        .top3__venue-name {
+            font-family: 'Anton', Impact, sans-serif;
+            font-size: 16px;
+            text-transform: uppercase;
+            color: var(--ink, #1A1010);
+        }
+        .top3__venue-meta {
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            color: var(--lite, #C09098);
+        }
+        .top3__add {
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            color: var(--rose3, #D4788A);
+        }
+        .top3__remove {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            width: 20px;
+            height: 20px;
+            border: none;
+            background: rgba(0,0,0,0.06);
+            border-radius: 50%;
+            font-size: 12px;
+            color: var(--lite);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .top3__remove:hover { background: rgba(212,120,138,0.15); color: var(--rose3); }
+
+        /* Search dropdown for venue picker */
+        .top3__search-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(26,16,16,0.6);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        .top3__search-overlay--open { display: flex; }
+        .top3__search-box {
+            background: #fff;
+            border-radius: 16px;
+            padding: 24px;
+            width: 90%;
+            max-width: 500px;
+            max-height: 70vh;
+            overflow-y: auto;
+        }
+        .top3__search-input {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid rgba(212,120,138,0.2);
+            border-radius: 12px;
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            outline: none;
+            margin-bottom: 16px;
+        }
+        .top3__search-input:focus { border-color: var(--rose3); }
+        .top3__search-result {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(212,120,138,0.08);
+            cursor: pointer;
+        }
+        .top3__search-result:hover { color: var(--rose3); }
+        .top3__search-result-name {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--ink);
+        }
+        .top3__search-result-meta {
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            color: var(--lite);
+        }
+        .top3__search-close {
+            display: block;
+            margin-top: 12px;
+            padding: 10px;
+            background: none;
+            border: 1px solid rgba(212,120,138,0.2);
+            border-radius: 8px;
+            width: 100%;
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            color: var(--lite);
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .top3 { padding: 24px 24px 0; }
+            .top3__grid { grid-template-columns: 1fr; gap: 12px; }
+            .top3__slot { min-height: 80px; flex-direction: row; padding: 16px 20px; }
+            .top3__rank { font-size: 20px; }
+        }
+
         /* Venue Visits */
         .profile-venue-visit {
             display: flex;
@@ -498,6 +669,39 @@
             <div class="profile-stats__item">
                 <span class="profile-stats__num" id="stat-badges">0</span>
                 <span class="profile-stats__label">Badges</span>
+            </div>
+        </div>
+
+        <!-- Top 3 Picks -->
+        <div class="top3" id="top3-section">
+            <div class="top3__header">
+                <span class="top3__title">My Top 3 Restaurants</span>
+                <label class="top3__privacy">
+                    <input type="checkbox" id="top3-hide"> Hide from others
+                </label>
+            </div>
+            <div class="top3__grid" id="top3-grid">
+                <div class="top3__slot" data-rank="1" onclick="openTop3Search(1)">
+                    <span class="top3__rank">#1</span>
+                    <span class="top3__add">Pick your #1</span>
+                </div>
+                <div class="top3__slot" data-rank="2" onclick="openTop3Search(2)">
+                    <span class="top3__rank">#2</span>
+                    <span class="top3__add">Pick your #2</span>
+                </div>
+                <div class="top3__slot" data-rank="3" onclick="openTop3Search(3)">
+                    <span class="top3__rank">#3</span>
+                    <span class="top3__add">Pick your #3</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Venue Search Overlay for Top 3 -->
+        <div class="top3__search-overlay" id="top3-search-overlay">
+            <div class="top3__search-box">
+                <input type="text" class="top3__search-input" id="top3-search-input" placeholder="Search restaurants...">
+                <div id="top3-search-results"></div>
+                <button class="top3__search-close" onclick="closeTop3Search()">Cancel</button>
             </div>
         </div>
 
@@ -755,11 +959,129 @@
           } catch(e) {}
         });
 
+        // ── Top 3 Picks ──
+        loadTop3();
+
       } catch (err) {
         document.getElementById('profile-loading').style.display = 'none';
         document.getElementById('profile-signin').style.display = '';
       }
     })();
+
+    // Top 3 system
+    var currentTop3 = [];
+    var top3SearchRank = null;
+    var allRestaurants = [];
+
+    async function loadTop3() {
+      var res = await fetch('/api/top-picks', { credentials: 'same-origin' });
+      var data = await res.json();
+      currentTop3 = data.picks || [];
+      document.getElementById('top3-hide').checked = data.hide_top_picks || false;
+      renderTop3();
+
+      // Load restaurants for search
+      var sanityRes = await fetch('https://sa9u2hue.api.sanity.io/v2024-01-01/data/query/production?query=' + encodeURIComponent('*[_type=="restaurant"]{name, slug, neighborhood, category}'));
+      var sanityData = await sanityRes.json();
+      allRestaurants = (sanityData.result || []).map(function(r) {
+        return { name: r.name, slug: r.slug.current, neighborhood: r.neighborhood || '', category: r.category || '' };
+      });
+
+      // Privacy toggle
+      document.getElementById('top3-hide').addEventListener('change', function() {
+        fetch('/api/top-picks', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ hide_top_picks: this.checked }),
+        });
+      });
+    }
+
+    function renderTop3() {
+      var grid = document.getElementById('top3-grid');
+      var html = '';
+      for (var rank = 1; rank <= 3; rank++) {
+        var pick = currentTop3.find(function(p) { return p.rank === rank; });
+        if (pick) {
+          html += '<div class="top3__slot top3__slot--filled" data-rank="' + rank + '">'
+            + '<span class="top3__rank">#' + rank + '</span>'
+            + '<div>'
+            + '<div class="top3__venue-name">' + pick.venue_name + '</div>'
+            + '</div>'
+            + '<button class="top3__remove" onclick="removeTop3(' + rank + ')">&times;</button>'
+            + '</div>';
+        } else {
+          html += '<div class="top3__slot" data-rank="' + rank + '" onclick="openTop3Search(' + rank + ')">'
+            + '<span class="top3__rank">#' + rank + '</span>'
+            + '<span class="top3__add">Pick your #' + rank + '</span>'
+            + '</div>';
+        }
+      }
+      grid.innerHTML = html;
+    }
+
+    function openTop3Search(rank) {
+      top3SearchRank = rank;
+      document.getElementById('top3-search-overlay').classList.add('top3__search-overlay--open');
+      var input = document.getElementById('top3-search-input');
+      input.value = '';
+      input.focus();
+      renderTop3SearchResults('');
+    }
+
+    function closeTop3Search() {
+      document.getElementById('top3-search-overlay').classList.remove('top3__search-overlay--open');
+      top3SearchRank = null;
+    }
+
+    document.getElementById('top3-search-input').addEventListener('input', function() {
+      renderTop3SearchResults(this.value);
+    });
+
+    function renderTop3SearchResults(q) {
+      var filtered = allRestaurants;
+      if (q.length > 0) {
+        var lower = q.toLowerCase();
+        filtered = allRestaurants.filter(function(r) {
+          return r.name.toLowerCase().includes(lower) || r.neighborhood.toLowerCase().includes(lower);
+        });
+      }
+      // Exclude already picked
+      var pickedSlugs = currentTop3.map(function(p) { return p.venue_slug; });
+      filtered = filtered.filter(function(r) { return pickedSlugs.indexOf(r.slug) === -1; });
+
+      var html = filtered.slice(0, 10).map(function(r) {
+        return '<div class="top3__search-result" onclick="selectTop3(\'' + r.slug.replace(/'/g, "\\'") + '\', \'' + r.name.replace(/'/g, "\\'") + '\')">'
+          + '<span class="top3__search-result-name">' + r.name + '</span>'
+          + '<span class="top3__search-result-meta">' + r.neighborhood + '</span>'
+          + '</div>';
+      }).join('');
+
+      if (filtered.length === 0) html = '<p style="text-align:center;color:#C09098;font-style:italic;padding:20px 0;">No restaurants found.</p>';
+      document.getElementById('top3-search-results').innerHTML = html;
+    }
+
+    function selectTop3(slug, name) {
+      currentTop3 = currentTop3.filter(function(p) { return p.rank !== top3SearchRank; });
+      currentTop3.push({ rank: top3SearchRank, venue_sanity_id: slug, venue_slug: slug, venue_name: name });
+      closeTop3Search();
+      renderTop3();
+      saveTop3();
+    }
+
+    function removeTop3(rank) {
+      currentTop3 = currentTop3.filter(function(p) { return p.rank !== rank; });
+      renderTop3();
+      saveTop3();
+    }
+
+    function saveTop3() {
+      fetch('/api/top-picks', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ picks: currentTop3 }),
+      });
+    }
     </script>
     <script src="/js/auth-nav.js"></script>
 </body>
