@@ -467,8 +467,8 @@ function initMap() {
 
   document.querySelectorAll('.map-filter__btn').forEach(btn => {
     btn.addEventListener('click', () => {
-      document.querySelectorAll('.map-filter__btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
+      document.querySelectorAll('.map-filter__btn').forEach(b => b.classList.remove('map-filter__btn--active'));
+      btn.classList.add('map-filter__btn--active');
       addMapMarkers(btn.dataset.filter);
     });
   });
