@@ -61,8 +61,24 @@
     const levelXp = 50 * level;
     const progress = levelXp > 0 ? Math.min(100, ((xpTotal % levelXp) / levelXp) * 100) : 0;
 
-    var visitLabel = state.visitedToday ? 'Checked In' : (state.visitCount > 0 ? 'Back Again (' + state.visitCount + ')' : "I've Been Here");
-    var visitDisabled = state.visitedToday ? ' lc-engagement__btn--disabled' : '';
+    var visitLabel = "I've Been Here";
+    var visitDisabled = '';
+
+    if (state.visitedToday) {
+      var todayLabels = ['Checked In', 'See You Tomorrow', 'Done for Today'];
+      visitLabel = todayLabels[Math.floor(Math.random() * todayLabels.length)];
+      visitDisabled = ' lc-engagement__btn--disabled';
+    } else if (state.visitCount > 0) {
+      var returnLabels = [
+        'Back Again (' + state.visitCount + ')',
+        'I Came Back (' + state.visitCount + ')',
+        'Still Here (' + state.visitCount + ')',
+        'One More Time (' + state.visitCount + ')',
+      ];
+      if (state.visitCount >= 5) returnLabels.push('Regular (' + state.visitCount + ')');
+      if (state.visitCount >= 10) returnLabels.push('Local (' + state.visitCount + ')');
+      visitLabel = returnLabels[state.visitCount % returnLabels.length];
+    }
 
     var ambassadorHtml = '';
     if (state.ambassador) {
