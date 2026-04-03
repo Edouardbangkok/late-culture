@@ -61,24 +61,9 @@
     const levelXp = 50 * level;
     const progress = levelXp > 0 ? Math.min(100, ((xpTotal % levelXp) / levelXp) * 100) : 0;
 
-    var visitLabel = "I've Been Here";
-    var visitDisabled = '';
-
-    if (state.visitedToday) {
-      var todayLabels = ['Checked In', 'See You Tomorrow', 'Done for Today'];
-      visitLabel = todayLabels[Math.floor(Math.random() * todayLabels.length)];
-      visitDisabled = ' lc-engagement__btn--disabled';
-    } else if (state.visitCount > 0) {
-      var returnLabels = [
-        'Back Again (' + state.visitCount + ')',
-        'I Came Back (' + state.visitCount + ')',
-        'Still Here (' + state.visitCount + ')',
-        'One More Time (' + state.visitCount + ')',
-      ];
-      if (state.visitCount >= 5) returnLabels.push('Regular (' + state.visitCount + ')');
-      if (state.visitCount >= 10) returnLabels.push('Local (' + state.visitCount + ')');
-      visitLabel = returnLabels[state.visitCount % returnLabels.length];
-    }
+    var hasVisited = state.visitCount > 0 || state.visitedToday;
+    var visitLabel = hasVisited ? 'Been Here' : "I've Been Here";
+    var visitDisabled = hasVisited ? ' lc-engagement__btn--disabled' : '';
 
     var ambassadorHtml = '';
     if (state.ambassador) {
@@ -143,19 +128,19 @@
   }
 
   async function handleVisit() {
-    if (!engagementState.authenticated || engagementState.visitedToday) return;
+    if (!engagementState.authenticated) return;
+    if (engagementState.visitCount > 0 || engagementState.visitedToday) return;
     var venue = window.__lcVenue;
     if (!venue) return;
 
     // Show highlight prompt
-    var highlight = prompt('What was the highlight? (optional — a dish, the music, the view...)');
-    if (highlight === null) highlight = ''; // user cancelled = empty string, still check in
+    var highlight = prompt('What was the highlight? (optional)');
+    if (highlight === null) highlight = '';
 
-    // Optimistic update
-    var xpGain = engagementState.visitCount > 0 ? 5 : 15;
+    // Optimistic update — one-time only, +15 XP
     engagementState.visitedToday = true;
-    engagementState.visitCount = (engagementState.visitCount || 0) + 1;
-    engagementState.profile.xp_total = (engagementState.profile.xp_total || 0) + xpGain;
+    engagementState.visitCount = 1;
+    engagementState.profile.xp_total = (engagementState.profile.xp_total || 0) + 15;
     showToast('+' + xpGain + ' XP');
     renderBar(engagementState);
 
