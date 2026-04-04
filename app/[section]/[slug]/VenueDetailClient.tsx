@@ -25,6 +25,7 @@ interface VenueProps {
     amenityDescription: string
     amenityImage: string
     bookingUrl: string
+    menuUrl: string
     lat: number | null
     lng: number | null
   }
@@ -107,8 +108,8 @@ export default function VenueDetailClient({ venue }: VenueProps) {
       <nav className="glass-nav">
         <div className="glass-nav__inner">
           <div className="nav__wordmark-wrap" style={{ position: 'relative' }}>
-            <a href="/" className="nav__wordmark" style={{ textDecoration: 'none', color: '#fff', fontFamily: "'Impact',sans-serif", textTransform: 'uppercase', letterSpacing: '0.04em', fontSize: '15px' }}>
-              LATE CULTURE&nbsp;<span style={{ color: '#d4788a' }}>BANGKOK</span>
+            <a href="/" className="nav__wordmark" style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center' }}>
+              <img src="/assets/logo-lateculture.svg" alt="Late Culture Bangkok" style={{ height: '20px', width: 'auto' }} />
             </a>
           </div>
           <div className="glass-nav__links" style={{ position: 'absolute', left: '50%', transform: 'translateX(-50%)' }}>
@@ -238,11 +239,18 @@ export default function VenueDetailClient({ venue }: VenueProps) {
         )}
 
         {/* CTA */}
-        {v.bookingUrl && (
+        {(v.bookingUrl || v.menuUrl) && (
           <div className="vd-cta-wrap">
-            <a href={v.bookingUrl} className="vd-cta" target="_blank" rel="noopener">
-              {v.type === 'hotel' ? 'Reserve a Room' : 'Make a Reservation'}
-            </a>
+            {v.bookingUrl && (
+              <a href={v.bookingUrl} className="vd-cta" target="_blank" rel="noopener">
+                {v.type === 'hotel' ? 'Reserve a Room' : 'Make a Reservation'}
+              </a>
+            )}
+            {v.menuUrl && (
+              <a href={v.menuUrl} className="vd-cta vd-cta--outline" target="_blank" rel="noopener">
+                See the Menu
+              </a>
+            )}
           </div>
         )}
 

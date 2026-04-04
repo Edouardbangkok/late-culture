@@ -869,6 +869,20 @@
   box-shadow: 0 8px 32px rgba(212, 120, 138, 0.35);
 }
 
+.vd-cta--outline {
+  background: transparent;
+  border: 1.5px solid var(--rose3);
+  color: var(--rose3);
+  margin-left: 16px;
+}
+
+.vd-cta--outline:hover {
+  background: var(--rose3);
+  color: #fff;
+  transform: scale(1.02);
+  box-shadow: 0 8px 32px rgba(212, 120, 138, 0.35);
+}
+
 
 /* ============================================
    MAP SECTION

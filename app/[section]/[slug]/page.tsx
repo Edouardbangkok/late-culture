@@ -22,7 +22,7 @@ const VENUE_QUERY = `*[_type==$type && slug.current==$slug][0]{
   excerpt, overview, body, insiderTip, heroImage,
   highlights[]{title, description, image},
   amenityTitle, amenityDescription, amenityImage,
-  amenities, address, phone, website, bookingUrl,
+  amenities, address, phone, website, bookingUrl, menuUrl,
   openingHours, dressCode, checkIn, checkOut,
   factSheet[]{label, value},
   lat, lng
@@ -135,6 +135,7 @@ export default async function VenueDetailPage({ params }: { params: Promise<{ se
         amenityDescription: venue.amenityDescription || '',
         amenityImage: sanityImageUrl(venue.amenityImage, 800),
         bookingUrl: venue.bookingUrl || venue.website || '',
+        menuUrl: venue.menuUrl || '',
         lat: venue.lat,
         lng: venue.lng,
       }}

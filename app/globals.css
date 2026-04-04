@@ -8,6 +8,7 @@
   --font-body: Inter, sans-serif;
   --font-serif: Fraunces, Georgia, serif;
   --font-hand: 'Indie Flower', cursive;
+  --font-logo: Impact, 'Arial Black', sans-serif;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }

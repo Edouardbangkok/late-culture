@@ -35,6 +35,10 @@ export const detailFields = [
     description: 'Used for the big "Reserve" button on the page.',
   }),
   defineField({
+    name: 'menuUrl', title: 'Menu URL', type: 'url', group: 'details',
+    description: 'Link to the restaurant menu (Google Business Profile, own website, or PDF). Shows a "See the Menu" button on the page.',
+  }),
+  defineField({
     name: 'amenities', title: 'Amenities / Tags', type: 'array', group: 'details',
     of: [{ type: 'string' }], options: { layout: 'tags' },
     description: 'Tags like "Pool", "Spa", "WiFi" — shown as pills on the page.',

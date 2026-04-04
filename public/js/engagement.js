@@ -133,10 +133,6 @@
     var venue = window.__lcVenue;
     if (!venue) return;
 
-    // Show highlight prompt
-    var highlight = prompt('What was the highlight? (optional)');
-    if (highlight === null) highlight = '';
-
     // Optimistic update — one-time only, +15 XP
     engagementState.visitedToday = true;
     engagementState.visitCount = 1;
@@ -155,7 +151,7 @@
         venue_name: venue.name,
         venue_neighborhood: venue.neighborhood,
         venue_category: venue.category,
-        highlight: highlight || null,
+        highlight: null,
       }),
     }).then(function(r) { return r.json(); }).then(function(data) {
       if (data.level) engagementState.profile.level = data.level;

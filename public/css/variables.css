@@ -43,6 +43,7 @@
   --font-mono: 'JetBrains Mono', 'SF Mono', 'Fira Code', Consolas, monospace;
   --font-handwrite: 'Indie Flower', 'Bradley Hand', 'Segoe Script', cursive;
   --font-marker: 'Permanent Marker', 'Marker Felt', cursive;
+  --font-logo: Impact, 'Arial Black', sans-serif;
 
   /* ── Spacing ── */
   --space-xs: 4px;
