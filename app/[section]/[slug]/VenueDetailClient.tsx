@@ -108,8 +108,8 @@ export default function VenueDetailClient({ venue }: VenueProps) {
       <nav className="glass-nav">
         <div className="glass-nav__inner">
           <div className="nav__wordmark-wrap" style={{ position: 'relative' }}>
-            <a href="/" className="nav__wordmark" style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center' }}>
-              <img src="/assets/logo-lateculture.svg" alt="Late Culture Bangkok" style={{ height: '20px', width: 'auto' }} />
+            <a href="/" className="nav__wordmark" style={{ textDecoration: 'none', color: '#fff', fontFamily: "'Impact',sans-serif", textTransform: 'uppercase' as const, letterSpacing: '0.04em', fontSize: '15px' }}>
+              LATE CULTURE&nbsp;<span style={{ color: '#d4788a' }}>BANGKOK</span>
             </a>
           </div>
           <div className="glass-nav__links" style={{ position: 'absolute', left: '50%', transform: 'translateX(-50%)' }}>
