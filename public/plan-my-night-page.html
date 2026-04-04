@@ -92,7 +92,7 @@
             border-color: rgba(212,120,138,0.3);
             transform: translateY(-2px);
         }
-        .pmn-vibe__icon { font-size: 32px; }
+        .pmn-vibe__icon { width: 48px; height: 48px; }
         .pmn-vibe__label {
             font-family: 'Anton', Impact, sans-serif;
             font-size: 18px;
@@ -303,7 +303,7 @@
         @media (max-width: 480px) {
             .pmn-vibe-grid { gap: 8px; }
             .pmn-vibe { padding: 20px 12px; }
-            .pmn-vibe__icon { font-size: 24px; }
+            .pmn-vibe__icon { width: 36px; height: 36px; }
             .pmn-slot__img { width: 64px; }
         }
     </style>
@@ -320,7 +320,7 @@
     <nav class="glass-nav">
         <div class="glass-nav__inner">
             <div class="nav__wordmark-wrap" style="position:relative;">
-                <a href="/" class="nav__wordmark" style="text-decoration:none;display:inline-flex;align-items:center;"><img src="/assets/logo-lateculture-dark.svg" alt="Late Culture Bangkok" style="height:18px;width:auto;">
+                <a href="/" class="nav__wordmark" style="text-decoration:none;color:var(--ink);font-family:'Impact',sans-serif;text-transform:uppercase;letter-spacing:0.04em;font-size:15px;">LATE CULTURE&nbsp;<span style="color:#d4788a;">BANGKOK</span>
                     <svg class="city-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none" style="margin-left:6px;transition:transform .3s;"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 </a>
                 <div class="city-dropdown" id="cityDropdown">
@@ -351,22 +351,22 @@
         <div id="step-vibe" class="pmn-step">
             <div class="pmn-vibe-grid">
                 <div class="pmn-vibe" onclick="selectVibe('date')">
-                    <span class="pmn-vibe__icon">💕</span>
+                    <img class="pmn-vibe__icon" src="/assets/vibe-date.svg" alt="">
                     <span class="pmn-vibe__label">Date</span>
                     <span class="pmn-vibe__desc">Impress someone</span>
                 </div>
                 <div class="pmn-vibe" onclick="selectVibe('chill')">
-                    <span class="pmn-vibe__icon">🌙</span>
+                    <img class="pmn-vibe__icon" src="/assets/vibe-chill.svg" alt="">
                     <span class="pmn-vibe__label">Chill</span>
                     <span class="pmn-vibe__desc">Low-key evening</span>
                 </div>
                 <div class="pmn-vibe" onclick="selectVibe('party')">
-                    <span class="pmn-vibe__icon">⚡</span>
+                    <img class="pmn-vibe__icon" src="/assets/vibe-party.svg" alt="">
                     <span class="pmn-vibe__label">Party</span>
                     <span class="pmn-vibe__desc">Full send</span>
                 </div>
                 <div class="pmn-vibe" onclick="selectVibe('solo')">
-                    <span class="pmn-vibe__icon">🎧</span>
+                    <img class="pmn-vibe__icon" src="/assets/vibe-solo.svg" alt="">
                     <span class="pmn-vibe__label">Solo</span>
                     <span class="pmn-vibe__desc">Just me</span>
                 </div>

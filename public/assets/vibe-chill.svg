@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80">
+  <!-- Crescent moon + star — chill night -->
+  <g fill="none" stroke="#D4788A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Moon crescent -->
+    <path d="M44 22 A18 18 0 1 0 44 58 A13 13 0 1 1 44 22Z" fill="rgba(212,120,138,0.1)" />
+    <!-- Star -->
+    <polygon points="56,24 58,30 64,30 59,34 61,40 56,36 51,40 53,34 48,30 54,30" fill="rgba(212,120,138,0.15)" stroke="#D4788A" />
+    <!-- Small star -->
+    <circle cx="62" cy="20" r="1.5" fill="#D4788A" stroke="none" />
+  </g>
+</svg>
