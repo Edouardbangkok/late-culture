@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Late Culture — Brand Identity</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Young+Serif&family=Lora:wght@400;500;600;700&family=Coustard:wght@400;900&family=DM+Serif+Display&family=Inter:wght@300;400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1A1010;
+    --cloud: #F5F0EB;
+    --rose: #F2C4CE;
+    --rose2: #E8A0B0;
+    --rose3: #D4788A;
+    --pink: #F5A0B5;
+    --hot-pink: #E84B8A;
+    --mid: #6A3A44;
+    --white: #FFFFFF;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #0a0a0a;
+    color: var(--white);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Intro ── */
+  .intro {
+    text-align: center;
+    padding: 72px 24px 56px;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .intro__label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--rose3);
+    margin-bottom: 20px;
+  }
+
+  .intro__title {
+    font-family: 'Abril Fatface', serif;
+    font-size: 48px;
+    color: var(--white);
+    line-height: 1.1;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    margin-bottom: 16px;
+  }
+
+  .intro__sub {
+    font-size: 13px;
+    color: rgba(255,255,255,0.3);
+    line-height: 1.7;
+  }
+
+  /* ── Section Labels ── */
+  .section-label {
+    padding: 56px 48px 24px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .section-label__text {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--rose3);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .section-label__text::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(255,255,255,0.06);
+  }
+
+  /* ── Grid ── */
+  .logo-grid {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 48px 24px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .logo-grid--2 { grid-template-columns: repeat(2, 1fr); }
+  .logo-grid--4 { grid-template-columns: repeat(4, 1fr); }
+
+  .logo-cell {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 56px 32px;
+    border-radius: 16px;
+    position: relative;
+    min-height: 240px;
+    overflow: hidden;
+  }
+
+  .logo-cell--tall { min-height: 340px; }
+  .logo-cell--xtall { min-height: 440px; }
+
+  .logo-cell__sub {
+    position: absolute;
+    bottom: 14px;
+    left: 0; right: 0;
+    text-align: center;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    opacity: 0.25;
+  }
+
+  /* ── Backgrounds ── */
+  .bg-ink { background: var(--ink); }
+  .bg-cloud { background: var(--cloud); }
+  .bg-white { background: var(--white); }
+  .bg-rose { background: var(--rose); }
+  .bg-rose3 { background: var(--rose3); }
+  .bg-pink { background: var(--pink); }
+  .bg-hotpink { background: var(--hot-pink); }
+  .bg-mid { background: var(--mid); }
+  .bg-black { background: #000; }
+
+  .bg-photo {
+    background: url('https://images.unsplash.com/photo-1583417319070-4a69db38a482?w=1200&auto=format&fit=crop&q=80') center/cover;
+  }
+  .bg-photo::before { content:''; position:absolute; inset:0; background:rgba(0,0,0,0.45); border-radius:16px; }
+  .bg-photo > * { position:relative; z-index:1; }
+
+  .bg-photo-pink {
+    background: url('https://images.unsplash.com/photo-1583417319070-4a69db38a482?w=1200&auto=format&fit=crop&q=80') center/cover;
+  }
+  .bg-photo-pink::before { content:''; position:absolute; inset:0; background:rgba(212,120,138,0.55); mix-blend-mode:multiply; border-radius:16px; }
+  .bg-photo-pink::after { content:''; position:absolute; inset:0; background:rgba(232,160,176,0.3); border-radius:16px; }
+  .bg-photo-pink > * { position:relative; z-index:2; }
+
+  .bg-photo-bw {
+    background: url('https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=1200&auto=format&fit=crop&q=80') center/cover;
+    filter: grayscale(1);
+  }
+  .bg-photo-bw::before { content:''; position:absolute; inset:0; background:rgba(0,0,0,0.4); border-radius:16px; }
+  .bg-photo-bw > * { position:relative; z-index:1; }
+
+  .bg-gradient-rose { background: linear-gradient(135deg, var(--hot-pink) 0%, var(--rose3) 50%, var(--mid) 100%); }
+  .bg-gradient-dark { background: linear-gradient(180deg, var(--ink) 0%, #2a1520 100%); }
+
+  /* ── Typography ── */
+  .logo { line-height: 0.9; text-align: center; text-transform: uppercase; letter-spacing: -0.02em; }
+  .city { font-family: 'Inter', sans-serif; letter-spacing: 0.25em; text-transform: uppercase; font-weight: 600; font-size: 11px; }
+  .tagline { font-family: 'Fraunces', serif; font-style: italic; font-weight: 300; line-height: 1.4; }
+  .divider { width: 40px; height: 1.5px; margin: 12px auto; }
+  .rose { color: var(--rose3); }
+
+  /* ── Font Variants ── */
+  .f-abril { font-family: 'Abril Fatface', serif; }
+  .f-young { font-family: 'Young Serif', serif; }
+  .f-dm { font-family: 'DM Serif Display', serif; }
+  .f-coustard { font-family: 'Coustard', serif; font-weight: 900; }
+
+  /* ── Nav simulations ── */
+  .nav-row {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 48px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .nav-sim {
+    display: flex;
+    align-items: center;
+    padding: 16px 32px;
+    border-radius: 16px;
+    gap: 32px;
+  }
+
+  .nav-sim__links {
+    display: flex;
+    gap: 24px;
+    margin-left: auto;
+  }
+
+  .nav-sim__link {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  /* ── Print ── */
+  @media print {
+    @page { size: A4; margin: 10mm; }
+    body { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+    .section-label, .logo-cell, .nav-sim, .logo-grid { break-inside: avoid !important; page-break-inside: avoid !important; }
+    .section-label { break-after: avoid !important; }
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 1024px) {
+    .logo-grid { grid-template-columns: repeat(2, 1fr); padding: 0 24px 16px; }
+    .logo-grid--4 { grid-template-columns: repeat(2, 1fr); }
+    .section-label { padding: 40px 24px 20px; }
+    .nav-row { padding: 0 24px 16px; }
+  }
+  @media (max-width: 640px) {
+    .logo-grid, .logo-grid--2, .logo-grid--4 { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="intro">
+  <div class="intro__label">Brand Identity — Typography Direction</div>
+  <div class="intro__title">Late Culture</div>
+  <p class="intro__sub">Bold display serif. Uppercase. Magazine masthead energy. Four font candidates tested across all contexts.</p>
+</div>
+
+<!-- ════════════════════════════════════
+     1. THE FOUR CANDIDATES — HERO SIZE
+     ════════════════════════════════════ -->
+<div class="section-label">
+  <div class="section-label__text">Font Comparison — Large Scale</div>
+</div>
+
+<div class="logo-grid logo-grid--2">
+  <!-- A: Young Serif — soft, rounded, warm -->
+  <div class="logo-cell logo-cell--xtall bg-pink">
+    <div style="position:absolute;top:20px;left:24px;font-size:9px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--ink);opacity:0.4;">A — Young Serif</div>
+    <div class="logo f-young" style="font-size:96px;color:var(--white);">LATE<br>CULTURE</div>
+    <div class="city" style="color:var(--ink);opacity:0.4;margin-top:16px;">Bangkok</div>
+    <div class="logo-cell__sub" style="color:var(--ink);">Recommended</div>
+  </div>
+
+  <!-- B: DM Serif Display — rounded classic -->
+  <div class="logo-cell logo-cell--xtall bg-ink">
+    <div style="position:absolute;top:20px;left:24px;font-size:9px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.3);">B — DM Serif Display</div>
+    <div class="logo f-dm" style="font-size:96px;color:var(--white);">LATE<br>CULTURE</div>
+    <div class="city" style="color:var(--rose3);margin-top:16px;">Bangkok</div>
+  </div>
+
+  <!-- C: Coustard Black — very rounded, heavy -->
+  <div class="logo-cell logo-cell--xtall bg-rose3">
+    <div style="position:absolute;top:20px;left:24px;font-size:9px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.4);">C — Coustard Black</div>
+    <div class="logo f-coustard" style="font-size:88px;color:var(--white);">LATE<br>CULTURE</div>
+    <div class="city" style="color:rgba(255,255,255,0.5);margin-top:16px;">Bangkok</div>
+  </div>
+
+  <!-- D: Abril Fatface — sharp reference -->
+  <div class="logo-cell logo-cell--xtall bg-cloud">
+    <div style="position:absolute;top:20px;left:24px;font-size:9px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--mid);opacity:0.4;">D — Abril Fatface (ref.)</div>
+    <div class="logo f-abril" style="font-size:96px;color:var(--ink);">LATE<br>CULTURE</div>
+    <div class="city" style="color:var(--rose3);margin-top:16px;">Bangkok</div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════
+     2. COLOR COMBINATIONS — Abril Fatface
+     ════════════════════════════════════ -->
+<div class="section-label">
+  <div class="section-label__text">Abril Fatface — Color System</div>
+</div>
+
+<div class="logo-grid">
+  <!-- White on Ink -->
+  <div class="logo-cell logo-cell--tall bg-ink">
+    <div class="logo f-abril" style="font-size:64px;color:var(--white);">LATE<br>CULTURE</div>
+    <div class="city" style="color:rgba(255,255,255,0.3);margin-top:14px;">Bangkok</div>
+    <div class="logo-cell__sub" style="color:rgba(255,255,255,0.15);">White / Ink</div>
+  </div>
+
+  <!-- White on Rose -->
+  <div class="logo-cell logo-cell--tall bg-rose3">
+    <div class="logo f-abril" style="font-size:64px;color:var(--white);">LATE<br>CULTURE</div>
+    <div class="city" style="color:rgba(255,255,255,0.5);margin-top:14px;">Bangkok</div>
+    <div class="logo-cell__sub" style="color:rgba(255,255,255,0.2);">White / Rose</div>
+  </div>
+
+  <!-- White on Hot Pink -->
+  <div class="logo-cell logo-cell--tall bg-hotpink">
+    <div class="logo f-abril" style="font-size:64px;color:var(--white);">LATE<br>CULTURE</div>
+    <div class="city" style="color:rgba(255,255,255,0.5);margin-top:14px;">Bangkok</div>
+    <div class="logo-cell__sub" style="color:rgba(255,255,255,0.2);">White / Hot Pink</div>
+  </div>
+
+  <!-- Ink on Pink -->
+  <div class="logo-cell logo-cell--tall bg-pink">
+    <div class="logo f-abril" style="font-size:64px;color:var(--ink);">LATE<br>CULTURE</div>
+    <div class="city" style="color:var(--mid);margin-top:14px;">Bangkok</div>
+    <div class="logo-cell__sub" style="color:var(--mid);">Ink / Pink</div>
+  </div>
+
+  <!-- Ink on Cloud -->
+  <div class="logo-cell logo-cell--tall bg-cloud">
+    <div class="logo f-abril" style="font-size:64px;color:var(--ink);">LATE<br>CULTURE</div>
+    <div class="city" style="color:var(--mid);margin-top:14px;">Bangkok</div>
+    <div class="logo-cell__sub" style="color:var(--mid);">Ink / Cloud</div>
+  </div>
+
+  <!-- Rose on Ink -->
+  <div class="logo-cell logo-cell--tall bg-ink">
+    <div class="logo f-abril" style="font-size:64px;color:var(--rose3);">LATE<br>CULTURE</div>
+    <div class="city" style="color:rgba(255,255,255,0.25);margin-top:14px;">Bangkok</div>
+    <div class="logo-cell__sub" style="color:rgba(255,255,255,0.15);">Rose / Ink</div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════
+     3. INLINE LOCKUP (single line)
+     ════════════════════════════════════ -->
+<div class="section-label">
+  <div class="section-label__text">Inline Lockup — Single Line</div>
+</div>
+
+<div class="logo-grid logo-grid--2">
+  <div class="logo-cell bg-ink" style="min-height:180px;">
+    <div class="logo f-abril" style="font-size:52px;color:var(--white);">LATE CULTURE</div>
+    <div class="city" style="color:var(--rose3);margin-top:10px;">Bangkok</div>
+  </div>
+  <div class="logo-cell bg-pink" style="min-height:180px;">
+    <div class="logo f-abril" style="font-size:52px;color:var(--white);">LATE CULTURE</div>
+    <div class="city" style="color:var(--ink);opacity:0.4;margin-top:10px;">Bangkok</div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════
+     4. DUOTONE PHOTO OVERLAYS
+     ════════════════════════════════════ -->
+<div class="section-label">
+  <div class="section-label__text">On Photography — Duotone Rose</div>
+</div>
+
+<div class="logo-grid">
+  <!-- Dark photo -->
+  <div class="logo-cell logo-cell--tall bg-photo">
+    <div class="logo f-abril" style="font-size:64px;color:var(--white);">LATE<br>CULTURE</div>
+    <div class="city" style="color:rgba(255,255,255,0.35);margin-top:14px;">Bangkok</div>
+  </div>
+
+  <!-- Pink duotone -->
+  <div class="logo-cell logo-cell--tall bg-photo-pink">
+    <div class="logo f-abril" style="font-size:64px;color:var(--white);">LATE<br>CULTURE</div>
+    <div class="city" style="color:rgba(255,255,255,0.5);margin-top:14px;">Bangkok</div>
+  </div>
+
+  <!-- B&W -->
+  <div class="logo-cell logo-cell--tall bg-photo-bw">
+    <div class="logo f-abril" style="font-size:64px;color:var(--white);">LATE<br>CULTURE</div>
+    <div class="city" style="color:var(--pink);margin-top:14px;">Bangkok</div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════
+     5. WITH TAGLINE
+     ════════════════════════════════════ -->
+<div class="section-label">
+  <div class="section-label__text">With Tagline</div>
+</div>
+
+<div class="logo-grid logo-grid--2">
+  <div class="logo-cell logo-cell--tall bg-ink">
+    <div class="logo f-abril" style="font-size:64px;color:var(--white);">LATE<br>CULTURE</div>
+    <div class="divider" style="background:var(--rose3);"></div>
+    <div class="tagline" style="font-size:16px;color:rgba(255,255,255,0.35);margin-top:4px;">If it's here, it's worth your time.</div>
+  </div>
+
+  <div class="logo-cell logo-cell--tall bg-pink">
+    <div class="logo f-abril" style="font-size:64px;color:var(--white);">LATE<br>CULTURE</div>
+    <div class="divider" style="background:rgba(255,255,255,0.4);"></div>
+    <div class="city" style="color:var(--ink);opacity:0.5;margin-top:4px;">Bangkok</div>
+    <div class="tagline" style="font-size:14px;color:var(--ink);opacity:0.4;margin-top:8px;">Stay. Eat. Drink. Party.</div>
+  </div>
+
+  <div class="logo-cell logo-cell--tall bg-gradient-rose">
+    <div class="logo f-abril" style="font-size:64px;color:var(--white);">LATE<br>CULTURE</div>
+    <div class="tagline" style="font-size:15px;color:rgba(255,255,255,0.5);margin-top:14px;">The city has a thousand doors.<br>We opened the right ones.</div>
+  </div>
+
+  <div class="logo-cell logo-cell--tall bg-cloud">
+    <div class="logo f-abril" style="font-size:64px;color:var(--ink);">LATE<br>CULTURE</div>
+    <div class="divider" style="background:var(--rose3);"></div>
+    <div class="tagline" style="font-size:15px;color:var(--mid);margin-top:4px;">A hospitality reference platform.</div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════
+     6. SMALL / COMPACT / MONOGRAM
+     ════════════════════════════════════ -->
+<div class="section-label">
+  <div class="section-label__text">Compact — Monogram & Small</div>
+</div>
+
+<div class="logo-grid logo-grid--4">
+  <div class="logo-cell bg-ink" style="min-height:160px;">
+    <div class="logo f-abril" style="font-size:56px;color:var(--white);">LC</div>
+    <div class="logo-cell__sub" style="color:rgba(255,255,255,0.15);">Monogram</div>
+  </div>
+
+  <div class="logo-cell bg-rose3" style="min-height:160px;">
+    <div class="logo f-abril" style="font-size:56px;color:var(--white);">LC</div>
+    <div class="logo-cell__sub" style="color:rgba(255,255,255,0.2);">Monogram Rose</div>
+  </div>
+
+  <div class="logo-cell bg-pink" style="min-height:160px;">
+    <div class="logo f-abril" style="font-size:56px;color:var(--white);">LC</div>
+    <div class="logo-cell__sub" style="color:var(--ink);opacity:0.2;">Monogram Pink</div>
+  </div>
+
+  <div class="logo-cell bg-white" style="min-height:160px;">
+    <div class="logo f-abril" style="font-size:56px;color:var(--ink);">LC</div>
+    <div class="logo-cell__sub" style="color:#ccc;">Monogram Light</div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════
+     7. BADGE & STAMP
+     ════════════════════════════════════ -->
+<div class="section-label">
+  <div class="section-label__text">Badge & Stamp</div>
+</div>
+
+<div class="logo-grid">
+  <!-- Circle badge -->
+  <div class="logo-cell logo-cell--tall bg-ink">
+    <div style="width:200px;height:200px;border:2px solid var(--rose3);border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;">
+      <div class="city" style="font-size:8px;color:var(--rose3);margin-bottom:4px;">Est. 2025</div>
+      <div class="logo f-abril" style="font-size:36px;color:var(--white);">LATE<br>CULTURE</div>
+      <div class="city" style="font-size:9px;color:rgba(255,255,255,0.25);margin-top:6px;">Bangkok</div>
+    </div>
+  </div>
+
+  <!-- Pill -->
+  <div class="logo-cell logo-cell--tall bg-cloud">
+    <div style="border:2.5px solid var(--ink);border-radius:999px;padding:18px 48px;text-align:center;">
+      <div class="logo f-abril" style="font-size:30px;color:var(--ink);">LATE CULTURE</div>
+      <div class="city" style="font-size:9px;color:var(--mid);margin-top:4px;">Bangkok</div>
+    </div>
+  </div>
+
+  <!-- Box -->
+  <div class="logo-cell logo-cell--tall bg-hotpink">
+    <div style="border:2px solid rgba(255,255,255,0.5);padding:28px 44px;text-align:center;">
+      <div class="city" style="font-size:8px;color:rgba(255,255,255,0.5);margin-bottom:8px;">The Guide to</div>
+      <div class="logo f-abril" style="font-size:34px;color:var(--white);">LATE<br>CULTURE</div>
+      <div style="width:24px;height:1.5px;background:rgba(255,255,255,0.3);margin:12px auto 8px;"></div>
+      <div class="city" style="font-size:10px;color:rgba(255,255,255,0.7);">Bangkok</div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════
+     8. NAVIGATION CONTEXT
+     ════════════════════════════════════ -->
+<div class="section-label">
+  <div class="section-label__text">Navigation Bar</div>
+</div>
+
+<div class="nav-row">
+  <!-- Glass dark -->
+  <div class="nav-sim" style="background:rgba(255,255,255,0.06);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.06);border-radius:16px;">
+    <div class="logo f-abril" style="font-size:20px;color:var(--white);letter-spacing:0.02em;">LATE CULTURE</div>
+    <span style="font-family:'Inter';font-size:9px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--rose3);">Bangkok</span>
+    <div class="nav-sim__links">
+      <span class="nav-sim__link" style="color:rgba(255,255,255,0.5);">Stay</span>
+      <span class="nav-sim__link" style="color:var(--white);">Eat</span>
+      <span class="nav-sim__link" style="color:rgba(255,255,255,0.5);">Drink</span>
+      <span class="nav-sim__link" style="color:rgba(255,255,255,0.5);">Party</span>
+    </div>
+  </div>
+
+  <!-- White page nav -->
+  <div class="nav-sim" style="background:var(--white);border:1px solid rgba(0,0,0,0.06);border-radius:16px;">
+    <div class="logo f-abril" style="font-size:20px;color:var(--ink);letter-spacing:0.02em;">LATE CULTURE</div>
+    <span style="font-family:'Inter';font-size:9px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--rose3);">Bangkok</span>
+    <div class="nav-sim__links">
+      <span class="nav-sim__link" style="color:#bbb;">Stay</span>
+      <span class="nav-sim__link" style="color:var(--ink);">Eat</span>
+      <span class="nav-sim__link" style="color:#bbb;">Drink</span>
+      <span class="nav-sim__link" style="color:#bbb;">Party</span>
+    </div>
+  </div>
+
+  <!-- Pink nav -->
+  <div class="nav-sim" style="background:var(--pink);border-radius:16px;">
+    <div class="logo f-abril" style="font-size:20px;color:var(--white);letter-spacing:0.02em;">LATE CULTURE</div>
+    <div class="nav-sim__links">
+      <span class="nav-sim__link" style="color:rgba(255,255,255,0.6);">Stay</span>
+      <span class="nav-sim__link" style="color:var(--white);">Eat</span>
+      <span class="nav-sim__link" style="color:rgba(255,255,255,0.6);">Drink</span>
+      <span class="nav-sim__link" style="color:rgba(255,255,255,0.6);">Party</span>
+    </div>
+  </div>
+
+  <!-- Dark solid -->
+  <div class="nav-sim" style="background:var(--ink);border-radius:16px;">
+    <div class="logo f-abril" style="font-size:20px;color:var(--rose3);letter-spacing:0.02em;">LATE CULTURE</div>
+    <div class="nav-sim__links">
+      <span class="nav-sim__link" style="color:rgba(255,255,255,0.35);">Stay</span>
+      <span class="nav-sim__link" style="color:var(--white);">Eat</span>
+      <span class="nav-sim__link" style="color:rgba(255,255,255,0.35);">Drink</span>
+      <span class="nav-sim__link" style="color:rgba(255,255,255,0.35);">Party</span>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════
+     9. FULL HERO MOCKUP
+     ════════════════════════════════════ -->
+<div class="section-label">
+  <div class="section-label__text">Full Hero Mockup</div>
+</div>
+
+<div style="max-width:1400px;margin:0 auto;padding:0 48px 80px;">
+  <div class="bg-photo" style="border-radius:20px;position:relative;overflow:hidden;min-height:580px;display:flex;flex-direction:column;">
+    <!-- Nav -->
+    <div style="position:relative;z-index:1;display:flex;align-items:center;padding:20px 40px;">
+      <div class="logo f-abril" style="font-size:18px;color:var(--white);letter-spacing:0.02em;">LATE CULTURE</div>
+      <span style="font-family:'Inter';font-size:9px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--rose3);margin-left:12px;">Bangkok</span>
+      <div style="margin-left:auto;display:flex;gap:24px;">
+        <span class="nav-sim__link" style="color:rgba(255,255,255,0.5);">Stay</span>
+        <span class="nav-sim__link" style="color:rgba(255,255,255,0.5);">Eat</span>
+        <span class="nav-sim__link" style="color:rgba(255,255,255,0.5);">Drink</span>
+        <span class="nav-sim__link" style="color:rgba(255,255,255,0.5);">Party</span>
+      </div>
+    </div>
+    <!-- Content -->
+    <div style="position:relative;z-index:1;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 32px;">
+      <div class="logo f-abril" style="font-size:clamp(80px,12vw,140px);color:var(--white);">LATE CULTURE</div>
+      <div class="logo f-abril" style="font-size:clamp(80px,12vw,140px);color:var(--pink);margin-top:-8px;">BANGKOK.</div>
+      <div class="tagline" style="font-size:18px;color:rgba(255,255,255,0.4);margin-top:20px;">If it's here, it's worth your time.</div>
+    </div>
+    <div style="position:relative;z-index:1;text-align:center;padding-bottom:32px;">
+      <span class="city" style="font-size:9px;color:rgba(255,255,255,0.2);">Scroll</span>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

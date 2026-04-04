@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Late Culture — Logo Sheet (Impact)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1A1010;
+    --cloud: #F5F0EB;
+    --rose: #F2C4CE;
+    --rose2: #E8A0B0;
+    --rose3: #D4788A;
+    --pink: #F5A0B5;
+    --hot-pink: #E84B8A;
+    --mid: #6A3A44;
+    --white: #FFFFFF;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--white);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Print ── */
+  @media print {
+    @page { size: A4 portrait; margin: 0; }
+    body { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; color-adjust: exact !important; }
+    .page { page-break-after: always; break-after: page; width: 100%; height: 100vh; }
+    .page:last-child { page-break-after: avoid; break-after: avoid; }
+  }
+
+  /* ── Page system ── */
+  .page {
+    width: 794px;   /* A4 at 96dpi */
+    height: 1123px; /* A4 at 96dpi */
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+  }
+
+  @media screen {
+    .page { margin: 24px auto; box-shadow: 0 4px 40px rgba(0,0,0,0.1); }
+  }
+
+  /* ── Typography ── */
+  .logo {
+    font-family: Impact, 'Arial Narrow Bold', 'Arial Black', sans-serif;
+    text-transform: uppercase;
+    line-height: 0.88;
+    letter-spacing: -0.02em;
+    text-align: center;
+  }
+
+  .city {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    font-size: 10px;
+    text-align: center;
+  }
+
+  .tagline {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    text-align: center;
+    line-height: 1.4;
+  }
+
+  .label {
+    font-family: 'Inter', sans-serif;
+    font-size: 8px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    position: absolute;
+  }
+
+  .divider {
+    width: 32px;
+    height: 1.5px;
+    margin: 10px auto;
+  }
+
+  /* ── Grid helpers ── */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; height: 100%; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; height: 100%; }
+  .grid-4 { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; height: 100%; }
+
+  .cell {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 32px;
+  }
+
+  /* ── Photo backgrounds ── */
+  .bg-photo1 { background: url('https://images.unsplash.com/photo-1583417319070-4a69db38a482?w=1200&auto=format&fit=crop&q=80') center/cover; position: relative; }
+  .bg-photo1::before { content:''; position:absolute; inset:0; background:rgba(0,0,0,0.45); }
+  .bg-photo1 > * { position:relative; z-index:1; }
+
+  .bg-photo-pink { background: url('https://images.unsplash.com/photo-1583417319070-4a69db38a482?w=1200&auto=format&fit=crop&q=80') center/cover; position: relative; }
+  .bg-photo-pink::before { content:''; position:absolute; inset:0; background:rgba(212,120,138,0.5); mix-blend-mode:multiply; }
+  .bg-photo-pink::after { content:''; position:absolute; inset:0; background:rgba(232,160,176,0.25); }
+  .bg-photo-pink > * { position:relative; z-index:2; }
+
+  .bg-photo-bw { background: url('https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=1200&auto=format&fit=crop&q=80') center/cover; filter: grayscale(1); position: relative; }
+  .bg-photo-bw::before { content:''; position:absolute; inset:0; background:rgba(0,0,0,0.35); }
+  .bg-photo-bw > * { position:relative; z-index:1; }
+
+  /* ── Nav sim ── */
+  .nav-sim {
+    display: flex;
+    align-items: center;
+    padding: 14px 28px;
+    gap: 24px;
+  }
+
+  .nav-sim__link {
+    font-family: 'Inter', sans-serif;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .nav-sim__links {
+    display: flex;
+    gap: 20px;
+    margin-left: auto;
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════
+     PAGE 1 — COVER
+     ═══════════════════════════════════════════ -->
+<div class="page" style="background:var(--ink);">
+  <div class="cell" style="flex:1;">
+    <div class="city" style="color:var(--rose3);margin-bottom:32px;">A Hospitality Reference Platform</div>
+    <div class="logo" style="font-size:76px;color:var(--white);">LATE<br>CULTURE</div>
+    <div class="divider" style="background:var(--rose3);margin:20px auto;"></div>
+    <div class="city" style="color:rgba(255,255,255,0.3);margin-top:4px;">Bangkok</div>
+    <div class="tagline" style="font-size:16px;color:rgba(255,255,255,0.25);margin-top:32px;">Logo & Identity Sheet</div>
+  </div>
+  <div class="label" style="bottom:24px;left:32px;color:rgba(255,255,255,0.15);">Late Culture Bangkok — 2025</div>
+  <div class="label" style="bottom:24px;right:32px;color:rgba(255,255,255,0.15);">Confidential</div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     PAGE 2 — PRIMARY LOCKUPS
+     ═══════════════════════════════════════════ -->
+<div class="page">
+  <div class="label" style="top:28px;left:32px;color:var(--mid);">01 — Primary Lockups</div>
+  <div class="grid-2" style="padding-top:16px;">
+    <!-- White on Ink -->
+    <div class="cell" style="background:var(--ink);">
+      <div class="logo" style="font-size:56px;color:var(--white);">LATE<br>CULTURE</div>
+      <div class="divider" style="background:var(--rose3);"></div>
+      <div class="city" style="color:rgba(255,255,255,0.3);margin-top:4px;">Bangkok</div>
+      <div class="label" style="bottom:16px;left:0;right:0;text-align:center;color:rgba(255,255,255,0.12);">Primary — Dark</div>
+    </div>
+    <!-- Ink on Cloud -->
+    <div class="cell" style="background:var(--cloud);">
+      <div class="logo" style="font-size:56px;color:var(--ink);">LATE<br>CULTURE</div>
+      <div class="divider" style="background:var(--rose3);"></div>
+      <div class="city" style="color:var(--mid);margin-top:4px;">Bangkok</div>
+      <div class="label" style="bottom:16px;left:0;right:0;text-align:center;color:var(--mid);opacity:0.3;">Primary — Light</div>
+    </div>
+    <!-- White on Rose -->
+    <div class="cell" style="background:var(--rose3);">
+      <div class="logo" style="font-size:56px;color:var(--white);">LATE<br>CULTURE</div>
+      <div class="divider" style="background:rgba(255,255,255,0.3);"></div>
+      <div class="city" style="color:rgba(255,255,255,0.5);margin-top:4px;">Bangkok</div>
+      <div class="label" style="bottom:16px;left:0;right:0;text-align:center;color:rgba(255,255,255,0.2);">Primary — Rose</div>
+    </div>
+    <!-- White on Pink -->
+    <div class="cell" style="background:var(--pink);">
+      <div class="logo" style="font-size:56px;color:var(--white);">LATE<br>CULTURE</div>
+      <div class="divider" style="background:rgba(255,255,255,0.4);"></div>
+      <div class="city" style="color:var(--ink);opacity:0.35;margin-top:4px;">Bangkok</div>
+      <div class="label" style="bottom:16px;left:0;right:0;text-align:center;color:var(--ink);opacity:0.15;">Primary — Pink</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     PAGE 3 — COLOR VARIATIONS
+     ═══════════════════════════════════════════ -->
+<div class="page">
+  <div class="label" style="top:28px;left:32px;color:var(--mid);">02 — Color Variations</div>
+  <div class="grid-3" style="grid-template-rows:1fr 1fr;padding-top:16px;">
+    <!-- Rose on Ink -->
+    <div class="cell" style="background:var(--ink);">
+      <div class="logo" style="font-size:36px;color:var(--rose3);">LATE<br>CULTURE</div>
+      <div class="city" style="color:rgba(255,255,255,0.2);margin-top:10px;">Bangkok</div>
+      <div class="label" style="bottom:12px;left:0;right:0;text-align:center;color:rgba(255,255,255,0.1);">Rose / Ink</div>
+    </div>
+    <!-- Ink on Pink -->
+    <div class="cell" style="background:var(--pink);">
+      <div class="logo" style="font-size:36px;color:var(--ink);">LATE<br>CULTURE</div>
+      <div class="city" style="color:var(--mid);margin-top:10px;">Bangkok</div>
+      <div class="label" style="bottom:12px;left:0;right:0;text-align:center;color:var(--mid);opacity:0.2;">Ink / Pink</div>
+    </div>
+    <!-- White on Hot Pink -->
+    <div class="cell" style="background:var(--hot-pink);">
+      <div class="logo" style="font-size:36px;color:var(--white);">LATE<br>CULTURE</div>
+      <div class="city" style="color:rgba(255,255,255,0.5);margin-top:10px;">Bangkok</div>
+      <div class="label" style="bottom:12px;left:0;right:0;text-align:center;color:rgba(255,255,255,0.15);">White / Hot Pink</div>
+    </div>
+    <!-- Ink on White -->
+    <div class="cell" style="background:var(--white);">
+      <div class="logo" style="font-size:36px;color:var(--ink);">LATE<br>CULTURE</div>
+      <div class="city" style="color:#bbb;margin-top:10px;">Bangkok</div>
+      <div class="label" style="bottom:12px;left:0;right:0;text-align:center;color:#ccc;">Ink / White</div>
+    </div>
+    <!-- Rose on White -->
+    <div class="cell" style="background:var(--white);border:1px solid rgba(0,0,0,0.04);">
+      <div class="logo" style="font-size:36px;color:var(--rose3);">LATE<br>CULTURE</div>
+      <div class="city" style="color:var(--mid);margin-top:10px;">Bangkok</div>
+      <div class="label" style="bottom:12px;left:0;right:0;text-align:center;color:#ddd;">Rose / White</div>
+    </div>
+    <!-- White on Mid -->
+    <div class="cell" style="background:var(--mid);">
+      <div class="logo" style="font-size:36px;color:var(--white);">LATE<br>CULTURE</div>
+      <div class="city" style="color:var(--rose);margin-top:10px;">Bangkok</div>
+      <div class="label" style="bottom:12px;left:0;right:0;text-align:center;color:rgba(255,255,255,0.1);">White / Mid</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     PAGE 4 — INLINE + TAGLINES
+     ═══════════════════════════════════════════ -->
+<div class="page">
+  <div class="label" style="top:28px;left:32px;color:var(--mid);">03 — Inline Lockup & Taglines</div>
+  <div style="display:flex;flex-direction:column;flex:1;padding-top:48px;">
+    <!-- Inline on Ink -->
+    <div class="cell" style="background:var(--ink);flex:1;">
+      <div class="logo" style="font-size:52px;color:var(--white);line-height:1;">LATE CULTURE</div>
+      <div class="city" style="color:var(--rose3);margin-top:12px;">Bangkok</div>
+    </div>
+    <!-- Inline on Pink -->
+    <div class="cell" style="background:var(--pink);flex:1;">
+      <div class="logo" style="font-size:52px;color:var(--white);line-height:1;">LATE CULTURE</div>
+      <div class="city" style="color:var(--ink);opacity:0.35;margin-top:12px;">Bangkok</div>
+    </div>
+    <!-- With tagline -->
+    <div class="cell" style="background:var(--ink);flex:1.2;">
+      <div class="logo" style="font-size:52px;color:var(--white);">LATE<br>CULTURE</div>
+      <div class="divider" style="background:var(--rose3);"></div>
+      <div class="tagline" style="font-size:14px;color:rgba(255,255,255,0.3);margin-top:4px;">If it's here, it's worth your time.</div>
+    </div>
+    <!-- With mission -->
+    <div class="cell" style="background:var(--cloud);flex:1.2;">
+      <div class="logo" style="font-size:52px;color:var(--ink);">LATE<br>CULTURE</div>
+      <div class="divider" style="background:var(--rose3);"></div>
+      <div class="tagline" style="font-size:13px;color:var(--mid);margin-top:4px;">The city has a thousand doors.<br>We opened the right ones.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     PAGE 5 — ON PHOTOGRAPHY
+     ═══════════════════════════════════════════ -->
+<div class="page">
+  <div class="label" style="top:28px;left:32px;color:var(--mid);z-index:10;">04 — On Photography</div>
+  <div class="grid-2" style="grid-template-rows:1fr 1fr;padding-top:16px;">
+    <!-- Dark overlay -->
+    <div class="cell bg-photo1" style="grid-column:span 2;">
+      <div class="logo" style="font-size:60px;color:var(--white);">LATE CULTURE</div>
+      <div class="city" style="color:rgba(255,255,255,0.35);margin-top:14px;">Bangkok</div>
+    </div>
+    <!-- Pink duotone -->
+    <div class="cell bg-photo-pink">
+      <div class="logo" style="font-size:42px;color:var(--white);">LATE<br>CULTURE</div>
+      <div class="city" style="color:rgba(255,255,255,0.45);margin-top:12px;">Bangkok</div>
+    </div>
+    <!-- B&W -->
+    <div class="cell bg-photo-bw">
+      <div class="logo" style="font-size:42px;color:var(--white);">LATE<br>CULTURE</div>
+      <div class="city" style="color:var(--pink);margin-top:12px;">Bangkok</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     PAGE 6 — MONOGRAMS & BADGES
+     ═══════════════════════════════════════════ -->
+<div class="page">
+  <div class="label" style="top:28px;left:32px;color:var(--mid);">05 — Monograms & Badges</div>
+  <div class="grid-3" style="grid-template-rows:1fr 1fr;padding-top:16px;">
+    <!-- LC Ink -->
+    <div class="cell" style="background:var(--ink);">
+      <div class="logo" style="font-size:44px;color:var(--white);">LC</div>
+      <div class="label" style="bottom:12px;left:0;right:0;text-align:center;color:rgba(255,255,255,0.1);">Monogram — Dark</div>
+    </div>
+    <!-- LC Rose -->
+    <div class="cell" style="background:var(--rose3);">
+      <div class="logo" style="font-size:44px;color:var(--white);">LC</div>
+      <div class="label" style="bottom:12px;left:0;right:0;text-align:center;color:rgba(255,255,255,0.15);">Monogram — Rose</div>
+    </div>
+    <!-- LC Pink -->
+    <div class="cell" style="background:var(--pink);">
+      <div class="logo" style="font-size:44px;color:var(--white);">LC</div>
+      <div class="label" style="bottom:12px;left:0;right:0;text-align:center;color:var(--ink);opacity:0.15;">Monogram — Pink</div>
+    </div>
+    <!-- Circle badge -->
+    <div class="cell" style="background:var(--ink);">
+      <div style="width:140px;height:140px;border:1.5px solid var(--rose3);border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;">
+        <div class="city" style="font-size:7px;color:var(--rose3);margin-bottom:2px;">Est. 2025</div>
+        <div class="logo" style="font-size:28px;color:var(--white);">LATE<br>CULTURE</div>
+        <div class="city" style="font-size:7px;color:rgba(255,255,255,0.2);margin-top:4px;">Bangkok</div>
+      </div>
+      <div class="label" style="bottom:12px;left:0;right:0;text-align:center;color:rgba(255,255,255,0.1);">Circle Badge</div>
+    </div>
+    <!-- Pill -->
+    <div class="cell" style="background:var(--cloud);">
+      <div style="border:2px solid var(--ink);border-radius:999px;padding:12px 32px;text-align:center;">
+        <div class="logo" style="font-size:22px;color:var(--ink);line-height:1;">LATE CULTURE</div>
+        <div class="city" style="font-size:7px;color:var(--mid);margin-top:3px;">Bangkok</div>
+      </div>
+      <div class="label" style="bottom:12px;left:0;right:0;text-align:center;color:var(--mid);opacity:0.2;">Pill Stamp</div>
+    </div>
+    <!-- Frame -->
+    <div class="cell" style="background:var(--hot-pink);">
+      <div style="border:1.5px solid rgba(255,255,255,0.45);padding:20px 32px;text-align:center;">
+        <div class="city" style="font-size:7px;color:rgba(255,255,255,0.45);margin-bottom:6px;">The Guide to</div>
+        <div class="logo" style="font-size:26px;color:var(--white);">LATE<br>CULTURE</div>
+        <div style="width:20px;height:1px;background:rgba(255,255,255,0.3);margin:8px auto 6px;"></div>
+        <div class="city" style="font-size:8px;color:rgba(255,255,255,0.6);">Bangkok</div>
+      </div>
+      <div class="label" style="bottom:12px;left:0;right:0;text-align:center;color:rgba(255,255,255,0.15);">Frame Stamp</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     PAGE 7 — NAVIGATION
+     ═══════════════════════════════════════════ -->
+<div class="page">
+  <div class="label" style="top:28px;left:32px;color:var(--mid);">06 — Navigation Context</div>
+  <div style="display:flex;flex-direction:column;flex:1;padding:56px 32px;gap:20px;justify-content:center;">
+    <!-- Glass dark -->
+    <div class="nav-sim" style="background:var(--ink);border-radius:12px;">
+      <div class="logo" style="font-size:15px;color:var(--white);line-height:1;letter-spacing:0.03em;">LATE CULTURE</div>
+      <span class="city" style="font-size:8px;color:var(--rose3);">Bangkok</span>
+      <div class="nav-sim__links">
+        <span class="nav-sim__link" style="color:rgba(255,255,255,0.4);">Stay</span>
+        <span class="nav-sim__link" style="color:var(--white);">Eat</span>
+        <span class="nav-sim__link" style="color:rgba(255,255,255,0.4);">Drink</span>
+        <span class="nav-sim__link" style="color:rgba(255,255,255,0.4);">Party</span>
+      </div>
+    </div>
+    <!-- White -->
+    <div class="nav-sim" style="background:var(--white);border:1px solid rgba(0,0,0,0.06);border-radius:12px;">
+      <div class="logo" style="font-size:15px;color:var(--ink);line-height:1;letter-spacing:0.03em;">LATE CULTURE</div>
+      <span class="city" style="font-size:8px;color:var(--rose3);">Bangkok</span>
+      <div class="nav-sim__links">
+        <span class="nav-sim__link" style="color:#bbb;">Stay</span>
+        <span class="nav-sim__link" style="color:var(--ink);">Eat</span>
+        <span class="nav-sim__link" style="color:#bbb;">Drink</span>
+        <span class="nav-sim__link" style="color:#bbb;">Party</span>
+      </div>
+    </div>
+    <!-- Pink -->
+    <div class="nav-sim" style="background:var(--pink);border-radius:12px;">
+      <div class="logo" style="font-size:15px;color:var(--white);line-height:1;letter-spacing:0.03em;">LATE CULTURE</div>
+      <div class="nav-sim__links">
+        <span class="nav-sim__link" style="color:rgba(255,255,255,0.55);">Stay</span>
+        <span class="nav-sim__link" style="color:var(--white);">Eat</span>
+        <span class="nav-sim__link" style="color:rgba(255,255,255,0.55);">Drink</span>
+        <span class="nav-sim__link" style="color:rgba(255,255,255,0.55);">Party</span>
+      </div>
+    </div>
+    <!-- Rose -->
+    <div class="nav-sim" style="background:var(--rose3);border-radius:12px;">
+      <div class="logo" style="font-size:15px;color:var(--white);line-height:1;letter-spacing:0.03em;">LATE CULTURE</div>
+      <div class="nav-sim__links">
+        <span class="nav-sim__link" style="color:rgba(255,255,255,0.5);">Stay</span>
+        <span class="nav-sim__link" style="color:var(--white);">Eat</span>
+        <span class="nav-sim__link" style="color:rgba(255,255,255,0.5);">Drink</span>
+        <span class="nav-sim__link" style="color:rgba(255,255,255,0.5);">Party</span>
+      </div>
+    </div>
+    <!-- Cloud -->
+    <div class="nav-sim" style="background:var(--cloud);border-radius:12px;">
+      <div class="logo" style="font-size:15px;color:var(--ink);line-height:1;letter-spacing:0.03em;">LATE CULTURE</div>
+      <span class="city" style="font-size:8px;color:var(--rose3);">Bangkok</span>
+      <div class="nav-sim__links">
+        <span class="nav-sim__link" style="color:#aaa;">Stay</span>
+        <span class="nav-sim__link" style="color:var(--rose3);">Eat</span>
+        <span class="nav-sim__link" style="color:#aaa;">Drink</span>
+        <span class="nav-sim__link" style="color:#aaa;">Party</span>
+      </div>
+    </div>
+  </div>
+  <div class="label" style="bottom:24px;left:32px;color:var(--mid);opacity:0.3;">Late Culture Bangkok — Logo Sheet — Young Serif</div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     PAGE 8 — FULL HERO MOCKUP
+     ═══════════════════════════════════════════ -->
+<div class="page bg-photo1" style="background-size:cover;">
+  <div class="label" style="top:28px;left:32px;color:rgba(255,255,255,0.25);z-index:10;">07 — Hero Mockup</div>
+  <!-- Nav -->
+  <div style="position:relative;z-index:1;display:flex;align-items:center;padding:20px 32px;">
+    <div class="logo" style="font-size:14px;color:var(--white);line-height:1;letter-spacing:0.03em;">LATE CULTURE</div>
+    <span class="city" style="font-size:8px;color:var(--rose3);margin-left:10px;">Bangkok</span>
+    <div style="margin-left:auto;display:flex;gap:18px;">
+      <span class="nav-sim__link" style="color:rgba(255,255,255,0.45);">Stay</span>
+      <span class="nav-sim__link" style="color:rgba(255,255,255,0.45);">Eat</span>
+      <span class="nav-sim__link" style="color:rgba(255,255,255,0.45);">Drink</span>
+      <span class="nav-sim__link" style="color:rgba(255,255,255,0.45);">Party</span>
+    </div>
+  </div>
+  <!-- Center -->
+  <div class="cell" style="flex:1;">
+    <div class="logo" style="font-size:72px;color:var(--white);">LATE CULTURE</div>
+    <div class="logo" style="font-size:72px;color:var(--pink);margin-top:-4px;">BANGKOK.</div>
+    <div class="tagline" style="font-size:16px;color:rgba(255,255,255,0.35);margin-top:24px;">If it's here, it's worth your time.</div>
+  </div>
+  <!-- Scroll -->
+  <div style="position:relative;z-index:1;text-align:center;padding-bottom:28px;">
+    <span class="city" style="font-size:8px;color:rgba(255,255,255,0.2);">Scroll</span>
+  </div>
+</div>
+
+</body>
+</html>
