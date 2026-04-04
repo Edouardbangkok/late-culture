@@ -198,6 +198,23 @@
   }
 }
 
+/* ── Glass nav override on listing pages (light background) ── */
+.listing-hero ~ .glass-nav,
+body:has(.listing-hero) .glass-nav {
+  background: rgba(245, 240, 235, 0.85);
+  border-color: rgba(0, 0, 0, 0.06);
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+}
+
+body:has(.listing-hero) .nav__wordmark { color: var(--ink) !important; }
+body:has(.listing-hero) .glass-nav__link { color: rgba(26, 16, 16, 0.5); }
+body:has(.listing-hero) .glass-nav__link:hover { color: var(--ink); background: rgba(0,0,0,0.04); }
+body:has(.listing-hero) .glass-nav__link--active { color: var(--ink); }
+body:has(.listing-hero) .city-arrow path { stroke: var(--ink); }
+body:has(.listing-hero) .glass-nav__hamburger span { background: var(--ink); }
+body:has(.listing-hero) .lc-auth-nav__signin { color: var(--ink); border-color: rgba(0,0,0,0.15); }
+body:has(.listing-hero) .lc-auth-nav__level { color: var(--ink); }
+
 /* ── Listing Hero — editorial magazine style ── */
 .listing-hero {
   background: #faf5f0;
