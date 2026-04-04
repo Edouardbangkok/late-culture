@@ -143,23 +143,25 @@
 .nav__wordmark {
   font-family: var(--font-display);
   text-transform: uppercase;
-  font-size: 16px;
+  font-size: 15px;
   letter-spacing: 0.06em;
   color: var(--white);
   white-space: nowrap;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
 }
 
 .nav__wordmark:hover {
   color: var(--white);
 }
 
-/* "BANGKOK" text accent */
-.nav__wordmark .city-name {
+/* "BANGKOK" text — same size as LATE CULTURE */
+.nav__wordmark span {
   color: var(--rose3);
+  font-size: inherit;
+  font-family: inherit;
+  letter-spacing: inherit;
 }
 
 /* ── City Arrow ── */
