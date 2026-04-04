@@ -137,7 +137,7 @@
     engagementState.visitedToday = true;
     engagementState.visitCount = 1;
     engagementState.profile.xp_total = (engagementState.profile.xp_total || 0) + 15;
-    showToast('+' + xpGain + ' XP');
+    showToast('+15 XP');
     renderBar(engagementState);
 
     // Background API call
