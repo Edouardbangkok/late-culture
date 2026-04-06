@@ -145,6 +145,51 @@
 
         .feed-loading { text-align: center; padding: 200px 0; font-family: 'Inter', sans-serif; color: var(--lite); }
 
+        /* Editorial posts from LC team */
+        .editorial-section { margin-bottom: 32px; }
+        .editorial-label {
+            font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 600;
+            letter-spacing: 0.15em; text-transform: uppercase;
+            color: var(--lite, #C09098); margin-bottom: 16px;
+        }
+        .editorial-card {
+            background: var(--ink, #1A1010); border-radius: 12px;
+            overflow: hidden; margin-bottom: 16px; cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .editorial-card:hover { transform: translateY(-2px); }
+        .editorial-card__image {
+            width: 100%; aspect-ratio: 16/9; object-fit: cover;
+            filter: brightness(0.9) contrast(1.05) saturate(0.95);
+        }
+        .editorial-card__body { padding: 20px 24px; }
+        .editorial-card__type {
+            display: inline-block; font-family: 'Inter', sans-serif;
+            font-size: 9px; font-weight: 600; letter-spacing: 0.12em;
+            text-transform: uppercase; color: var(--rose3, #D4788A);
+            background: rgba(212, 120, 138, 0.12); padding: 3px 10px;
+            border-radius: 4px; margin-bottom: 8px;
+        }
+        .editorial-card__caption {
+            font-family: 'Inter', sans-serif; font-size: 15px;
+            color: #fff; line-height: 1.5; margin-bottom: 8px;
+        }
+        .editorial-card__meta {
+            font-family: 'Inter', sans-serif; font-size: 11px;
+            color: var(--lite, #C09098);
+        }
+        .editorial-card__venues {
+            margin-top: 12px; display: flex; gap: 8px; flex-wrap: wrap;
+        }
+        .editorial-card__venue-tag {
+            font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 500;
+            color: var(--rose3, #D4788A); background: rgba(212, 120, 138, 0.1);
+            padding: 4px 12px; border-radius: 999px; text-decoration: none;
+        }
+        .editorial-card__venue-tag:hover { background: rgba(212, 120, 138, 0.2); }
+        .editorial-card--text-only { background: var(--ink, #1A1010); }
+        .editorial-card--text-only .editorial-card__caption { font-size: 17px; }
+
         @media (max-width: 768px) {
             .feed-hero { padding: 120px 0 32px; }
             .feed-hero__inner { padding: 0 24px; }
@@ -193,7 +238,10 @@
             </div>
         </section>
 
-        <div class="feed-container" id="feed-list"></div>
+        <div class="feed-container">
+            <div id="feed-editorial"></div>
+            <div id="feed-list"></div>
+        </div>
     </div>
 
     <footer class="footer">
@@ -223,14 +271,22 @@
 
             document.getElementById('feed-loading').style.display = 'none';
 
+            // Always show editorial posts (even if not signed in)
+            if (data.editorial && data.editorial.length > 0) {
+                document.getElementById('feed-content').style.display = '';
+                renderEditorial(data.editorial);
+            }
+
             if (data.error) {
-                document.getElementById('feed-signin').style.display = '';
+                if (!data.editorial || data.editorial.length === 0) {
+                    document.getElementById('feed-signin').style.display = '';
+                }
                 return;
             }
 
             document.getElementById('feed-content').style.display = '';
 
-            if (data.empty || data.items.length === 0) {
+            if (data.items.length === 0) {
                 document.getElementById('feed-list').innerHTML =
                     '<div class="feed-empty">'
                     + '<div class="feed-empty__icon">👥</div>'
@@ -274,6 +330,48 @@
             document.getElementById('feed-signin').style.display = '';
         }
     })();
+
+    function renderEditorial(posts) {
+        var typeLabels = {
+            new_venue: 'New Venue',
+            tonight_pick: 'Tonight Pick',
+            guide_update: 'Update',
+            behind_the_scenes: 'Behind the Scenes',
+            announcement: 'Announcement'
+        };
+
+        var html = '<div class="editorial-section">'
+            + '<p class="editorial-label">From Late Culture</p>';
+
+        posts.forEach(function(post) {
+            var hasImage = !!post.image;
+            var typeLabel = typeLabels[post.postType] || 'Post';
+
+            var venuesHtml = '';
+            if (post.venues && post.venues.length > 0) {
+                venuesHtml = '<div class="editorial-card__venues">';
+                post.venues.forEach(function(v) {
+                    var sec = v._type === 'hotel' ? 'stay' : v._type === 'restaurant' ? 'eat' : v._type === 'party' ? 'party' : 'drink';
+                    venuesHtml += '<a href="/' + sec + '/' + v.slug + '" class="editorial-card__venue-tag">' + v.name + '</a>';
+                });
+                venuesHtml += '</div>';
+            }
+
+            html += '<div class="editorial-card' + (hasImage ? '' : ' editorial-card--text-only') + '">';
+            if (hasImage) {
+                html += '<img src="' + post.image + '?w=800&q=80" class="editorial-card__image">';
+            }
+            html += '<div class="editorial-card__body">'
+                + '<span class="editorial-card__type">' + typeLabel + '</span>'
+                + '<p class="editorial-card__caption">' + (post.caption || '') + '</p>'
+                + '<p class="editorial-card__meta">' + (post.author || 'Late Culture') + ' · ' + getTimeAgo(post.date) + '</p>'
+                + venuesHtml
+                + '</div></div>';
+        });
+
+        html += '</div>';
+        document.getElementById('feed-editorial').innerHTML = html;
+    }
 
     function getTimeAgo(dateStr) {
         var now = new Date();

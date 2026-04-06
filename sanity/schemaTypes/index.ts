@@ -5,5 +5,6 @@ import { party } from './party'
 import { article } from './article'
 import { tonightPick } from './tonightPick'
 import { subscriber } from './subscriber'
+import { editorialPost } from './editorialPost'
 
-export const schemaTypes = [hotel, restaurant, bar, party, article, tonightPick, subscriber]
+export const schemaTypes = [hotel, restaurant, bar, party, article, tonightPick, subscriber, editorialPost]
