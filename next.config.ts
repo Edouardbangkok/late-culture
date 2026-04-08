@@ -19,13 +19,6 @@ const nextConfig: NextConfig = {
       { source: '/about', destination: '/about-page.html' },
       { source: '/contact', destination: '/contact-page.html' },
       { source: '/editorial-policy', destination: '/editorial-policy-page.html' },
-      { source: '/profile', destination: '/profile-page.html' },
-      { source: '/plan-my-night', destination: '/plan-my-night-page.html' },
-      { source: '/collections', destination: '/collections-page.html' },
-      { source: '/u/:username', destination: '/user-profile-page.html' },
-      { source: '/community', destination: '/community-page.html' },
-      { source: '/feed', destination: '/feed-page.html' },
-      { source: '/the-people-spoke', destination: '/the-people-spoke-page.html' },
     ]
   },
 }

@@ -35,15 +35,6 @@ export default function VenueDetailClient({ venue }: VenueProps) {
   const v = venue
 
   useEffect(() => {
-    // Set venue data for engagement.js
-    ;(window as any).__lcVenue = {
-      slug: v.slug,
-      type: v.type,
-      name: v.name,
-      neighborhood: v.neighborhood,
-      category: v.category,
-    }
-
     // Parallax effect
     const heroImg = document.querySelector('.vd-hero__img img') as HTMLImageElement
     if (heroImg) {
@@ -100,7 +91,6 @@ export default function VenueDetailClient({ venue }: VenueProps) {
       <link rel="stylesheet" href="/css/footer.css" />
       <link rel="stylesheet" href="/css/responsive.css" />
       <link rel="stylesheet" href="/css/photo-identity.css" />
-      <link rel="stylesheet" href="/css/engagement.css" />
       <link href="https://fonts.googleapis.com/css2?family=Anton&family=Fraunces:ital,wght@1,300;1,400&family=Indie+Flower&family=Inter:wght@300;400;500;600;700&family=Permanent+Marker&display=swap" rel="stylesheet" />
       <link href="https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.css" rel="stylesheet" />
 
@@ -118,7 +108,6 @@ export default function VenueDetailClient({ venue }: VenueProps) {
             <a href="/drink" className={`glass-nav__link ${v.section === 'drink' ? 'glass-nav__link--active' : ''}`}>Drink</a>
             <a href="/party" className={`glass-nav__link ${v.section === 'party' ? 'glass-nav__link--active' : ''}`}>Party</a>
           </div>
-          <a href="/feed" className="glass-nav__cta" style={{ marginLeft: 'auto', padding: '8px 20px', background: '#d4788a', border: 'none', borderRadius: '50px', fontFamily: "'Inter',sans-serif", fontSize: '11px', fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#fff', textDecoration: 'none', whiteSpace: 'nowrap' }}>My Feed</a>
           <button className="glass-nav__hamburger" aria-label="Open menu" onClick={() => document.getElementById('mobile-menu')?.classList.toggle('open')}>
             <span></span><span></span><span></span>
           </button>
@@ -263,6 +252,19 @@ export default function VenueDetailClient({ venue }: VenueProps) {
         )}
       </div>
 
+      {/* Get the App CTA */}
+      <section style={{ background: '#1A1010', padding: '48px 24px', textAlign: 'center' }}>
+        <div style={{ maxWidth: '600px', margin: '0 auto' }}>
+          <div style={{ fontFamily: "'Impact',sans-serif", fontSize: '14px', letterSpacing: '0.1em', color: '#D4788A', textTransform: 'uppercase', marginBottom: '12px' }}>LC</div>
+          <h3 style={{ fontFamily: "'Impact',sans-serif", fontSize: '28px', textTransform: 'uppercase', color: '#fff', lineHeight: 1, marginBottom: '8px' }}>Been here?</h3>
+          <p style={{ fontFamily: "'Fraunces',serif", fontStyle: 'italic', fontSize: '16px', color: 'rgba(255,255,255,0.4)', marginBottom: '24px' }}>Check in, earn badges, level up. Track your Bangkok map in the app.</p>
+          <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <a href="#" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '12px 24px', background: '#D4788A', borderRadius: '50px', color: '#fff', fontFamily: "'Inter',sans-serif", fontSize: '13px', fontWeight: 600, letterSpacing: '0.04em', textDecoration: 'none' }}>App Store</a>
+            <a href="#" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '12px 24px', border: '1px solid rgba(255,255,255,0.15)', borderRadius: '50px', color: 'rgba(255,255,255,0.7)', fontFamily: "'Inter',sans-serif", fontSize: '13px', fontWeight: 500, letterSpacing: '0.04em', textDecoration: 'none' }}>Google Play</a>
+          </div>
+        </div>
+      </section>
+
       {/* Footer */}
       <footer className="footer">
         <div className="footer__container">
@@ -309,7 +311,6 @@ export default function VenueDetailClient({ venue }: VenueProps) {
             .addTo(map)
         }).catch(() => {})
       }} />
-      <Script src="/js/engagement.js" strategy="afterInteractive" />
       <Script src="/js/auth-nav.js" strategy="afterInteractive" />
     </>
   )
