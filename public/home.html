@@ -7,12 +7,18 @@
     <meta name="description" content="Late Culture is a hospitality media platform. The city has a thousand doors. We opened the right ones.">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Late Culture. Bangkok — Coming Soon">
+    <meta property="og:title" content="Late Culture. Bangkok">
     <meta property="og:description" content="Late Culture is a hospitality media platform. The city has a thousand doors. We opened the right ones.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://lateculture.com">
     <meta property="og:image" content="https://lateculture.com/assets/og-image.jpg">
     <meta property="og:site_name" content="Late Culture">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Late Culture. Bangkok">
+    <meta name="twitter:description" content="Late Culture is a hospitality media platform. The city has a thousand doors. We opened the right ones.">
+    <meta name="twitter:image" content="https://lateculture.com/assets/og-image.jpg">
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -21,221 +27,360 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 
+    <!-- Canonical -->
     <link rel="canonical" href="https://lateculture.com">
 
+    <!-- Mapbox GL JS 3.3.0 -->
+    <link href="https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.css?v=99" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.js"></script>
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@1,300;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Fraunces:ital,wght@1,300;1,400&family=Indie+Flower&family=Inter:wght@300;400;500;700&family=Permanent+Marker&display=swap" rel="stylesheet">
 
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/variables.css?v=99">
+    <link rel="stylesheet" href="css/base.css?v=99">
+    <link rel="stylesheet" href="css/glass.css?v=99">
+    <link rel="stylesheet" href="css/hero.css?v=99">
+    <link rel="stylesheet" href="css/nav.css?v=99">
+    <link rel="stylesheet" href="css/cards.css?v=99">
+    <link rel="stylesheet" href="css/sections.css?v=99">
+    <link rel="stylesheet" href="css/tonight.css?v=99">
+    <link rel="stylesheet" href="css/map.css?v=99">
+    <link rel="stylesheet" href="css/footer.css?v=99">
+    <link rel="stylesheet" href="css/responsive.css?v=99">
 
-        body {
-            background: #1A1010;
-            color: #fff;
-            font-family: 'Inter', -apple-system, sans-serif;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            -webkit-font-smoothing: antialiased;
-            overflow: hidden;
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Late Culture",
+        "url": "https://lateculture.com",
+        "description": "Late Culture is a hospitality media platform. The city has a thousand doors. We opened the right ones.",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Late Culture",
+            "url": "https://lateculture.com"
         }
-
-        .coming-soon {
-            text-align: center;
-            padding: 40px 24px;
-            max-width: 600px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .coming-soon__logo {
-            font-family: Impact, 'Arial Narrow Bold', 'Arial Black', sans-serif;
-            font-size: clamp(48px, 10vw, 80px);
-            text-transform: uppercase;
-            line-height: 0.9;
-            letter-spacing: -0.02em;
-            margin-bottom: 8px;
-        }
-
-        .coming-soon__logo span {
-            color: #D4788A;
-        }
-
-        .coming-soon__badge {
-            display: inline-block;
-            font-family: 'Inter', sans-serif;
-            font-size: 10px;
-            font-weight: 600;
-            letter-spacing: 0.25em;
-            text-transform: uppercase;
-            color: #D4788A;
-            border: 1px solid rgba(212, 120, 138, 0.3);
-            padding: 6px 20px;
-            border-radius: 50px;
-            margin-bottom: 40px;
-        }
-
-        .coming-soon__tagline {
-            font-family: 'Fraunces', serif;
-            font-style: italic;
-            font-weight: 300;
-            font-size: clamp(18px, 3vw, 22px);
-            color: rgba(255, 255, 255, 0.4);
-            line-height: 1.5;
-            margin-bottom: 48px;
-        }
-
-        .coming-soon__sub {
-            font-size: 13px;
-            color: rgba(255, 255, 255, 0.25);
-            line-height: 1.7;
-            margin-bottom: 32px;
-        }
-
-        .coming-soon__email {
-            display: flex;
-            gap: 0;
-            max-width: 400px;
-            margin: 0 auto 48px;
-        }
-
-        .coming-soon__input {
-            flex: 1;
-            padding: 14px 18px;
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-right: none;
-            border-radius: 50px 0 0 50px;
-            color: #fff;
-            font-family: 'Inter', sans-serif;
-            font-size: 14px;
-            outline: none;
-            transition: border-color 0.2s;
-        }
-
-        .coming-soon__input::placeholder {
-            color: rgba(255, 255, 255, 0.25);
-        }
-
-        .coming-soon__input:focus {
-            border-color: rgba(212, 120, 138, 0.4);
-        }
-
-        .coming-soon__btn {
-            padding: 14px 24px;
-            background: #D4788A;
-            border: 1px solid #D4788A;
-            border-radius: 0 50px 50px 0;
-            color: #fff;
-            font-family: 'Inter', sans-serif;
-            font-size: 12px;
-            font-weight: 600;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: opacity 0.2s;
-            white-space: nowrap;
-        }
-
-        .coming-soon__btn:hover { opacity: 0.85; }
-
-        .coming-soon__contact {
-            font-size: 12px;
-            color: rgba(255, 255, 255, 0.2);
-        }
-
-        .coming-soon__contact a {
-            color: rgba(255, 255, 255, 0.35);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .coming-soon__contact a:hover {
-            color: #D4788A;
-        }
-
-        /* Subtle grain texture */
-        body::before {
-            content: '';
-            position: fixed;
-            inset: 0;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        /* Toast for form success */
-        .coming-soon__toast {
-            display: none;
-            font-family: 'Fraunces', serif;
-            font-style: italic;
-            font-size: 14px;
-            color: #D4788A;
-            margin-top: -32px;
-            margin-bottom: 32px;
-        }
-
-        @media (max-width: 480px) {
-            .coming-soon__email {
-                flex-direction: column;
-                gap: 8px;
-            }
-            .coming-soon__input {
-                border-radius: 50px;
-                border-right: 1px solid rgba(255,255,255,0.1);
-            }
-            .coming-soon__btn {
-                border-radius: 50px;
-                padding: 14px;
-            }
-        }
-    </style>
+    }
+    </script>
 </head>
 <body>
 
-<div class="coming-soon">
-    <h1 class="coming-soon__logo">LATE CULTURE<br><span>BANGKOK.</span></h1>
 
-    <div class="coming-soon__badge">Coming Soon</div>
+    <!-- ============================================
+         HERO SECTION
+         ============================================ -->
+    <section class="hero">
+        <div class="hero__bg" style="background-image:url('https://images.unsplash.com/photo-1583417319070-4a69db38a482?w=1600&auto=format&fit=crop&q=80');"></div>
+        <div class="hero__overlay"></div>
 
-    <p class="coming-soon__tagline">The city has a thousand doors.<br>We opened the right ones.</p>
+        <!-- Glass Nav Bar -->
+        <nav class="glass-nav">
+            <div class="glass-nav__inner">
+                <div class="nav__wordmark-wrap" style="position:relative;">
+                  <a href="/" class="nav__wordmark">LATE CULTURE <span>BANGKOK</span>
+                    <svg class="city-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none" style="margin-left:6px;transition:transform .3s;"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </a>
+                  <div class="city-dropdown" id="cityDropdown">
+                    <a href="/" class="city-dropdown__item city-dropdown__item--active">
+                      <span class="city-dropdown__dot" style="background:#d4788a;"></span>
+                      <span class="city-dropdown__name">Bangkok</span>
+                    </a>
+                    <div class="city-dropdown__item city-dropdown__item--soon" style="opacity:0.6;">
+                      <span class="city-dropdown__dot" style="background:#78B0D4;"></span>
+                      <span class="city-dropdown__name" style="color:#fff;">Phuket</span>
+                      <span class="city-dropdown__badge">SOON</span>
+                    </div>
+                  </div>
+                </div>
 
-    <p class="coming-soon__sub">A hospitality reference platform.<br>Stay. Eat. Drink. Party.</p>
+                <div class="glass-nav__links" style="position:absolute;left:50%;transform:translateX(-50%);">
+                    <a href="/stay" class="glass-nav__link">Stay</a>
+                    <a href="/eat" class="glass-nav__link">Eat</a>
+                    <a href="/drink" class="glass-nav__link">Drink</a>
+                    <a href="/party" class="glass-nav__link">Party</a>
+                </div>
 
-    <form class="coming-soon__email" id="notify-form" onsubmit="return handleNotify(event)">
-        <input type="email" class="coming-soon__input" id="notify-email" placeholder="Enter your email" required>
-        <button type="submit" class="coming-soon__btn">Notify Me</button>
-    </form>
+                <button class="glass-nav__hamburger" aria-label="Open menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </nav>
 
-    <p class="coming-soon__toast" id="notify-toast">You're on the list.</p>
+        <!-- Hero Content -->
+        <div class="hero__content" style="text-align:center;">
+            <h1 class="hero__title" style="font-family:'Impact',sans-serif;text-transform:uppercase;">LATE CULTURE<br><span style="color:#d4788a;">BANGKOK.</span></h1>
+            <p class="hero__subtitle" style="font-family:'Fraunces',serif;font-style:italic;">If it's here, it's worth your time.</p>
+        </div>
 
-    <p class="coming-soon__contact">
-        <a href="mailto:hi@lateculture.com">hi@lateculture.com</a>
-    </p>
-</div>
+        <!-- Scroll indicator -->
+        <div class="hero__scroll" style="position:absolute;bottom:40px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,0.6);font-family:'Inter',sans-serif;font-size:11px;letter-spacing:0.15em;text-transform:uppercase;">Scroll</div>
+    </section>
 
-<script>
-async function handleNotify(e) {
-    e.preventDefault();
-    var email = document.getElementById('notify-email').value;
-    if (!email) return false;
 
-    try {
-        await fetch('/api/subscribe', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ email: email })
-        });
-    } catch(err) {}
+    <!-- ============================================
+         TONIGHT SECTION
+         ============================================ -->
+    <section class="section section--tonight" id="tonight" style="background:#1A1010;">
+      <div class="section__container">
+        <div class="tonight__header">
+          <h2 class="tonight__title" style="font-family:'Impact',sans-serif;font-size:80px;color:#fff;text-transform:uppercase;margin:0;">TONIGHT</h2>
+          <span class="tonight__time" id="tonight-time" style="font-family:monospace;color:#d4788a;font-size:18px;"></span>
+        </div>
+        <p style="font-family:'Fraunces',serif;font-style:italic;color:rgba(255,255,255,0.5);margin-top:8px;margin-bottom:48px;font-size:18px;">The city never asks permission.</p>
+        <div class="tonight__grid" id="tonight-grid">
+          <!-- Managed from Sanity Studio → Tonight Pick -->
+          <p style="font-family:'Fraunces',serif;font-style:italic;color:rgba(255,255,255,0.3);grid-column:1/-1;text-align:center;padding:40px 0;">Coming soon.</p>
+        </div>
+      </div>
+    </section>
 
-    document.getElementById('notify-form').style.display = 'none';
-    document.getElementById('notify-toast').style.display = 'block';
-    return false;
-}
-</script>
 
+    <!-- ── Separator ── -->
+    <div class="separator"></div>
+
+
+    <!-- ============================================
+         EAT. SECTION
+         ============================================ -->
+    <section class="section" id="restaurants" style="background:#fff;padding:160px 0;">
+        <div class="section__container">
+            <div style="width:40px;height:2px;background:#d4788a;margin-bottom:24px;"></div>
+            <h2 style="font-family:'Impact',sans-serif;font-size:clamp(64px,10vw,120px);text-transform:uppercase;margin:0 0 16px 0;line-height:0.9;text-align:left;">EAT.</h2>
+            <p style="font-family:'Fraunces',serif;font-style:italic;color:#888;font-size:18px;margin-bottom:48px;">Where the city sits down and means it.</p>
+
+            <div class="category-strip" id="restaurants-categories"></div>
+
+            <div class="card-grid" id="restaurants-grid">
+                <!-- Cards loaded dynamically via JS -->
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ── Separator ── -->
+    <div class="separator"></div>
+
+
+    <!-- ============================================
+         STAY. SECTION
+         ============================================ -->
+    <section class="section" id="hotels" style="background:#fff;padding:160px 0;">
+        <div class="section__container">
+            <div style="width:40px;height:2px;background:#d4788a;margin-bottom:24px;"></div>
+            <h2 style="font-family:'Impact',sans-serif;font-size:clamp(64px,10vw,120px);text-transform:uppercase;margin:0 0 16px 0;line-height:0.9;text-align:left;">STAY.</h2>
+            <p style="font-family:'Fraunces',serif;font-style:italic;color:#888;font-size:18px;margin-bottom:48px;">Sleep well. Wake up somewhere extraordinary.</p>
+
+            <div class="category-strip" id="hotels-categories"></div>
+
+            <div class="card-grid" id="hotels-grid">
+                <!-- Cards loaded dynamically via JS -->
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ── Separator ── -->
+    <div class="separator"></div>
+
+
+    <!-- ============================================
+         EXPLORE THE MAP
+         ============================================ -->
+    <section class="section" id="map-section" style="background:#fff;padding:160px 0;">
+        <div class="section__container">
+            <h2 style="font-family:'Impact',sans-serif;font-size:clamp(48px,8vw,80px);text-transform:uppercase;margin:0 0 32px 0;text-align:left;">EXPLORE THE MAP</h2>
+
+            <div class="map-filters">
+                <button class="map-filter__btn map-filter__btn--active" data-filter="all">All</button>
+                <button class="map-filter__btn" data-filter="hotel">Stay</button>
+                <button class="map-filter__btn" data-filter="restaurant">Eat</button>
+                <button class="map-filter__btn" data-filter="bar">Drink</button>
+                <button class="map-filter__btn" data-filter="party">Party</button>
+            </div>
+
+            <div id="map" class="map-container"></div>
+        </div>
+    </section>
+
+
+    <!-- ── Separator ── -->
+    <div class="separator"></div>
+
+
+    <!-- ============================================
+         DRINK. SECTION
+         ============================================ -->
+    <section class="section" id="bars" style="background:#fff;padding:160px 0;">
+        <div class="section__container">
+            <div style="width:40px;height:2px;background:#d4788a;margin-bottom:24px;"></div>
+            <h2 style="font-family:'Impact',sans-serif;font-size:clamp(64px,10vw,120px);text-transform:uppercase;margin:0 0 16px 0;line-height:0.9;text-align:left;">DRINK.</h2>
+            <p style="font-family:'Fraunces',serif;font-style:italic;color:#888;font-size:18px;margin-bottom:48px;">Ice, spirit, someone else's playlist.</p>
+
+            <div class="category-strip" id="bars-categories"></div>
+
+            <div class="card-grid" id="bars-grid">
+                <!-- Cards loaded dynamically via JS -->
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ── Separator ── -->
+    <div class="separator"></div>
+
+
+    <!-- ============================================
+         PARTY. SECTION
+         ============================================ -->
+    <section class="section" id="party-section" style="background:#fff;padding:160px 0;">
+        <div class="section__container">
+            <div style="width:40px;height:2px;background:#d4788a;margin-bottom:24px;"></div>
+            <h2 style="font-family:'Impact',sans-serif;font-size:clamp(64px,10vw,120px);text-transform:uppercase;margin:0 0 16px 0;line-height:0.9;text-align:left;">PARTY.</h2>
+            <p style="font-family:'Fraunces',serif;font-style:italic;color:#888;font-size:18px;margin-bottom:48px;">Bangkok after dark. The clubs, the rooftops, the rooms that don't need a name.</p>
+
+            <div class="category-strip" id="party-categories"></div>
+
+            <div class="card-grid" id="party-grid">
+                <!-- Cards loaded dynamically via JS -->
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ── Separator ── -->
+    <div class="separator"></div>
+
+
+    <!-- ============================================
+         MANIFESTO
+         ============================================ -->
+    <section class="section" id="manifesto" style="background:#fff;padding:160px 0;">
+        <div class="section__container" style="text-align:center;">
+            <blockquote style="font-family:'Impact',sans-serif;font-size:clamp(32px,5vw,48px);text-transform:uppercase;max-width:700px;margin:0 auto;line-height:1.15;letter-spacing:0.01em;">
+                THE CITY HAS A THOUSAND DOORS. WE OPENED THE RIGHT ONES.
+            </blockquote>
+            <div style="width:6px;height:6px;border-radius:50%;background:#d4788a;margin:32px auto 0;"></div>
+        </div>
+    </section>
+
+
+    <!-- Get the App -->
+    <section style="background:#1A1010;padding:48px 24px;text-align:center;">
+      <div style="max-width:600px;margin:0 auto;">
+        <div style="font-family:'Impact',sans-serif;font-size:14px;letter-spacing:0.1em;color:#D4788A;text-transform:uppercase;margin-bottom:12px;">LC</div>
+        <h3 style="font-family:'Impact',sans-serif;font-size:28px;text-transform:uppercase;color:#fff;line-height:1;margin-bottom:8px;">Get the App</h3>
+        <p style="font-family:'Fraunces',serif;font-style:italic;font-size:16px;color:rgba(255,255,255,0.4);margin-bottom:24px;">Check in, earn badges, level up. Build your Bangkok map.</p>
+        <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+          <a href="#" style="display:inline-flex;align-items:center;gap:8px;padding:12px 24px;background:#D4788A;border-radius:50px;color:#fff;font-family:'Inter',sans-serif;font-size:13px;font-weight:600;letter-spacing:0.04em;text-decoration:none;">App Store</a>
+          <a href="#" style="display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border:1px solid rgba(255,255,255,0.15);border-radius:50px;color:rgba(255,255,255,0.7);font-family:'Inter',sans-serif;font-size:13px;font-weight:500;letter-spacing:0.04em;text-decoration:none;">Google Play</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         FOOTER
+         ============================================ -->
+    <footer class="footer" style="background:#1A1010;">
+        <div class="footer__container">
+            <div class="footer__brand">
+                <h2 class="footer__wordmark">LATE CULTURE</h2>
+                <p class="footer__tagline" style="font-family:'Fraunces',serif;font-style:italic;">The city has a thousand doors. We opened the right ones.</p>
+                <div class="footer__social">
+                    <a href="#" class="footer__social-link" aria-label="Instagram">IG</a>
+                    <a href="#" class="footer__social-link" aria-label="X (Twitter)">X</a>
+                    <a href="#" class="footer__social-link" aria-label="LinkedIn">Li</a>
+                </div>
+            </div>
+
+            <div class="footer__nav">
+                <div class="footer__nav-group">
+                    <h3 class="footer__nav-title">Explore</h3>
+                    <ul class="footer__nav-list">
+                        <li><a href="/stay">Stay</a></li>
+                        <li><a href="/eat">Eat</a></li>
+                        <li><a href="/drink">Drink</a></li>
+                        <li><a href="/party">Party</a></li>
+                        <li><a href="/community">Find People</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer__nav-group">
+                    <h3 class="footer__nav-title">Destinations</h3>
+                    <ul class="footer__nav-list">
+                        <li><a href="/">Bangkok</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer__nav-group">
+                    <h3 class="footer__nav-title">Company</h3>
+                    <ul class="footer__nav-list">
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/editorial-policy">Editorial Policy</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Newsletter -->
+            <div class="footer__newsletter">
+              <p class="footer__newsletter-label">Get the late dispatch.</p>
+              <form class="footer__newsletter-form" onsubmit="event.preventDefault(); var e=this.querySelector('input').value; var b=this.querySelector('button'); if(!e||!e.includes('@'))return; b.textContent='...'; fetch('/api/subscribe',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:e,source:location.pathname})}).then(function(){b.textContent='Joined!';b.style.background='#27ae60';}).catch(function(){b.textContent='Error';});">
+                <input type="email" placeholder="your@email.com" class="footer__newsletter-input" required>
+                <button type="submit" class="footer__newsletter-btn">Join</button>
+              </form>
+            </div>
+
+            <div style="border-top:1px solid rgba(255,255,255,0.1);margin-top:48px;padding-top:24px;text-align:center;color:rgba(255,255,255,0.3);font-size:13px;">
+                &copy; 2025 Late Culture. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- ============================================
+         MOBILE MENU OVERLAY
+         ============================================ -->
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-menu__inner">
+            <button class="mobile-menu__close" aria-label="Close menu">&times;</button>
+            <nav class="mobile-menu__nav">
+                <a href="/stay" class="mobile-menu__link">Stay</a>
+                <a href="/eat" class="mobile-menu__link">Eat</a>
+                <a href="/drink" class="mobile-menu__link">Drink</a>
+                <a href="/party" class="mobile-menu__link">Party</a>
+            </nav>
+        </div>
+    </div>
+
+
+    <!-- App Script -->
+    <script src="js/app.js?v=9"></script>
+
+    <!-- Tonight clock -->
+    <script>
+    (function() {
+        function updateBangkokClock() {
+            var el = document.getElementById('tonight-time');
+            if (!el) return;
+            var now = new Date();
+            var utc = now.getTime() + now.getTimezoneOffset() * 60000;
+            var bkk = new Date(utc + 7 * 3600000);
+            var h = bkk.getHours();
+            var m = bkk.getMinutes();
+            var s = bkk.getSeconds();
+            var ampm = h >= 12 ? 'PM' : 'AM';
+            var hh = h % 12 || 12;
+            el.textContent = String(hh).padStart(2, '0') + ':' + String(m).padStart(2, '0') + ':' + String(s).padStart(2, '0') + ' ' + ampm + ' BKK';
+        }
+        updateBangkokClock();
+        setInterval(updateBangkokClock, 1000);
+    })();
+    </script>
+<script src="/js/auth-nav.js"></script>
 </body>
 </html>
