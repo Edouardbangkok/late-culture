@@ -441,7 +441,6 @@ function initSliderWrap(wrap) {
 /* ── Google Map ── */
 let map = null;
 let mapMarkers = [];
-let openInfoWindow = null;
 
 function makeLCPin(selected) {
   const size = selected ? 36 : 28;
@@ -492,7 +491,9 @@ function initMap() {
 function addMapMarkers(filter) {
   mapMarkers.forEach(m => m.setMap(null));
   mapMarkers = [];
-  if (openInfoWindow) openInfoWindow.close();
+  // Remove existing card
+  const existingCard = document.querySelector('.lc-map-card');
+  if (existingCard) existingCard.remove();
 
   const venues = filter === 'all' ? ALL_VENUES : ALL_VENUES.filter(v => v.type === filter);
 
@@ -514,28 +515,43 @@ function addMapMarkers(filter) {
     const typeLabel = venue.type === 'hotel' ? 'Hotel' : venue.type === 'restaurant' ? 'Restaurant' : venue.type === 'party' ? 'Party' : 'Bar';
     const href = venue.link || `/${venue.type === 'hotel' ? 'stay' : venue.type === 'restaurant' ? 'eat' : venue.type === 'party' ? 'party' : 'drink'}/${venue.slug || venue.id}`;
 
-    const infoWindow = new google.maps.InfoWindow({
-      content: `<div class="map-popup">
-        <div class="map-popup__img"><img src="${venue.image}" alt="${venue.name}" loading="lazy"></div>
-        <div class="map-popup__body">
-          <div class="map-popup__overline">${typeLabel} · ${venue.category}</div>
-          <div class="map-popup__name"><a href="${href}">${venue.name}</a></div>
-          <div class="map-popup__desc">${venue.description}</div>
-        </div>
-      </div>`,
-      maxWidth: 300,
-    });
-
     marker.addListener('click', () => {
-      if (openInfoWindow) openInfoWindow.close();
+      // Close existing popup
+      const existing = document.querySelector('.lc-map-card');
+      if (existing) existing.remove();
+      // Reset previous pin
+      mapMarkers.forEach(m => m.setIcon({ url: makeLCPin(false), scaledSize: new google.maps.Size(28, 38), anchor: new google.maps.Point(14, 38) }));
+      // Enlarge clicked pin
       marker.setIcon({ url: makeLCPin(true), scaledSize: new google.maps.Size(36, 49), anchor: new google.maps.Point(18, 49) });
-      infoWindow.open(map, marker);
-      openInfoWindow = infoWindow;
-    });
 
-    google.maps.event.addListener(infoWindow, 'closeclick', () => {
-      marker.setIcon({ url: makeLCPin(false), scaledSize: new google.maps.Size(28, 38), anchor: new google.maps.Point(14, 38) });
-      openInfoWindow = null;
+      // Create custom card overlay
+      const card = document.createElement('a');
+      card.href = href;
+      card.className = 'lc-map-card';
+      card.innerHTML = `
+        ${venue.image ? `<div class="lc-map-card__img"><img src="${venue.image}" alt="${venue.name}"><div class="lc-map-card__stamp">LC</div></div>` : ''}
+        <div class="lc-map-card__body">
+          <div class="lc-map-card__overline">${typeLabel} · ${venue.category}</div>
+          <div class="lc-map-card__name">${venue.name}</div>
+          <div class="lc-map-card__neighborhood">${venue.neighborhood || ''}</div>
+          ${venue.description ? `<div class="lc-map-card__desc">${venue.description}</div>` : ''}
+          <div class="lc-map-card__cta">View <span>\u2192</span></div>
+        </div>`;
+
+      const close = document.createElement('button');
+      close.className = 'lc-map-card__close';
+      close.innerHTML = '\u00d7';
+      close.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        card.remove();
+        marker.setIcon({ url: makeLCPin(false), scaledSize: new google.maps.Size(28, 38), anchor: new google.maps.Point(14, 38) });
+      });
+      card.appendChild(close);
+
+      const mapContainer = document.getElementById('map').parentElement || document.getElementById('map');
+      mapContainer.style.position = 'relative';
+      mapContainer.appendChild(card);
     });
 
     mapMarkers.push(marker);
