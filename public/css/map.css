@@ -1,6 +1,6 @@
 /* ============================================
    LATE CULTURE — Map Styles
-   Mapbox container, filters, markers, popups
+   Google Maps container, filters, popups
    ============================================ */
 
 /* ── Map Container ── */
@@ -9,11 +9,6 @@
   height: 500px;
   border-radius: var(--radius-lg);
   overflow: hidden;
-}
-
-.map-container .mapboxgl-map {
-  width: 100%;
-  height: 100%;
 }
 
 /* ── Map Filters ── */
@@ -49,64 +44,26 @@
   border-color: var(--rose3);
 }
 
-/* ── Custom Markers ── */
-.map-marker {
-  width: 16px;
-  height: 16px;
-  background: var(--rose3);
-  border: 2px solid var(--white);
-  border-radius: 50%;
-  cursor: pointer;
-  box-shadow: 0 0 0 4px rgba(212, 120, 138, 0.25),
-              0 2px 8px rgba(26, 26, 26, 0.2);
-  transition: transform var(--duration-fast) var(--ease-out),
-              box-shadow var(--duration-fast) var(--ease-out);
-}
-
-.map-marker:hover {
-  transform: scale(1.3);
-  box-shadow: 0 0 0 8px rgba(212, 120, 138, 0.3),
-              0 4px 16px rgba(26, 26, 26, 0.3);
-}
-
-.map-marker--hotel {
-  background: var(--rose3);
-}
-
-.map-marker--restaurant {
-  background: var(--ink);
-}
-
-.map-marker--bar {
-  background: var(--rose2);
-}
-
-/* ── Map Popup (Glass fiche) ── */
-.mapboxgl-popup {
-  max-width: 300px !important;
-}
-
-.mapboxgl-popup-content {
-  background: rgba(255, 255, 255, 0.94) !important;
-  -webkit-backdrop-filter: blur(40px) saturate(2);
-  backdrop-filter: blur(40px) saturate(2);
-  border: 1px solid var(--brd) !important;
+/* ── Google Maps InfoWindow (popup) ── */
+.gm-style-iw {
   border-radius: var(--radius-md) !important;
   box-shadow: 0 6px 28px rgba(0, 0, 0, 0.12) !important;
   padding: 0 !important;
-  overflow: hidden;
+  overflow: hidden !important;
 }
 
-.mapboxgl-popup-close-button {
-  font-size: 18px;
-  color: var(--mid);
-  right: 8px;
-  top: 8px;
-  z-index: 2;
+.gm-style-iw-d {
+  overflow: hidden !important;
+  padding: 0 !important;
 }
 
-.mapboxgl-popup-tip {
-  display: none;
+.gm-style-iw-tc {
+  display: none !important;
+}
+
+.gm-ui-hover-effect {
+  top: 4px !important;
+  right: 4px !important;
 }
 
 .map-popup {
@@ -143,6 +100,15 @@
   font-size: 15px;
   margin-bottom: 4px;
   color: var(--ink);
+}
+
+.map-popup__name a {
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.map-popup__name a:hover {
+  color: var(--rose3);
 }
 
 .map-popup__desc {

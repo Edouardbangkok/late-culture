@@ -438,32 +438,47 @@ function initSliderWrap(wrap) {
 }
 
 
-/* ── Mapbox Map ── */
+/* ── Google Map ── */
 let map = null;
 let mapMarkers = [];
+let openInfoWindow = null;
+
+function makeLCPin(selected) {
+  const size = selected ? 36 : 28;
+  const fontSize = selected ? 9 : 7;
+  const color = '#D4788A';
+  const svg = '<svg xmlns="http://www.w3.org/2000/svg" width="' + size + '" height="' + Math.round(size * 1.35) + '">'
+    + '<defs><filter id="s" x="-20%" y="-10%" width="140%" height="140%"><feDropShadow dx="0" dy="1" stdDeviation="1.5" flood-color="#1A1010" flood-opacity="0.25"/></filter></defs>'
+    + '<path d="M' + (size/2) + ' ' + Math.round(size*1.3) + ' C' + (size/2) + ' ' + Math.round(size*1.3) + ' ' + size + ' ' + (size*0.55) + ' ' + size + ' ' + (size/2) + ' C' + size + ' ' + (size*0.22) + ' ' + (size*0.78) + ' 0 ' + (size/2) + ' 0 C' + (size*0.22) + ' 0 0 ' + (size*0.22) + ' 0 ' + (size/2) + ' C0 ' + (size*0.55) + ' ' + (size/2) + ' ' + Math.round(size*1.3) + ' ' + (size/2) + ' ' + Math.round(size*1.3) + 'Z" fill="' + color + '" stroke="#fff" stroke-width="1.5" filter="url(#s)"/>'
+    + '<text x="' + (size/2) + '" y="' + (size/2 + fontSize*0.35) + '" text-anchor="middle" font-family="Arial,sans-serif" font-weight="bold" font-size="' + fontSize + '" fill="#fff" letter-spacing="0.5">LC</text>'
+    + '</svg>';
+  return 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(svg);
+}
 
 function initMap() {
-  if (!window.mapboxgl) return;
+  if (!window.google || !window.google.maps) return;
   const mapEl = document.getElementById('map');
   if (!mapEl) return;
 
-  mapboxgl.accessToken = window.__LC_MAPBOX_TOKEN || window.__lcMapboxToken || '';
-
-  map = new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/mapbox/light-v11',
-    center: [100.5018, 13.7363],
-    zoom: 12,
-    pitch: 0,
-    attributionControl: false,
+  map = new google.maps.Map(mapEl, {
+    center: { lat: 13.7400, lng: 100.5350 },
+    zoom: 13,
+    disableDefaultUI: true,
+    zoomControl: true,
+    zoomControlOptions: { position: google.maps.ControlPosition.RIGHT_BOTTOM },
+    styles: [
+      { featureType: 'poi', stylers: [{ visibility: 'off' }] },
+      { featureType: 'transit', stylers: [{ visibility: 'off' }] },
+      { featureType: 'poi.park', stylers: [{ visibility: 'simplified' }] },
+      { elementType: 'labels.text.fill', stylers: [{ color: '#6A3A44' }] },
+      { featureType: 'water', elementType: 'geometry.fill', stylers: [{ color: '#e8e0d8' }] },
+      { featureType: 'road', elementType: 'geometry.fill', stylers: [{ color: '#ffffff' }] },
+      { featureType: 'road', elementType: 'geometry.stroke', stylers: [{ color: '#e0d8d0' }] },
+      { featureType: 'landscape', elementType: 'geometry.fill', stylers: [{ color: '#F5F0EB' }] },
+    ],
   });
 
-  map.addControl(new mapboxgl.NavigationControl({ showCompass: false }), 'bottom-right');
-  map.addControl(new mapboxgl.AttributionControl({ compact: true }), 'bottom-left');
-
-  map.on('load', () => {
-    addMapMarkers('all');
-  });
+  addMapMarkers('all');
 
   document.querySelectorAll('.map-filter__btn').forEach(btn => {
     btn.addEventListener('click', () => {
@@ -475,8 +490,9 @@ function initMap() {
 }
 
 function addMapMarkers(filter) {
-  mapMarkers.forEach(m => m.remove());
+  mapMarkers.forEach(m => m.setMap(null));
   mapMarkers = [];
+  if (openInfoWindow) openInfoWindow.close();
 
   const venues = filter === 'all' ? ALL_VENUES : ALL_VENUES.filter(v => v.type === filter);
 
@@ -484,29 +500,43 @@ function addMapMarkers(filter) {
     const coords = getVenueCoords(venue);
     if (!coords) return;
 
-    const el = document.createElement('div');
-    el.className = `map-marker map-marker--${venue.type}`;
+    const marker = new google.maps.Marker({
+      position: { lat: coords[1], lng: coords[0] },
+      map: map,
+      icon: {
+        url: makeLCPin(false),
+        scaledSize: new google.maps.Size(28, 38),
+        anchor: new google.maps.Point(14, 38),
+      },
+      title: venue.name,
+    });
 
     const typeLabel = venue.type === 'hotel' ? 'Hotel' : venue.type === 'restaurant' ? 'Restaurant' : venue.type === 'party' ? 'Party' : 'Bar';
-    const href = venue.link || `${venue.type === 'hotel' ? 'stay' : venue.type === 'restaurant' ? 'eat' : venue.type === 'party' ? 'parties' : 'drink'}/${venue.id}.html`;
-    const popup = new mapboxgl.Popup({ offset: 12, closeButton: true, maxWidth: '300px' })
-      .setHTML(`
-        <div class="map-popup">
-          <div class="map-popup__img">
-            <img src="${venue.image}" alt="${venue.name}" loading="lazy">
-          </div>
-          <div class="map-popup__body">
-            <div class="map-popup__overline">${typeLabel} · ${venue.category}</div>
-            <div class="map-popup__name"><a href="${href}">${venue.name}</a></div>
-            <div class="map-popup__desc">${venue.description}</div>
-          </div>
-        </div>
-      `);
+    const href = venue.link || `/${venue.type === 'hotel' ? 'stay' : venue.type === 'restaurant' ? 'eat' : venue.type === 'party' ? 'party' : 'drink'}/${venue.slug || venue.id}`;
 
-    const marker = new mapboxgl.Marker(el)
-      .setLngLat(coords)
-      .setPopup(popup)
-      .addTo(map);
+    const infoWindow = new google.maps.InfoWindow({
+      content: `<div class="map-popup">
+        <div class="map-popup__img"><img src="${venue.image}" alt="${venue.name}" loading="lazy"></div>
+        <div class="map-popup__body">
+          <div class="map-popup__overline">${typeLabel} · ${venue.category}</div>
+          <div class="map-popup__name"><a href="${href}">${venue.name}</a></div>
+          <div class="map-popup__desc">${venue.description}</div>
+        </div>
+      </div>`,
+      maxWidth: 300,
+    });
+
+    marker.addListener('click', () => {
+      if (openInfoWindow) openInfoWindow.close();
+      marker.setIcon({ url: makeLCPin(true), scaledSize: new google.maps.Size(36, 49), anchor: new google.maps.Point(18, 49) });
+      infoWindow.open(map, marker);
+      openInfoWindow = infoWindow;
+    });
+
+    google.maps.event.addListener(infoWindow, 'closeclick', () => {
+      marker.setIcon({ url: makeLCPin(false), scaledSize: new google.maps.Size(28, 38), anchor: new google.maps.Point(14, 38) });
+      openInfoWindow = null;
+    });
 
     mapMarkers.push(marker);
   });
@@ -640,11 +670,12 @@ function renderTonight() {
 // Run
 init();
 
-// Load Mapbox token from API then init map
-fetch('/api/config').then(r => r.json()).then(cfg => {
-  window.__lcMapboxToken = cfg.mapbox || '';
+// Init Google Map (loaded via script tag in HTML)
+if (window.google && window.google.maps) {
   initMap();
-}).catch(() => {});
+} else {
+  window.initGoogleMap = initMap;
+}
 
 document.querySelectorAll('.category-strip').forEach(strip => {
   initSlider(strip);

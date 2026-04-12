@@ -92,7 +92,6 @@ export default function VenueDetailClient({ venue }: VenueProps) {
       <link rel="stylesheet" href="/css/responsive.css" />
       <link rel="stylesheet" href="/css/photo-identity.css" />
       <link href="https://fonts.googleapis.com/css2?family=Anton&family=Fraunces:ital,wght@1,300;1,400&family=Indie+Flower&family=Inter:wght@300;400;500;600;700&family=Permanent+Marker&display=swap" rel="stylesheet" />
-      <link href="https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.css" rel="stylesheet" />
 
       {/* Glass Nav */}
       <nav className="glass-nav">
@@ -291,25 +290,34 @@ export default function VenueDetailClient({ venue }: VenueProps) {
         </div>
       </div>
 
-      {/* Mapbox + Engagement + Auth Nav scripts */}
-      <Script src="https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.js" strategy="afterInteractive" onLoad={() => {
+      {/* Google Maps */}
+      <Script src={`https://maps.googleapis.com/maps/api/js?key=AIzaSyAFGItApCRlk255y2iiemM7PnmnIjq7JJU`} strategy="afterInteractive" onLoad={() => {
         const mapDiv = document.getElementById('venue-map')
-        if (!mapDiv || !(window as any).mapboxgl) return
+        if (!mapDiv || !(window as any).google) return
         const lat = parseFloat(mapDiv.dataset.lat || '0')
         const lng = parseFloat(mapDiv.dataset.lng || '0')
         if (!lat || !lng) return
-        fetch('/api/config').then(r => r.json()).then(cfg => {
-          (window as any).mapboxgl.accessToken = cfg.mapbox || ''
-          const map = new (window as any).mapboxgl.Map({
-            container: 'venue-map', style: 'mapbox://styles/mapbox/light-v11',
-            center: [lng, lat], zoom: 15, attributionControl: false,
-          })
-          map.addControl(new (window as any).mapboxgl.NavigationControl({ showCompass: false }), 'bottom-right')
-          new (window as any).mapboxgl.Marker({ color: '#d4788a' })
-            .setLngLat([lng, lat])
-            .setPopup(new (window as any).mapboxgl.Popup({ offset: 12 }).setText(mapDiv.dataset.name || ''))
-            .addTo(map)
-        }).catch(() => {})
+        const g = (window as any).google.maps
+        const map = new g.Map(mapDiv, {
+          center: { lat, lng }, zoom: 16, disableDefaultUI: true, zoomControl: true,
+          zoomControlOptions: { position: g.ControlPosition.RIGHT_BOTTOM },
+          styles: [
+            { featureType: 'poi', stylers: [{ visibility: 'off' }] },
+            { featureType: 'transit', stylers: [{ visibility: 'off' }] },
+            { elementType: 'labels.text.fill', stylers: [{ color: '#6A3A44' }] },
+            { featureType: 'water', elementType: 'geometry.fill', stylers: [{ color: '#e8e0d8' }] },
+            { featureType: 'road', elementType: 'geometry.fill', stylers: [{ color: '#ffffff' }] },
+            { featureType: 'landscape', elementType: 'geometry.fill', stylers: [{ color: '#F5F0EB' }] },
+          ],
+        })
+        const size = 36; const fontSize = 9; const color = '#D4788A'
+        const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${Math.round(size*1.35)}"><defs><filter id="s" x="-20%" y="-10%" width="140%" height="140%"><feDropShadow dx="0" dy="1" stdDeviation="1.5" flood-color="#1A1010" flood-opacity="0.25"/></filter></defs><path d="M${size/2} ${Math.round(size*1.3)} C${size/2} ${Math.round(size*1.3)} ${size} ${size*0.55} ${size} ${size/2} C${size} ${size*0.22} ${size*0.78} 0 ${size/2} 0 C${size*0.22} 0 0 ${size*0.22} 0 ${size/2} C0 ${size*0.55} ${size/2} ${Math.round(size*1.3)} ${size/2} ${Math.round(size*1.3)}Z" fill="${color}" stroke="#fff" stroke-width="1.5" filter="url(#s)"/><text x="${size/2}" y="${size/2 + fontSize*0.35}" text-anchor="middle" font-family="Arial,sans-serif" font-weight="bold" font-size="${fontSize}" fill="#fff" letter-spacing="0.5">LC</text></svg>`
+        const marker = new g.Marker({
+          position: { lat, lng }, map,
+          icon: { url: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(svg), scaledSize: new g.Size(36, 49), anchor: new g.Point(18, 49) },
+        })
+        const info = new g.InfoWindow({ content: `<div style="font-family:Inter,sans-serif;padding:4px 0;"><strong>${mapDiv.dataset.name || ''}</strong></div>` })
+        marker.addListener('click', () => info.open(map, marker))
       }} />
       <Script src="/js/auth-nav.js" strategy="afterInteractive" />
     </>
