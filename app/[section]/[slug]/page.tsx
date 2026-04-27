@@ -112,33 +112,103 @@ export default async function VenueDetailPage({ params }: { params: Promise<{ se
     image: sanityImageUrl(h.image, 600),
   }))
 
+  // Schema.org structured data — for SEO + AI citations
+  const SCHEMA_TYPE_MAP: Record<string, string> = {
+    hotel: 'Hotel',
+    restaurant: 'Restaurant',
+    bar: 'BarOrPub',
+    party: 'NightClub',
+  }
+  const schemaType = SCHEMA_TYPE_MAP[type] || 'LocalBusiness'
+
+  const PRICE_RANGE_MAP: Record<string, string> = {
+    'Under 500 THB': '$',
+    '500-1500 THB': '$$',
+    '1500-3000 THB': '$$$',
+    '3000+ THB': '$$$$',
+  }
+
+  const jsonLd: Record<string, unknown> = {
+    '@context': 'https://schema.org',
+    '@type': schemaType,
+    name: venue.name,
+    description: venue.excerpt || venue.overview || '',
+    url: `https://lateculture.com/${section}/${slug}`,
+    address: venue.address ? {
+      '@type': 'PostalAddress',
+      streetAddress: venue.address,
+      addressLocality: venue.neighborhood || 'Bangkok',
+      addressRegion: 'Bangkok',
+      addressCountry: 'TH',
+    } : undefined,
+    geo: (venue.lat && venue.lng) ? {
+      '@type': 'GeoCoordinates',
+      latitude: venue.lat,
+      longitude: venue.lng,
+    } : undefined,
+    telephone: venue.phone || undefined,
+    image: heroUrl || undefined,
+    priceRange: PRICE_RANGE_MAP[venue.priceRange] || venue.priceRange || undefined,
+    openingHours: venue.openingHours || undefined,
+  }
+
+  // Restaurant-specific
+  if (type === 'restaurant') {
+    if (venue.cuisine) jsonLd.servesCuisine = venue.cuisine
+    if (venue.bookingUrl) jsonLd.acceptsReservations = venue.bookingUrl
+  }
+
+  // Hotel-specific
+  if (type === 'hotel') {
+    if (venue.checkIn) jsonLd.checkinTime = venue.checkIn
+    if (venue.checkOut) jsonLd.checkoutTime = venue.checkOut
+  }
+
+  // Strip undefined keys
+  Object.keys(jsonLd).forEach(k => jsonLd[k] === undefined && delete jsonLd[k])
+
+  // Breadcrumb schema
+  const breadcrumbLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Late Culture', item: 'https://lateculture.com' },
+      { '@type': 'ListItem', position: 2, name: sectionLabel, item: `https://lateculture.com/${section}` },
+      { '@type': 'ListItem', position: 3, name: venue.name, item: `https://lateculture.com/${section}/${slug}` },
+    ],
+  }
+
   return (
-    <VenueDetailClient
-      venue={{
-        name: venue.name,
-        slug: slug,
-        section: section,
-        sectionLabel: sectionLabel,
-        type: type,
-        category: venue.category || '',
-        categories: venue.categories || [],
-        neighborhood: venue.neighborhood || '',
-        excerpt: venue.excerpt || '',
-        overview: venue.overview || '',
-        bodyHtml: bodyHtml,
-        insiderTip: venue.insiderTip || '',
-        heroUrl: heroUrl,
-        sidebarItems: sidebarItems,
-        facts: facts,
-        highlights: highlights,
-        amenityTitle: venue.amenityTitle || '',
-        amenityDescription: venue.amenityDescription || '',
-        amenityImage: sanityImageUrl(venue.amenityImage, 800),
-        bookingUrl: venue.bookingUrl || venue.website || '',
-        menuUrl: venue.menuUrl || '',
-        lat: venue.lat,
-        lng: venue.lng,
-      }}
-    />
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
+      <VenueDetailClient
+        venue={{
+          name: venue.name,
+          slug: slug,
+          section: section,
+          sectionLabel: sectionLabel,
+          type: type,
+          category: venue.category || '',
+          categories: venue.categories || [],
+          neighborhood: venue.neighborhood || '',
+          excerpt: venue.excerpt || '',
+          overview: venue.overview || '',
+          bodyHtml: bodyHtml,
+          insiderTip: venue.insiderTip || '',
+          heroUrl: heroUrl,
+          sidebarItems: sidebarItems,
+          facts: facts,
+          highlights: highlights,
+          amenityTitle: venue.amenityTitle || '',
+          amenityDescription: venue.amenityDescription || '',
+          amenityImage: sanityImageUrl(venue.amenityImage, 800),
+          bookingUrl: venue.bookingUrl || venue.website || '',
+          menuUrl: venue.menuUrl || '',
+          lat: venue.lat,
+          lng: venue.lng,
+        }}
+      />
+    </>
   )
 }
