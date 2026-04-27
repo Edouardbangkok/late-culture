@@ -346,3 +346,102 @@ body:has(.listing-hero) .lc-auth-nav__level { color: var(--ink); }
     font-size: 16px;
   }
 }
+
+/* ── Venue Search Bar ── */
+.venue-search {
+  max-width: 1200px;
+  margin: 0 auto 32px;
+  padding: 0 64px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.venue-search__input-wrap {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.venue-search__icon {
+  position: absolute;
+  left: 18px;
+  width: 16px;
+  height: 16px;
+  color: rgba(0, 0, 0, 0.3);
+  pointer-events: none;
+}
+
+.venue-search__input {
+  width: 100%;
+  padding: 14px 44px 14px 46px;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 50px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: var(--ink, #1A1010);
+  outline: none;
+  transition: all 0.2s ease;
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+
+.venue-search__input::placeholder {
+  color: rgba(0, 0, 0, 0.35);
+  font-style: italic;
+}
+
+.venue-search__input:focus {
+  background: #fff;
+  border-color: var(--rose3, #D4788A);
+  box-shadow: 0 0 0 3px rgba(212, 120, 138, 0.12);
+}
+
+.venue-search__clear {
+  position: absolute;
+  right: 12px;
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: rgba(0, 0, 0, 0.06);
+  border-radius: 50%;
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.venue-search__clear:hover {
+  background: rgba(212, 120, 138, 0.15);
+  color: var(--rose3, #D4788A);
+}
+
+.venue-search__count {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--rose3, #D4788A);
+  white-space: nowrap;
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .venue-search {
+    padding: 0 24px;
+    margin-bottom: 20px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+  .venue-search__count {
+    align-self: flex-end;
+  }
+}

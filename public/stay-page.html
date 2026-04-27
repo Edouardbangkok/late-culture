@@ -128,6 +128,15 @@
     <section class="section section--white">
         <div class="section__container">
 
+            <div class="venue-search">
+                <div class="venue-search__input-wrap">
+                    <svg class="venue-search__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                    <input type="text" id="search-hotels" class="venue-search__input" placeholder="Search hotels by name or neighborhood..." autocomplete="off">
+                    <button class="venue-search__clear" data-search-clear="search-hotels" type="button" aria-label="Clear search">&times;</button>
+                </div>
+                <span class="venue-search__count" data-search-count="hotels-page-grid"></span>
+            </div>
+
             <div class="category-strip" id="hotels-page-categories">
                 <button class="category-strip__btn category-strip__btn--active" data-category="all">All</button>
                 <button class="category-strip__btn" data-category="grand-occasion">Grand Occasion</button>

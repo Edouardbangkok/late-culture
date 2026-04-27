@@ -114,17 +114,77 @@ function renderGrid(containerId, venues, limit) {
   document.dispatchEvent(new CustomEvent('cardsRendered'));
 }
 
-function filterAndRender(containerId, venues, category) {
-  if (category === 'all') {
-    renderGrid(containerId, venues);
-  } else {
-    const catLower = category.toLowerCase();
-    const filtered = venues.filter(v => {
+// Track active filters per grid (category + search query)
+const FILTER_STATE = {};
+
+function applyFilters(containerId, venues) {
+  const state = FILTER_STATE[containerId] || { category: 'all', query: '' };
+  const catLower = state.category.toLowerCase();
+  const queryLower = state.query.trim().toLowerCase();
+
+  let filtered = venues;
+
+  // Category filter
+  if (state.category !== 'all') {
+    filtered = filtered.filter(v => {
       if (v.category && v.category.toLowerCase() === catLower) return true;
       if (v.tags && v.tags.some(t => t.toLowerCase() === catLower)) return true;
       return false;
     });
-    renderGrid(containerId, filtered);
+  }
+
+  // Search query filter (name, neighborhood, category, cuisine)
+  if (queryLower) {
+    filtered = filtered.filter(v => {
+      const haystack = [v.name, v.neighborhood, v.category, v.cuisine, v.description, ...(v.tags || [])]
+        .filter(Boolean).join(' ').toLowerCase();
+      return haystack.includes(queryLower);
+    });
+  }
+
+  renderGrid(containerId, filtered);
+
+  // Update count and empty state
+  const countEl = document.querySelector(`[data-search-count="${containerId}"]`);
+  if (countEl) {
+    if (queryLower || state.category !== 'all') {
+      countEl.textContent = filtered.length === 0 ? 'No results' : `${filtered.length} ${filtered.length === 1 ? 'place' : 'places'}`;
+      countEl.style.display = '';
+    } else {
+      countEl.style.display = 'none';
+    }
+  }
+}
+
+function filterAndRender(containerId, venues, category) {
+  FILTER_STATE[containerId] = FILTER_STATE[containerId] || { category: 'all', query: '' };
+  FILTER_STATE[containerId].category = category;
+  applyFilters(containerId, venues);
+}
+
+function setupSearch(inputId, gridId, venues) {
+  const input = document.getElementById(inputId);
+  if (!input) return;
+  FILTER_STATE[gridId] = FILTER_STATE[gridId] || { category: 'all', query: '' };
+
+  let timer = null;
+  input.addEventListener('input', () => {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      FILTER_STATE[gridId].query = input.value || '';
+      applyFilters(gridId, venues);
+    }, 120);
+  });
+
+  // Clear button
+  const clearBtn = document.querySelector(`[data-search-clear="${inputId}"]`);
+  if (clearBtn) {
+    clearBtn.addEventListener('click', () => {
+      input.value = '';
+      FILTER_STATE[gridId].query = '';
+      applyFilters(gridId, venues);
+      input.focus();
+    });
   }
 }
 
@@ -337,6 +397,12 @@ function init() {
   setupCategoryStrip('restaurants-page-categories', 'restaurants-page-grid', RESTAURANTS);
   setupCategoryStrip('bars-page-categories', 'bars-page-grid', BARS);
   setupCategoryStrip('party-page-categories', 'party-page-grid', PARTIES);
+
+  // Wire up search bars on listing pages
+  setupSearch('search-hotels', 'hotels-page-grid', HOTELS);
+  setupSearch('search-restaurants', 'restaurants-page-grid', RESTAURANTS);
+  setupSearch('search-bars', 'bars-page-grid', BARS);
+  setupSearch('search-party', 'party-page-grid', PARTIES);
 
   // Wire up hamburger menu for all pages
   document.querySelectorAll('.page-nav__hamburger, .glass-nav__hamburger').forEach(btn => {
