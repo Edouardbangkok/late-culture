@@ -251,18 +251,22 @@ export default function VenueDetailClient({ venue }: VenueProps) {
         )}
       </div>
 
-      {/* Get the App CTA */}
-      <section style={{ background: '#1A1010', padding: '48px 24px', textAlign: 'center' }}>
-        <div style={{ maxWidth: '600px', margin: '0 auto' }}>
-          <div style={{ fontFamily: "'Impact',sans-serif", fontSize: '14px', letterSpacing: '0.1em', color: '#D4788A', textTransform: 'uppercase', marginBottom: '12px' }}>LC</div>
-          <h3 style={{ fontFamily: "'Impact',sans-serif", fontSize: '28px', textTransform: 'uppercase', color: '#fff', lineHeight: 1, marginBottom: '8px' }}>Been here?</h3>
-          <p style={{ fontFamily: "'Fraunces',serif", fontStyle: 'italic', fontSize: '16px', color: 'rgba(255,255,255,0.4)', marginBottom: '24px' }}>Check in, earn badges, level up. Track your Bangkok map in the app.</p>
-          <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <a href="#" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '12px 24px', background: '#D4788A', borderRadius: '50px', color: '#fff', fontFamily: "'Inter',sans-serif", fontSize: '13px', fontWeight: 600, letterSpacing: '0.04em', textDecoration: 'none' }}>App Store</a>
-            <a href="#" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '12px 24px', border: '1px solid rgba(255,255,255,0.15)', borderRadius: '50px', color: 'rgba(255,255,255,0.7)', fontFamily: "'Inter',sans-serif", fontSize: '13px', fontWeight: 500, letterSpacing: '0.04em', textDecoration: 'none' }}>Google Play</a>
+      {/* App Waitlist */}
+      <section dangerouslySetInnerHTML={{ __html: `
+        <section style="background:#1A1010;padding:64px 24px;text-align:center;">
+          <div style="max-width:560px;margin:0 auto;">
+            <div style="font-family:'Impact',sans-serif;font-size:13px;letter-spacing:0.2em;color:#D4788A;text-transform:uppercase;margin-bottom:14px;">The Late Culture App</div>
+            <h3 style="font-family:'Impact',sans-serif;font-size:clamp(32px,5vw,44px);text-transform:uppercase;color:#fff;line-height:0.95;margin-bottom:14px;letter-spacing:-0.01em;">Coming Soon.</h3>
+            <p style="font-family:'Fraunces',serif;font-style:italic;font-size:17px;color:rgba(255,255,255,0.45);line-height:1.5;margin-bottom:32px;">Check in, build your Bangkok map, and discover where to go next. Be first when it launches.</p>
+            <form class="lc-waitlist" onsubmit="return lcWaitlist(event,this)" style="display:flex;gap:0;max-width:420px;margin:0 auto;">
+              <input type="email" placeholder="Your email" required style="flex:1;padding:14px 18px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-right:none;border-radius:50px 0 0 50px;color:#fff;font-family:'Inter',sans-serif;font-size:14px;outline:none;">
+              <button type="submit" style="padding:14px 24px;background:#D4788A;border:1px solid #D4788A;border-radius:0 50px 50px 0;color:#fff;font-family:'Inter',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;white-space:nowrap;">Notify Me</button>
+            </form>
+            <p class="lc-waitlist-toast" style="display:none;font-family:'Fraunces',serif;font-style:italic;font-size:14px;color:#D4788A;margin-top:20px;">You're on the list. We'll be in touch.</p>
           </div>
-        </div>
-      </section>
+        </section>
+        <script>if(!window.lcWaitlist){window.lcWaitlist=async function(e,f){e.preventDefault();var i=f.querySelector('input[type=email]');var em=i.value;if(!em)return false;try{await fetch('/api/subscribe',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:em,source:'app-waitlist'})});}catch(err){}f.style.display='none';var t=f.parentElement.querySelector('.lc-waitlist-toast');if(t)t.style.display='block';return false;};}</script>
+      ` }} />
 
       {/* Footer */}
       <footer className="footer">
