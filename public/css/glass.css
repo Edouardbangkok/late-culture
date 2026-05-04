@@ -500,3 +500,57 @@
   border-color: rgba(255, 255, 255, 0.12);
   box-shadow: 0 4px 32px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255,255,255,0.06);
 }
+
+/* ── Auth nav: name + button trigger ── */
+.lc-auth-nav__trigger {
+  cursor: pointer;
+}
+
+.lc-auth-nav__name {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--white);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  max-width: 110px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.lc-auth-nav__dropdown-header {
+  padding: 12px 14px 10px;
+}
+
+.lc-auth-nav__dropdown-name {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 2px;
+}
+
+.lc-auth-nav__dropdown-email {
+  font-family: var(--font-body);
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.45);
+  word-break: break-all;
+}
+
+/* On listing pages (light glass nav), force dark text on the name */
+body:has(.listing-hero) .lc-auth-nav__name { color: var(--ink); }
+
+/* Hide name on tablet/mobile, keep avatar only */
+@media (max-width: 1024px) {
+  .lc-auth-nav__name { display: none; }
+}
+
+/* Make the dropdown signout work as a button (no underline, full width) */
+button.lc-auth-nav__dropdown-item {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  font: inherit;
+  cursor: pointer;
+}
